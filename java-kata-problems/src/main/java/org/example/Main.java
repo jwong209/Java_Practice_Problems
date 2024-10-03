@@ -6,16 +6,19 @@ public class Main {
     public static void main(String[] args) {
         //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
         // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
-
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+//        System.out.printf("Hello and welcome!");
+//
+//        for (int i = 1; i <= 5; i++) {
+//            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
+//            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
+//            System.out.println("i = " + i);
+//        }
 
         //Practice problems
-        System.out.println(helloName("Bob"));
+        System.out.println("helloName: " + helloName(("Bob")));
+
+        int[] arr = new int[]{2, 5};
+        System.out.println("has23: " + has23(arr));
     }
 
     /* ---HELLO NAME---
@@ -40,6 +43,12 @@ public class Main {
     has23({4, 3}) → true
     has23({4, 5}) → false
     */
+    public static boolean has23(int[] nums) {
+        if (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3) {
+            return true;
+        }
+        return false;
+    }
 
     /* ---No 14---
     Create a method called no14 that takes in an integer array nums. Return true if nums contains no 1s and no 4s. Otherwise return false.
@@ -50,6 +59,9 @@ public class Main {
     no14({1, 2, 3, 4}) → false
     no14({2, 3, 4}) → false
      */
+    public static boolean no14() {
+        return false;
+    }
 
     /* ---No 2 3---
     Create a method called no23 that takes in an array of 2 integers called nums. Return true if nums doesn't contain a 2 or 3. Otherwise return false.
@@ -505,6 +517,7 @@ public class Main {
     blackjack(19, 22) → 19
      */
 
+
     /* ---Fizz Buzz---
     Create a method called fizzBuzz with no parameters. Return an array of 100 strings representing the values 1-100. If the value is a multiple of both 3 and 5, put “FizzBuzz” in the array. If the value is a multiple of 3 (but not 5), put “Fizz” in the array. If the value is a multiple of 5 (but not 3), put “Buzz” in the array. For all other values, put a string containing the value in the array.
 
@@ -513,6 +526,7 @@ public class Main {
     fizzBuzz() → {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", ...}
      */
 
+
     /* ---Fibonacci---
     Create a method called fibonacci with no parameters. In a Fibonacci sequence, every number after the first two is the sum of the two preceding ones. Return an array of integers containing the Fibonacci sequence of 0, 1, 1, 2, 3, and so on for the values less than 2000.
 
@@ -520,6 +534,7 @@ public class Main {
 
     fibonacci() → {1, 1, 2, 3, 5, 8, 13, ... 987, 1597}
      */
+
 
     /* ---Prime Factors---
     Create a method called primeFactors that takes in an integer n. Return an integer array of the [prime factors] of n(https://www.mathsisfun.com/definitions/prime-factor.html). Prime factors are the numbers you can multiply to get n that you can't break down into any smaller factors. You can assume the input is greater than 1.
@@ -530,5 +545,5 @@ public class Main {
     primeFactors(28) → {2, 2, 7}
     primeFactors(667) → {23, 29}
      */
-    
+
 }
