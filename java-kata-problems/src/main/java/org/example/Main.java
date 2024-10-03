@@ -18,7 +18,7 @@ public class Main {
         System.out.println(helloName("Bob"));
     }
 
-    /*
+    /* ---HELLO NAME---
     Create a method called helloName that takes in a string called name. Return a string containing a greeting of the form "Hello ____!" replacing the blank with name.
 
     For example:
@@ -31,11 +31,504 @@ public class Main {
         return "Hello" + name + "!";
     }
 
+    /* ---Has 2 3---
+    Create a method called has23 that takes in an integer array nums of length 2. Return true if it contains a 2 or a 3. Otherwise return false.
 
+    For example:
 
+    has23({2, 5}) → true
+    has23({4, 3}) → true
+    has23({4, 5}) → false
+    */
 
+    /* ---No 14---
+    Create a method called no14 that takes in an integer array nums. Return true if nums contains no 1s and no 4s. Otherwise return false.
 
+    For example:
 
+    no14({7, 2, 3}) → true
+    no14({1, 2, 3, 4}) → false
+    no14({2, 3, 4}) → false
+     */
 
+    /* ---No 2 3---
+    Create a method called no23 that takes in an array of 2 integers called nums. Return true if nums doesn't contain a 2 or 3. Otherwise return false.
 
+    For example:
+
+    no23({4, 5}) → true
+    no23({4, 2}) → false
+    no23({3, 5}) → false
+     */
+
+    /* ---Only 14---
+    Create a method called only14 that takes in an integer array nums. Return true if every element of nums is a 1 or a 4. Otherwise return false.
+
+    For example:
+
+    only14({1, 4, 1, 4}) → true
+    only14({1, 4, 2, 4}) → false
+    only14({1, 1}) → true
+     */
+
+    /* ---Green Ticket---
+    Create a method called greenTicket that takes in three integers, a, b, and c. You have a green lottery ticket, with a, b, and c on it. If the numbers are all different from each other, the result is 0. If all of the numbers are the same, the result is 20. If two of the numbers are the same, the result is 10.
+
+    For example:
+
+    greenTicket(1, 2, 3) → 0
+    greenTicket(2, 2, 2) → 20
+    greenTicket(1, 2, 1) → 10
+     */
+
+    /* ---Odd Only---
+    Create a method called oddOnly that takes in an integer array called nums. Return a List of integers containing just the odd values in nums.
+
+    For example:
+
+    oddOnly( {112, 201, 774, 92, 9, 83, 41872} ) →  [201, 9, 83]
+    oddOnly( {1143, 555, 7, 1772, 9953, 643} ) →  [1143, 555, 7, 9953, 643]
+    oddOnly( {734, 233, 782, 811, 3, 9999} ) →  [233, 811, 3, 9999]
+     */
+
+    /* ---Ends Ly---
+    Create a method called endsLy that takes in a string called str. Return true if str ends with "ly" -- otherwise return false.
+
+    For example:
+
+    endsLy("oddly") → true
+    endsLy("y") → false
+    endsLy("oddy") → false
+     */
+
+    /* ---Start 1---
+    Create a method called start1 that takes in two integer arrays a and b. Return how many of the arrays have 1 as their first element.
+
+    For example:
+
+    start1({1, 2, 3}, {1, 3}) → 2
+    start1({7, 2, 3}, {1}) → 1
+    start1({2, 1}, {}) → 0
+     */
+
+    /* ---Has 1 2---
+    Create a method called has12 that takes in an integer array nums. Return true if there is a 1 in nums and a 2 somewhere later in nums. Otherwise return false.
+
+    For example:
+
+    has12({1, 3, 2}) → true
+    has12({3, 2, 1}) → false
+    has12({3, 1, 4, 5, 2}) → true
+     */
+
+    /* ---Double X---
+    Create a method called doubleX that takes in a string called str. Return true if the first instance of "x" in str is immediately followed by another "x" -- otherwise return false.
+
+    For example:
+
+    doubleX("axxbb") → true
+    doubleX("axaxax") → false
+    doubleX("xxxxx") → true
+     */
+
+    /* ---Bigger Two---
+    Create a method called biggerTwo that takes in two integer arrays a and b, each of length 2. Return the array which has the largest sum. In the event of a tie, return a.
+
+    For example:
+
+    biggerTwo({1, 2}, {3, 4}) → {3, 4}
+    biggerTwo({3, 4}, {1, 2}) → {3, 4}
+    biggerTwo({3, 1}, {2, 2}) → {3, 1}
+     */
+
+    /* ---Less By 10---
+    Create a method called lessBy10 that takes in three integers, a, b, and c. Return true if a, b, or c is 10 or more less than one of the other values.
+
+    For example:
+
+    lessBy10(1, 7, 11) → true
+    lessBy10(1, 7, 10) → false
+    lessBy10(11, 1, 7) → true
+     */
+
+    /* ---Extra End---
+    Create a method called extraEnd that takes in a string called str. Return a new string made of 3 copies of the last 2 characters of str. You can assume the length of str is at least 2.
+
+    For example:
+
+    extraEnd("Hello") → "lololo"
+    extraEnd("ab") → "ababab"
+    extraEnd("Hi") → "HiHiHi"
+     */
+
+    /* ---First Half---
+    Create a method called firstHalf that takes in a string called str. Return the first half of str. You can assume str is of even length.
+
+    For example:
+
+    firstHalf("WooHoo") → "Woo"
+    firstHalf("HelloThere") → "Hello"
+    firstHalf("abcdef") → "abc
+     */
+
+    /* ---Array Count 9---
+    Create a method called arrayCount9 that takes in an integer array called nums. Return the number of 9s in nums.
+
+    For example:
+
+    arrayCount9({1, 2, 9}) → 1
+    arrayCount9({1, 9, 9}) → 2
+    arrayCount9({1, 9, 9, 3, 9}) → 3
+     */
+
+    /* ---First Two---
+    Create a method called firstTwo that takes in a string called str. Return a string made of the first two characters of str. If str is shorter than length 2, return whatever there is.
+
+    For example:
+
+    firstTwo("Hello") → "He"
+    firstTwo("abcdefg") → "ab"
+    firstTwo("ab") → "ab"
+     */
+
+    /* ---Make Last---
+    Create a method called makeLast that takes in an integer array nums. Return a new array with double the length of nums where its last element is the same as nums, and all the other elements are 0. You can assume nums is length 1 or more.
+
+    For example:
+
+    makeLast({4, 5, 6}) → {0, 0, 0, 0, 0, 6}
+    makeLast({1, 2}) → {0, 0, 0, 2}
+    makeLast({3}) → {0, 3}
+     */
+
+    /* ---Make Ends---
+    Create a method called makeEnds that takes in an integer array nums. Return a new array length 2 containing the first and last elements from nums. You can assume nums is length 1 or more.
+
+    For example:
+
+    makeEnds({1, 2, 3}) → {1, 3}
+    makeEnds({1, 2, 3, 4}) → {1, 4}
+    makeEnds({7, 4, 6, 2}) → {7, 2}
+     */
+
+    /* ---Double 2 3---
+    Create a method called double23 that takes in an integer array called nums. Return true if nums contains 2 twice or 3 twice. You can assume the length of nums is 0, 1, or 2.
+
+    For example:
+
+    double23({2, 2}) → true
+    double23({3, 3}) → true
+    double23({2, 3}) → false
+     */
+
+    /* ---Fix 2 3---
+    Create a method called fix23 that takes in an array called nums that contains 3 integers. If there is a 2 in the array immediately followed by a 3, change the 3 to 0. Return the changed array.
+
+    For example:
+
+    fix23({1, 2, 3}) → {1, 2, 0}
+    fix23({2, 3, 5}) → {2, 0, 5}
+    fix23({1, 2, 1}) → {1, 2, 1}
+     */
+
+    /* ---Fizz Array---
+    Create a method called fizzArray that takes in an integer n. Return an array of length n, containing the integers 0, 1, 2, ... n-1. n may be 0, in which case return a length 0 array.
+
+    For example:
+
+    fizzArray(4) → {0, 1, 2, 3}
+    fizzArray(1) → {0}
+    fizzArray(0) → {}
+     */
+
+    /* ---No Triples---
+    Create a method called noTriples that takes in an integer array nums. A triple is a value appearing 3 times in a row. Return true if there are no triples in nums. Otherwise return false.
+
+    For example:
+
+    noTriples({1, 1, 2, 2, 1}) → true
+    noTriples({1, 1, 2, 2, 2, 1}) → false
+    noTriples({1, 1, 1, 2, 2, 2, 1}) → false
+     */
+
+    /* ---Swap Ends---
+    Create a method called swapEnds that takes in an integer array nums. Swap the first and last elements in nums. Return the modified array. You can assume the length of nums is at least 1.
+
+    For example:
+
+    swapEnds({1, 2, 3, 4}) → {4, 2, 3, 1}
+    swapEnds({1, 2}) → {2, 1}
+    swapEnds({8}) → {8}
+     */
+
+    /* ---Evenly Space---
+    Create a method called evenlySpaced that takes in three integers, a, b, and c. Return true if a, b, and c are evenly spaced, so the difference between the lowest value and the middle value is the same as the difference between the middle value and the highest value. Otherwise, return false.
+
+    For example:
+
+    evenlySpaced(2, 4, 6) → true
+    evenlySpaced(4, 6, 2) → true
+    evenlySpaced(4, 6, 3) → false
+     */
+
+    /* ---Array Front 9---
+    Create a method called arrayFront9 that takes in an integer array called nums. Return true if one of the first 4 elements in nums is a 9. The length of nums may be less than 4.
+
+    For example:
+
+    arrayFront9({1, 2, 9, 3, 4}) → true
+    arrayFront9({1, 2, 3, 4, 9}) → false
+    arrayFront9({9, 0}) → true
+     */
+
+    /* ---Found Int Twice---
+    Create a method called foundIntTwice that takes in a List of integers called nums and an integer value. Return true if value appears two or more times in nums. Otherwise return false.
+
+    For example:
+
+    foundIntTwice( [5, 7, 9, 5, 11], 5 ) → true
+    foundIntTwice( [6, 8, 10, 11, 13], 8 ) → false
+    foundIntTwice( [9, 23, 44, 2, 88, 44], 44 ) → true
+     */
+
+    /* ---Combo String---
+    Create a method called comboString that takes in two strings, a and b. Return a string of the form short+long+short, where short is the shorter of a and b and long is the longer of the two. You can assume the strings are different lengths, but they may be empty (length 0).
+
+    For example:
+
+    comboString("Hello", "hi") → "hiHellohi"
+    comboString("hi", "Hello") → "hiHellohi"
+    comboString("aaa", "b") → "baaab"
+     */
+
+    /* ---Count XX---
+    Create a method called countXX that takes in a string called str. Return the number of "xx" in str. Instances of "xx" can overlap, so "xxx" contains "xx" twice.
+
+    For example:
+
+    countXX("abcxx") → 1
+    countXX("xxx") → 2
+    countXX("xxxx") → 3
+     */
+
+    /* ---Array 1 2 3---
+    Create a method called array123 that takes in an integer array called nums. Return true if 1, 2, 3 appears in order, somewhere in nums. Otherwise, return false.
+
+    For example:
+
+    array123({1, 1, 2, 3, 1}) → true
+    array123({1, 1, 2, 4, 3}) → false
+    array123({1, 1, 2, 1, 2, 3}) → true
+     */
+
+    /* ---More 1 4---
+    Create a method called more14 that takes in an array of integers called nums. Return true if the number of 1s in nums is greater than the number of 4s in nums. Otherwise return false.
+
+    For example:
+
+    more14({1, 4, 1}) → true
+    more14({1, 4, 1, 4}) → false
+    more14({1, 1}) → true
+     */
+
+    /* ---No 4 Letter Words---
+    Create a method called no4LetterWords that takes in an array of strings called strings. Return a List containing the elements of strings in the same order except for any that contain exactly 4 characters.
+
+    For example:
+
+    no4LetterWords( {"Train", "Boat", "Car"} ) →   ["Train", "Car"]
+    no4LetterWords( {"Red", "White", "Blue"} ) →   ["Red", "White"]
+     */
+
+    /* ---Sum Odds---
+    Create a method called sumOdds with no parameters. Return the sum of the odd integers between 1 and 100 inclusive.
+
+    For example:
+
+    sumOdds() → 2500
+     */
+
+    /* ---Sum Odds Between Values---
+    Create a method called sumOddsBetweenValues that takes in two integers start and end. Return the sum of the odd integers between start and end inclusive. You can assume end isn't less than start (but they may be equal).
+
+    For example:
+
+    sumOddsBetweenValues(0, 5) → 9
+    sumOddsBetweenValues(28,30) → 29
+    sumOddsBetweenValues(18, 18) → 0
+     */
+
+    /* ---Fizz Array 3---
+    Create a method called fizzArray3 that takes in two integers start and end. Return a new array containing the sequence of integers from start up to but not including end. You can assume end is greater than or equal to start.
+
+    For example:
+
+    fizzArray3(5, 10) → {5, 6, 7, 8, 9}
+    fizzArray3(11, 12) → {11}
+    fizzArray3(3, 3) → {}
+     */
+
+    /* ---Is Strictly Increasing---
+    Create a method called isStrictlyIncreasing that takes in an integer array called nums. Return true if the values in the array are strictly increasing. Return false otherwise.
+
+    For example:
+
+    isStrictlyIncreasing({5,7,8,10}) → true
+    isStrictlyIncreasing({5,7,7,10}) → false
+    isStrictlyIncreasing({-5,-3,0,17}) → true
+     */
+
+    /* ---Factorial---
+    Create a method called factorial that takes in an integer n and returns the factorial of the number. A factorial is the product of all positive integers less than or equal to n.
+
+    For example:
+
+    factorial(3) → 6 (since 1 * 2 * 3 = 6)
+    factorial(4) → 24 (since 1 * 2 * 3 * 4 = 24)
+    factorial(10) → 3628800
+     */
+
+    /* ---Has Bad---
+    Create a method called hasBad that takes in a string called str. Return true if "bad" appears starting at index 0 or 1 in str -- otherwise return false. str may be any length, including 0.
+
+    For example:
+
+    hasBad("badxx") → true
+    hasBad("xbadxx") → true
+    hasBad("xxbadxx") → false
+     */
+
+    /* ---Front Times---
+    Create a method called frontTimes that takes in a string str and an integer n. The front of str is the first 3 characters, or whatever is there if str is less than length 3. Return a string made up of n copies of the front.
+
+    For example:
+
+    frontTimes("Chocolate", 2) → "ChoCho"
+    frontTimes("Chocolate", 3) → "ChoChoCho"
+    frontTimes("Ab", 3) → "AbAbAb"
+     */
+
+    /* ---Reverse String---
+    Create a method called reverseString that takes in a string called str. Return a string containing str in reverse order. str may be empty, but not null.
+
+    For example:
+
+    reverseString(“Hello!”) → “!olleH”
+    reverseString(“Kata”) → “ataK”
+    reverseString(“”) → “”
+     */
+
+    /* ---Reverse List---
+    Create a method called reverseList that takes in a List of strings called strings. Return a new List in reverse order of the original.
+
+    For example:
+    reverseList( ["purple", "green", "blue", "yellow", "green" ])  →  ["green", "yellow", "blue", green", "purple" ]
+    reverseList( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"} ) →  ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
+     */
+
+    /* ---List To Array---
+    Create a method called list2Array that takes in a List of strings called strings. Return an array containing the same strings in the same order. Avoid using a standard library method that does the conversion for you.
+
+    For example:
+
+    list2Array( ["aa", "ab", "ac"] ) →   {"aa", "ab", "ac"}
+    list2Array( ["as", "df", "jk"] ) →   {"as", "df", "jk"}
+    list2Array( ["aaa", "bbb", "ccc", "ddd"] ) →   {"aaa", "bbb", "ccc", "ddd"}
+     */
+
+    /* ---Find Largest---
+    Create a method called findLargest that takes in a List of integers called nums. Return the largest value in nums.
+
+    For example:
+
+    findLargest( [11, 200, 43, 84, 9917, 4321, 1, 33333, 8997] ) →  33333
+    findLargest( [987, 1234, 9381, 731, 43718, 8932] ) →  43718
+    findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) →  64362.
+     */
+
+    /* ---Distinct Values---
+    Create a method called distinctValues that takes in a List of strings called strings. Return a List that contains the distinct values in strings.
+
+    For example:
+
+    distinctValues( ["red", "yellow", "green", "yellow", "blue", "green", "purple"] ) →  ["red", "yellow", "green", "blue", "purple"]
+    distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) →  ["jingle", "bells", "all", "the", "way"]
+     */
+
+    /* ---Array To List---
+    Create a method called array2List that takes in a string array called strings. Return a List containing the elements of strings in the same order. Avoid using a standard library method that does the conversion for you.
+
+    For example:
+
+    array2List( {"Apple", "Orange", "Banana"} ) →   ["Apple", "Orange", "Banana"]
+    array2List( {"Red", "Orange", "Yellow"} ) →   ["Red", "Orange", "Yellow"]
+    array2List( {"Left", "Right", "Forward", "Back"} ) →   ["Left", "Right", "Forward", "Back"]
+     */
+
+    /* ---Array Int To List Double---
+    Create a method called arrayInt2ListDouble that takes in an integer array called ints. Divide each value in ints by 2, and return them in a List of Doubles.
+
+    For example:
+
+    arrayInt2ListDouble( {5, 8, 11, 200, 97} ) →  [2.5, 4.0, 5.5, 100, 48.5]
+    arrayInt2ListDouble( {745, 23, 44, 9017, 6} ) →  [372.5, 11.5, 22, 4508.5, 3]
+    arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) →  [42, 49.5, 1642.5, 6.5, 438.5]
+     */
+
+    /* ---Make Out Word---
+    Create a method called makeOutWord that takes in two strings, outword and word. Return a new string where the word is in the middle of the outword string. You can assume the length of outword is even.
+
+    For example:
+
+    makeOutWord("<<>>", "Yay") → "<<Yay>>"
+    makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
+    makeOutWord("[[]]", "word") → "[[word]]"
+     */
+
+    /* ---Make Middle---
+    Create a method called makeMiddle that takes in an integer array nums. Return a new array length 2 containing the middle two elements from nums. You can assume the length of nums is even and 2 or more.
+
+    For example:
+
+    makeMiddle({1, 2, 3, 4}) → {2, 3}
+    makeMiddle({7, 1, 2, 3, 4, 9}) → {2, 3}
+    makeMiddle({1, 2}) → {1, 2}
+     */
+
+    /* ---Blackjack---
+    Create a method called blackjack that takes in two integers, a and b. Return whichever value is nearest to 21 without going over. Return 0 if they both go over.
+
+    For example:
+
+    blackjack(19, 21) → 21
+    blackjack(21, 19) → 21
+    blackjack(19, 22) → 19
+     */
+
+    /* ---Fizz Buzz---
+    Create a method called fizzBuzz with no parameters. Return an array of 100 strings representing the values 1-100. If the value is a multiple of both 3 and 5, put “FizzBuzz” in the array. If the value is a multiple of 3 (but not 5), put “Fizz” in the array. If the value is a multiple of 5 (but not 3), put “Buzz” in the array. For all other values, put a string containing the value in the array.
+
+    For example:
+
+    fizzBuzz() → {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", ...}
+     */
+
+    /* ---Fibonacci---
+    Create a method called fibonacci with no parameters. In a Fibonacci sequence, every number after the first two is the sum of the two preceding ones. Return an array of integers containing the Fibonacci sequence of 0, 1, 1, 2, 3, and so on for the values less than 2000.
+
+    For example:
+
+    fibonacci() → {1, 1, 2, 3, 5, 8, 13, ... 987, 1597}
+     */
+
+    /* ---Prime Factors---
+    Create a method called primeFactors that takes in an integer n. Return an integer array of the [prime factors] of n(https://www.mathsisfun.com/definitions/prime-factor.html). Prime factors are the numbers you can multiply to get n that you can't break down into any smaller factors. You can assume the input is greater than 1.
+
+    For example:
+
+    primeFactors(6) → {2, 3}
+    primeFactors(28) → {2, 2, 7}
+    primeFactors(667) → {23, 29}
+     */
+    
 }
