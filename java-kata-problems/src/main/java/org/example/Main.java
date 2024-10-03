@@ -1,24 +1,34 @@
 package org.example;
 
+import java.util.HashSet;
+
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-//        System.out.printf("Hello and welcome!");
-//
-//        for (int i = 1; i <= 5; i++) {
-//            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-//            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-//            System.out.println("i = " + i);
-//        }
 
         //Practice problems
-        System.out.println("helloName: " + helloName(("Bob")));
+//        System.out.println("helloName: " + helloName(("Bob")));
+//
+//        System.out.println("has23: " + has23(new int[]{2, 5}));
+//        System.out.println("has23: " + has23(new int[]{4, 3}));
+//        System.out.println("has23: " + has23(new int[]{4, 5}));
 
-        int[] arr = new int[]{2, 5};
-        System.out.println("has23: " + has23(arr));
+//        System.out.println("no14: " + no14(new int[]{7, 2, 3}));
+//        System.out.println("no14: " + no14(new int[]{1, 2, 3, 4}));
+//        System.out.println("no14: " + no14(new int[]{2, 3, 4}));
+
+//        System.out.println("no23: " + no23(new int[]{4, 5}));
+//        System.out.println("no23: " + no23(new int[]{4, 2}));
+//        System.out.println("no23: " + no23(new int[]{3, 5}));
+
+//        System.out.println("only14: " + only14(new int[]{1, 4, 1, 4}));
+//        System.out.println("only14: " + only14(new int[]{1, 4, 2, 4}));
+//        System.out.println("only14: " + only14(new int[]{1, 1}));
+
+        System.out.println("greenTicket: " + greenTicket(1, 2, 3));
+        System.out.println("greenTicket: " + greenTicket(2, 2, 2));
+        System.out.println("greenTicket: " + greenTicket(1, 2, 1));
     }
 
     /* ---HELLO NAME---
@@ -44,8 +54,16 @@ public class Main {
     has23({4, 5}) → false
     */
     public static boolean has23(int[] nums) {
-        if (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3) {
-            return true;
+//        if (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3) {
+//            return true;
+//        }
+
+//        return nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3;
+
+        for (int num: nums) {
+            if (num == 2 || num == 3) {
+                return true;
+            }
         }
         return false;
     }
@@ -59,8 +77,13 @@ public class Main {
     no14({1, 2, 3, 4}) → false
     no14({2, 3, 4}) → false
      */
-    public static boolean no14() {
-        return false;
+    public static boolean no14(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1 || nums[i] == 4) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /* ---No 2 3---
@@ -72,6 +95,12 @@ public class Main {
     no23({4, 2}) → false
     no23({3, 5}) → false
      */
+    public static boolean no23(int[] nums) {
+        if (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3) {
+            return false;
+        }
+        return true;
+    }
 
     /* ---Only 14---
     Create a method called only14 that takes in an integer array nums. Return true if every element of nums is a 1 or a 4. Otherwise return false.
@@ -82,6 +111,22 @@ public class Main {
     only14({1, 4, 2, 4}) → false
     only14({1, 1}) → true
      */
+    public static boolean only14(int[] nums) {
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] == 1 || nums[i] == 4) {
+//                continue;
+//            }
+//            return false;
+//        }
+//        return true;
+
+        for (int num: nums) {
+            if (num != 1 && num != 4) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* ---Green Ticket---
     Create a method called greenTicket that takes in three integers, a, b, and c. You have a green lottery ticket, with a, b, and c on it. If the numbers are all different from each other, the result is 0. If all of the numbers are the same, the result is 20. If two of the numbers are the same, the result is 10.
@@ -92,6 +137,38 @@ public class Main {
     greenTicket(2, 2, 2) → 20
     greenTicket(1, 2, 1) → 10
      */
+    public static int greenTicket(int a, int b, int c) {
+//        if (a != b && a != c && b != c) {
+//            return 0;
+//        } else if (a == b && b == c && c == a){
+//            return 20;
+//        } else if ((a == b && a != c) || (b == c && b != a) || (c == a && c != b)) {
+//            return 10;
+//        }
+//        return 0;
+
+        if (a == b && b == c) {
+            return 20; // All numbers are the same
+        } else if (a == b || a == c || b == c) {
+            return 10; // Two numbers are the same
+        } else {
+            return 0; // All numbers are different
+        }
+
+//        HashSet<Integer> uniqueNumbers = new HashSet<>();
+//        uniqueNumbers.add(a);
+//        uniqueNumbers.add(b);
+//        uniqueNumbers.add(c);
+//
+//        if (uniqueNumbers.size() == 1) {
+//            return 20; // All numbers are the same
+//        } else if (uniqueNumbers.size() == 2) {
+//            return 10; // Two numbers are the same
+//        } else {
+//            return 0; // All numbers are different
+//        }
+
+    }
 
     /* ---Odd Only---
     Create a method called oddOnly that takes in an integer array called nums. Return a List of integers containing just the odd values in nums.
