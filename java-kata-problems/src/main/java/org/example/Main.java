@@ -1,6 +1,7 @@
 package org.example;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 
@@ -44,9 +45,25 @@ public class Main {
 //        System.out.println("start1: " + start1(new int[]{7, 2, 3}, new int[]{1}));
 //        System.out.println("start1: " + start1(new int[]{2, 1}, new int[]{}));
 
-        System.out.println("has12: " + has12(new int[]{1, 3, 2}));
-        System.out.println("has12: " + has12(new int[]{3, 2, 1}));
-        System.out.println("has12: " + has12(new int[]{3, 1, 4, 5, 2}));
+//        System.out.println("has12: " + has12(new int[]{1, 3, 2}));
+//        System.out.println("has12: " + has12(new int[]{3, 2, 1}));
+//        System.out.println("has12: " + has12(new int[]{3, 1, 4, 5, 2}));
+
+//        System.out.println("doubleX: " + doubleX("axxbb"));
+//        System.out.println("doubleX: " + doubleX("axaxax"));
+//        System.out.println("doubleX: " + doubleX("xxxxx"));
+
+//        System.out.println("biggetTwo: " + biggerTwo(new int[]{1, 2}, new int[]{3, 4}));
+//        System.out.println("biggetTwo: " + biggerTwo(new int[]{3, 4}, new int[]{1, 2}));
+//        System.out.println("biggetTwo: " + biggerTwo(new int[]{3, 1}, new int[]{2, 2}));
+
+//        System.out.println("lessBy10: " + lessBy10(1, 7, 11));
+//        System.out.println("lessBy10: " + lessBy10(1, 7, 10));
+//        System.out.println("lessBy10: " + lessBy10(11, 1, 7));
+
+        System.out.println("extraEnd: " + extraEnd("Hello"));
+        System.out.println("extraEnd: " + extraEnd("ab"));
+        System.out.println("extraEnd: " + extraEnd("Hi"));
 
     }
 
@@ -312,6 +329,21 @@ public class Main {
     doubleX("axaxax") → false
     doubleX("xxxxx") → true
      */
+    public static boolean doubleX(String str) {
+//        int index = str.indexOf("x");
+//
+//        for (int i = 0; i < str.length(); i++) {
+//            if (i == index && str.charAt(i + 1) == 'x') {
+//                return true;
+//            }
+//        }
+//        return false;
+        int indexFirstX = str.indexOf("x");
+        if (str.charAt(indexFirstX + 1) == 'x') {
+            return true;
+        }
+        return false;
+    }
 
     /* ---Bigger Two---
     Create a method called biggerTwo that takes in two integer arrays a and b, each of length 2. Return the array which has the largest sum. In the event of a tie, return a.
@@ -322,6 +354,21 @@ public class Main {
     biggerTwo({3, 4}, {1, 2}) → {3, 4}
     biggerTwo({3, 1}, {2, 2}) → {3, 1}
      */
+    public static int[] biggerTwo(int[] a, int[] b) {
+        int sumOfA = a[0] + a[1];
+        int sumOfB = b[0] + b[1];
+
+        if (sumOfA > sumOfB) {
+            System.out.println(Arrays.toString(a));
+            return a;
+        } else if (sumOfA == sumOfB) {
+            System.out.println(Arrays.toString(a));
+            return a;
+        } else {
+            System.out.println(Arrays.toString(b));
+            return b;
+        }
+    }
 
     /* ---Less By 10---
     Create a method called lessBy10 that takes in three integers, a, b, and c. Return true if a, b, or c is 10 or more less than one of the other values.
@@ -332,6 +379,12 @@ public class Main {
     lessBy10(1, 7, 10) → false
     lessBy10(11, 1, 7) → true
      */
+    public static boolean lessBy10(int a, int b, int c){
+        if (Math.abs(a-b) >= 10 || Math.abs(a-c) >= 10 || Math.abs(b-c) >= 10){
+            return true;
+        }
+        return false;
+    }
 
     /* ---Extra End---
     Create a method called extraEnd that takes in a string called str. Return a new string made of 3 copies of the last 2 characters of str. You can assume the length of str is at least 2.
@@ -342,6 +395,17 @@ public class Main {
     extraEnd("ab") → "ababab"
     extraEnd("Hi") → "HiHiHi"
      */
+    public static String extraEnd(String str) {
+
+        if (str.length() == 2) {
+            return str + str + str;
+        }
+
+        String endSubstring = str.substring(str.length() - 2);
+
+        return endSubstring + endSubstring + endSubstring;
+
+    }
 
     /* ---First Half---
     Create a method called firstHalf that takes in a string called str. Return the first half of str. You can assume str is of even length.
