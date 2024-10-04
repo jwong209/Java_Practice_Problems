@@ -10,7 +10,7 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-        //Practice problems
+//------------Practice problems------------
 //        System.out.println("helloName: " + helloName(("Bob")));
 //
 //        System.out.println("has23: " + has23(new int[]{2, 5}));
@@ -61,9 +61,13 @@ public class Main {
 //        System.out.println("lessBy10: " + lessBy10(1, 7, 10));
 //        System.out.println("lessBy10: " + lessBy10(11, 1, 7));
 
-        System.out.println("extraEnd: " + extraEnd("Hello"));
-        System.out.println("extraEnd: " + extraEnd("ab"));
-        System.out.println("extraEnd: " + extraEnd("Hi"));
+//        System.out.println("extraEnd: " + extraEnd("Hello"));
+//        System.out.println("extraEnd: " + extraEnd("ab"));
+//        System.out.println("extraEnd: " + extraEnd("Hi"));
+
+        System.out.println("firstHalf: " + firstHalf("WooHoo"));
+        System.out.println("firstHalf: " + firstHalf("HelloThere"));
+        System.out.println("firstHalf: " + firstHalf("abcdef"));
 
     }
 
@@ -380,10 +384,14 @@ public class Main {
     lessBy10(11, 1, 7) → true
      */
     public static boolean lessBy10(int a, int b, int c){
-        if (Math.abs(a-b) >= 10 || Math.abs(a-c) >= 10 || Math.abs(b-c) >= 10){
-            return true;
-        }
-        return false;
+//        if (Math.abs(a-b) >= 10 || Math.abs(a-c) >= 10 || Math.abs(b-c) >= 10){
+//            return true;
+//        }
+//        return false;
+
+        return Math.abs(a-b) >= 10 ||
+                Math.abs(a-c) >= 10 ||
+                Math.abs(b-c) >= 10;
     }
 
     /* ---Extra End---
@@ -396,15 +404,21 @@ public class Main {
     extraEnd("Hi") → "HiHiHi"
      */
     public static String extraEnd(String str) {
+//        if (str.length() == 2) {
+//            return str + str + str;
+//        }
+//        String endSubstring = str.substring(str.length() - 2);
+//        return endSubstring + endSubstring + endSubstring;
 
-        if (str.length() == 2) {
-            return str + str + str;
-        }
+//        String lastTwo = str.substring(str.length() - 2);
+//        StringBuilder result = new StringBuilder();
+//        for (int i = 0; i < 3; i++) {
+//            result.append(lastTwo);
+//        }
+//        return result.toString();
 
-        String endSubstring = str.substring(str.length() - 2);
-
-        return endSubstring + endSubstring + endSubstring;
-
+        String lastTwo = str.substring(str.length() - 2);
+        return lastTwo + lastTwo + lastTwo;
     }
 
     /* ---First Half---
@@ -416,6 +430,10 @@ public class Main {
     firstHalf("HelloThere") → "Hello"
     firstHalf("abcdef") → "abc
      */
+    public static String firstHalf(String str) {
+        String firstHalfString = str.substring(0, (str.length() / 2));
+        return firstHalfString;
+    }
 
     /* ---Array Count 9---
     Create a method called arrayCount9 that takes in an integer array called nums. Return the number of 9s in nums.
