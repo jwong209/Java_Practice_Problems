@@ -1,6 +1,8 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
@@ -26,9 +28,26 @@ public class Main {
 //        System.out.println("only14: " + only14(new int[]{1, 4, 2, 4}));
 //        System.out.println("only14: " + only14(new int[]{1, 1}));
 
-        System.out.println("greenTicket: " + greenTicket(1, 2, 3));
-        System.out.println("greenTicket: " + greenTicket(2, 2, 2));
-        System.out.println("greenTicket: " + greenTicket(1, 2, 1));
+//        System.out.println("greenTicket: " + greenTicket(1, 2, 3));
+//        System.out.println("greenTicket: " + greenTicket(2, 2, 2));
+//        System.out.println("greenTicket: " + greenTicket(1, 2, 1));
+
+//        System.out.println("oddOnly: " + oddOnly(new int[]{112, 201, 774, 92, 9, 83, 41872}));
+//        System.out.println("oddOnly: " + oddOnly(new int[]{1143, 555, 7, 1772, 9953, 643}));
+//        System.out.println("oddOnly: " + oddOnly(new int[]{734, 233, 782, 811, 3, 9999}));
+
+//        System.out.println("endsLy: " + endsLy("oddly"));
+//        System.out.println("endsLy: " + endsLy("y"));
+//        System.out.println("endsLy: " + endsLy("oddy"));
+
+//        System.out.println("start1: " + start1(new int[]{1, 2, 3}, new int[]{1, 3}));
+//        System.out.println("start1: " + start1(new int[]{7, 2, 3}, new int[]{1}));
+//        System.out.println("start1: " + start1(new int[]{2, 1}, new int[]{}));
+
+        System.out.println("has12: " + has12(new int[]{1, 3, 2}));
+        System.out.println("has12: " + has12(new int[]{3, 2, 1}));
+        System.out.println("has12: " + has12(new int[]{3, 1, 4, 5, 2}));
+
     }
 
     /* ---HELLO NAME---
@@ -148,11 +167,11 @@ public class Main {
 //        return 0;
 
         if (a == b && b == c) {
-            return 20; // All numbers are the same
+            return 20; // All are same
         } else if (a == b || a == c || b == c) {
-            return 10; // Two numbers are the same
+            return 10; // 2 numbers are the same
         } else {
-            return 0; // All numbers are different
+            return 0; // All different
         }
 
 //        HashSet<Integer> uniqueNumbers = new HashSet<>();
@@ -179,6 +198,15 @@ public class Main {
     oddOnly( {1143, 555, 7, 1772, 9953, 643} ) →  [1143, 555, 7, 9953, 643]
     oddOnly( {734, 233, 782, 811, 3, 9999} ) →  [233, 811, 3, 9999]
      */
+    public static List<Integer> oddOnly(int[] nums) {
+        List<Integer> answer = new ArrayList<>();
+        for (Integer num: nums) {
+            if (num % 2 != 0) {
+                answer.add(num);
+            }
+        }
+        return answer;
+    }
 
     /* ---Ends Ly---
     Create a method called endsLy that takes in a string called str. Return true if str ends with "ly" -- otherwise return false.
@@ -189,6 +217,9 @@ public class Main {
     endsLy("y") → false
     endsLy("oddy") → false
      */
+    public static boolean endsLy(String str) {
+        return str.endsWith("ly");
+    }
 
     /* ---Start 1---
     Create a method called start1 that takes in two integer arrays a and b. Return how many of the arrays have 1 as their first element.
@@ -199,6 +230,42 @@ public class Main {
     start1({7, 2, 3}, {1}) → 1
     start1({2, 1}, {}) → 0
      */
+    public static int start1(int[] a, int[] b) {
+//        int aCount = 0;
+//        int bCount = 0;
+//        //if a[] is empty
+//        if (a.length == 0) {
+//            if (b[0] == 1) {
+//                return 1;
+//            }
+//        }
+//        //if b[] is empty
+//        if (b.length == 0) {
+//            if (a[0] == 1) {
+//                return 1;
+//            }
+//        }
+//        if (a.length > 0 && b.length > 0) {
+//            if (a[0] == 1) {
+//                aCount++;
+//            }
+//            if (b[0] == 1) {
+//                bCount++;
+//            }
+//        }
+//        return aCount + bCount;
+
+        int count = 0;
+        // Check array a
+        if (a != null && a.length > 0 && a[0] == 1) {
+            count++;
+        }
+        // Check array b
+        if (b != null && b.length > 0 && b[0] == 1) {
+            count++;
+        }
+        return count;
+    }
 
     /* ---Has 1 2---
     Create a method called has12 that takes in an integer array nums. Return true if there is a 1 in nums and a 2 somewhere later in nums. Otherwise return false.
@@ -209,6 +276,32 @@ public class Main {
     has12({3, 2, 1}) → false
     has12({3, 1, 4, 5, 2}) → true
      */
+    public static boolean has12(int[] nums) {
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] == 1) {
+//                for (int j = i + 1; j < nums.length; j++) {
+//                    if (nums[j] == 2) {
+//                        return true;
+//                    }
+//                }
+//            }
+//        }
+//        return false;
+
+        if (nums == null || nums.length == 0) {
+            return false;
+        }
+
+        boolean seenOne = false;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                seenOne = true;
+            } else if (seenOne && nums[i] == 2) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* ---Double X---
     Create a method called doubleX that takes in a string called str. Return true if the first instance of "x" in str is immediately followed by another "x" -- otherwise return false.
