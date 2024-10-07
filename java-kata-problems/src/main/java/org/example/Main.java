@@ -69,9 +69,37 @@ public class Main {
 //        System.out.println("firstHalf: " + firstHalf("HelloThere"));
 //        System.out.println("firstHalf: " + firstHalf("abcdef"));
 
-        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 2, 9}));
-        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 9, 9}));
-        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 9, 9, 3, 9}));
+//        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 2, 9}));
+//        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 9, 9}));
+//        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 9, 9, 3, 9}));
+
+//        System.out.println("firstTwo: " + firstTwo("Hello"));
+//        System.out.println("firstTwo: " + firstTwo("abcdefg"));
+//        System.out.println("firstTwo: " + firstTwo("ab"));
+
+//        System.out.println("makeLast: " + Arrays.toString(makeLast(new int[]{4, 5, 6})));
+//        System.out.println("makeLast: " + Arrays.toString(makeLast(new int[]{0, 0, 0, 2})));
+//        System.out.println("makeLast: " + Arrays.toString(makeLast(new int[]{0, 3})));
+
+//        System.out.println("makeEnds: " + Arrays.toString(makeEnds(new int[]{1, 2, 3})));
+//        System.out.println("makeEnds: " + Arrays.toString(makeEnds(new int[]{1, 2, 3, 4})));
+//        System.out.println("makeEnds: " + Arrays.toString(makeEnds(new int[]{7, 4, 6, 2})));
+
+//        System.out.println("double23: " + double23(new int[]{2, 2}));
+//        System.out.println("double23: " + double23(new int[]{3, 3}));
+//        System.out.println("double23: " + double23(new int[]{2, 3}));
+
+//        System.out.println("fix23: " + Arrays.toString(fix23(new int[]{1, 2, 0})));
+//        System.out.println("fix23: " + Arrays.toString(fix23(new int[]{2, 0, 5})));
+//        System.out.println("fix23: " + Arrays.toString(fix23(new int[]{1, 2, 1})));
+
+//        System.out.println("fizzArray: " + Arrays.toString(fizzArray(4)));
+//        System.out.println("fizzArray: " + Arrays.toString(fizzArray(1)));
+//        System.out.println("fizzArray: " + Arrays.toString(fizzArray(0)));
+
+//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 1}));
+//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 2, 1}));
+//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 1, 2, 2, 2, 1}));
     }
 
     /* ---HELLO NAME---
@@ -103,7 +131,7 @@ public class Main {
 
 //        return nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3;
 
-        for (int num: nums) {
+        for (int num : nums) {
             if (num == 2 || num == 3) {
                 return true;
             }
@@ -163,7 +191,7 @@ public class Main {
 //        }
 //        return true;
 
-        for (int num: nums) {
+        for (int num : nums) {
             if (num != 1 && num != 4) {
                 return false;
             }
@@ -224,7 +252,7 @@ public class Main {
      */
     public static List<Integer> oddOnly(int[] nums) {
         List<Integer> answer = new ArrayList<>();
-        for (Integer num: nums) {
+        for (Integer num : nums) {
             if (num % 2 != 0) {
                 answer.add(num);
             }
@@ -386,15 +414,15 @@ public class Main {
     lessBy10(1, 7, 10) → false
     lessBy10(11, 1, 7) → true
      */
-    public static boolean lessBy10(int a, int b, int c){
+    public static boolean lessBy10(int a, int b, int c) {
 //        if (Math.abs(a-b) >= 10 || Math.abs(a-c) >= 10 || Math.abs(b-c) >= 10){
 //            return true;
 //        }
 //        return false;
 
-        return Math.abs(a-b) >= 10 ||
-                Math.abs(a-c) >= 10 ||
-                Math.abs(b-c) >= 10;
+        return Math.abs(a - b) >= 10 ||
+                Math.abs(a - c) >= 10 ||
+                Math.abs(b - c) >= 10;
     }
 
     /* ---Extra End---
@@ -449,17 +477,13 @@ public class Main {
      */
     public static int arrayCount9(int[] nums) {
         int count = 0;
-
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] == 9) {
                 count++;
             }
         }
-
         return count;
-
     }
-
 
     /* ---First Two---
     Create a method called firstTwo that takes in a string called str. Return a string made of the first two characters of str. If str is shorter than length 2, return whatever there is.
@@ -470,6 +494,13 @@ public class Main {
     firstTwo("abcdefg") → "ab"
     firstTwo("ab") → "ab"
      */
+    public static String firstTwo(String str) {
+        if (str.length() < 2) {
+            return str;
+        }
+        String firstTwoLetters = str.substring(0, 2);
+        return firstTwoLetters;
+    }
 
     /* ---Make Last---
     Create a method called makeLast that takes in an integer array nums. Return a new array with double the length of nums where its last element is the same as nums, and all the other elements are 0. You can assume nums is length 1 or more.
@@ -480,6 +511,18 @@ public class Main {
     makeLast({1, 2}) → {0, 0, 0, 2}
     makeLast({3}) → {0, 3}
      */
+    public static int[] makeLast(int[] nums) {
+//        int[] answer = new int[2 * nums.length];
+//        for (int i = 0; i < answer.length - 1; i++) {
+//            answer[i] = 0;
+//        }
+//        answer[answer.length - 1] = nums[nums.length - 1];
+//        return answer;
+
+        int[] answer = new int[2 * nums.length];
+        answer[answer.length - 1] = nums[nums.length - 1];
+        return answer;
+    }
 
     /* ---Make Ends---
     Create a method called makeEnds that takes in an integer array nums. Return a new array length 2 containing the first and last elements from nums. You can assume nums is length 1 or more.
@@ -490,6 +533,12 @@ public class Main {
     makeEnds({1, 2, 3, 4}) → {1, 4}
     makeEnds({7, 4, 6, 2}) → {7, 2}
      */
+    public static int[] makeEnds(int[] nums) {
+        int[] answer = new int[2];
+        answer[0] = nums[0];
+        answer[1] = nums[nums.length - 1];
+        return answer;
+    }
 
     /* ---Double 2 3---
     Create a method called double23 that takes in an integer array called nums. Return true if nums contains 2 twice or 3 twice. You can assume the length of nums is 0, 1, or 2.
@@ -500,6 +549,15 @@ public class Main {
     double23({3, 3}) → true
     double23({2, 3}) → false
      */
+    public static boolean double23(int[] nums) {
+        if (nums.length == 0 || nums.length == 1) {
+            return false;
+        }
+        if (nums[0] == nums[1]) {
+            return true;
+        }
+        return false;
+    }
 
     /* ---Fix 2 3---
     Create a method called fix23 that takes in an array called nums that contains 3 integers. If there is a 2 in the array immediately followed by a 3, change the 3 to 0. Return the changed array.
@@ -510,6 +568,18 @@ public class Main {
     fix23({2, 3, 5}) → {2, 0, 5}
     fix23({1, 2, 1}) → {1, 2, 1}
      */
+    public static int[] fix23(int[] nums) {
+        int[] answer = new int[nums.length];
+        for (int i = 1; i < nums.length; i++) {
+            answer[0] = nums[0];
+            if (nums[i] == 3 && nums[i - 1] == 2) {
+                answer[i] = 0;
+            } else {
+                answer[i] = nums[i];
+            }
+        }
+        return answer;
+    }
 
     /* ---Fizz Array---
     Create a method called fizzArray that takes in an integer n. Return an array of length n, containing the integers 0, 1, 2, ... n-1. n may be 0, in which case return a length 0 array.
@@ -520,6 +590,15 @@ public class Main {
     fizzArray(1) → {0}
     fizzArray(0) → {}
      */
+    public static int[] fizzArray(int n) {
+        int[] answer = new int[n];
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+            answer[i] = i;
+        }
+        return answer;
+    }
 
     /* ---No Triples---
     Create a method called noTriples that takes in an integer array nums. A triple is a value appearing 3 times in a row. Return true if there are no triples in nums. Otherwise return false.
@@ -530,6 +609,14 @@ public class Main {
     noTriples({1, 1, 2, 2, 2, 1}) → false
     noTriples({1, 1, 1, 2, 2, 2, 1}) → false
      */
+    public static boolean noTriples(int[] nums) {
+        for (int i = 0; i < nums.length -3; i++) {
+            if (nums[i] == nums[i + 1] && nums[i] == nums[i + 2]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* ---Swap Ends---
     Create a method called swapEnds that takes in an integer array nums. Swap the first and last elements in nums. Return the modified array. You can assume the length of nums is at least 1.
