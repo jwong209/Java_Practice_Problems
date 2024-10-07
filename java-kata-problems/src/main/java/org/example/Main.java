@@ -65,10 +65,13 @@ public class Main {
 //        System.out.println("extraEnd: " + extraEnd("ab"));
 //        System.out.println("extraEnd: " + extraEnd("Hi"));
 
-        System.out.println("firstHalf: " + firstHalf("WooHoo"));
-        System.out.println("firstHalf: " + firstHalf("HelloThere"));
-        System.out.println("firstHalf: " + firstHalf("abcdef"));
+//        System.out.println("firstHalf: " + firstHalf("WooHoo"));
+//        System.out.println("firstHalf: " + firstHalf("HelloThere"));
+//        System.out.println("firstHalf: " + firstHalf("abcdef"));
 
+        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 2, 9}));
+        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 9, 9}));
+        System.out.println("arrayCount9: " + arrayCount9(new int[]{1, 9, 9, 3, 9}));
     }
 
     /* ---HELLO NAME---
@@ -444,6 +447,19 @@ public class Main {
     arrayCount9({1, 9, 9}) → 2
     arrayCount9({1, 9, 9, 3, 9}) → 3
      */
+    public static int arrayCount9(int[] nums) {
+        int count = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 9) {
+                count++;
+            }
+        }
+
+        return count;
+
+    }
+
 
     /* ---First Two---
     Create a method called firstTwo that takes in a string called str. Return a string made of the first two characters of str. If str is shorter than length 2, return whatever there is.
