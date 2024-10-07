@@ -97,9 +97,9 @@ public class Main {
 //        System.out.println("fizzArray: " + Arrays.toString(fizzArray(1)));
 //        System.out.println("fizzArray: " + Arrays.toString(fizzArray(0)));
 
-//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 1}));
-//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 2, 1}));
-//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 1, 2, 2, 2, 1}));
+        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 1}));
+        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 2, 1}));
+        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 1, 2, 2, 2, 1}));
     }
 
     /* ---HELLO NAME---
@@ -550,13 +550,20 @@ public class Main {
     double23({2, 3}) → false
      */
     public static boolean double23(int[] nums) {
-        if (nums.length == 0 || nums.length == 1) {
+//        if (nums.length == 0 || nums.length == 1) {
+//            return false;
+//        }
+//        if (nums[0] == nums[1]) {
+//            return true;
+//        }
+//        return false;
+
+        if (nums.length < 2) {
             return false;
         }
-        if (nums[0] == nums[1]) {
-            return true;
-        }
-        return false;
+        int first = nums[0];
+        int second = nums[1];
+        return ((first == 2 && second == 2) || (first == 3 && second == 3));
     }
 
     /* ---Fix 2 3---
@@ -569,16 +576,24 @@ public class Main {
     fix23({1, 2, 1}) → {1, 2, 1}
      */
     public static int[] fix23(int[] nums) {
-        int[] answer = new int[nums.length];
-        for (int i = 1; i < nums.length; i++) {
-            answer[0] = nums[0];
-            if (nums[i] == 3 && nums[i - 1] == 2) {
-                answer[i] = 0;
-            } else {
-                answer[i] = nums[i];
-            }
+//        int[] answer = new int[nums.length];
+//        for (int i = 1; i < nums.length; i++) {
+//            answer[0] = nums[0];
+//            if (nums[i] == 3 && nums[i - 1] == 2) {
+//                answer[i] = 0;
+//            } else {
+//                answer[i] = nums[i];
+//            }
+//        }
+//        return answer;
+
+        if (nums[0] == 2 && nums[1] == 3) {
+            nums[1] = 0;
         }
-        return answer;
+        if (nums[1] == 2 && nums[2] == 3) {
+            nums[2] = 0;
+        }
+        return nums;
     }
 
     /* ---Fizz Array---
@@ -592,7 +607,6 @@ public class Main {
      */
     public static int[] fizzArray(int n) {
         int[] answer = new int[n];
-        int count = 0;
 
         for (int i = 0; i < n; i++) {
             answer[i] = i;
@@ -610,8 +624,21 @@ public class Main {
     noTriples({1, 1, 1, 2, 2, 2, 1}) → false
      */
     public static boolean noTriples(int[] nums) {
-        for (int i = 0; i < nums.length -3; i++) {
-            if (nums[i] == nums[i + 1] && nums[i] == nums[i + 2]) {
+//        for (int i = 0; i < nums.length -3; i++) {
+//            if (nums[i] == nums[i + 1] && nums[i] == nums[i + 2]) {
+//                return false;
+//            }
+//        }
+//        return true;
+
+        int length = nums.length;
+        // Handle edge case: arrays with less than 3 elements
+        if (length < 3) {
+            return true;
+        }
+        for (int i = 0; i <= length - 3; i++) {
+            // Check if current element and next two elements are the same
+            if (nums[i] == nums[i+1] && nums[i+1] == nums[i+2]) {
                 return false;
             }
         }
