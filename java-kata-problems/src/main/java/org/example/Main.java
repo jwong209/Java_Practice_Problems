@@ -54,9 +54,9 @@ public class Main {
 //        System.out.println("doubleX: " + doubleX("axaxax"));
 //        System.out.println("doubleX: " + doubleX("xxxxx"));
 
-//        System.out.println("biggetTwo: " + biggerTwo(new int[]{1, 2}, new int[]{3, 4}));
-//        System.out.println("biggetTwo: " + biggerTwo(new int[]{3, 4}, new int[]{1, 2}));
-//        System.out.println("biggetTwo: " + biggerTwo(new int[]{3, 1}, new int[]{2, 2}));
+        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{1, 2}, new int[]{3, 4})));
+        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 4}, new int[]{1, 2})));
+        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 1}, new int[]{2, 2})));
 
 //        System.out.println("lessBy10: " + lessBy10(1, 7, 11));
 //        System.out.println("lessBy10: " + lessBy10(1, 7, 10));
@@ -411,10 +411,7 @@ public class Main {
 //        }
 //        return false;
         int indexFirstX = str.indexOf("x");
-        if (str.charAt(indexFirstX + 1) == 'x') {
-            return true;
-        }
-        return false;
+        return str.charAt(indexFirstX + 1) == 'x';
     }
 
     /* ---Bigger Two---
@@ -427,18 +424,26 @@ public class Main {
     biggerTwo({3, 1}, {2, 2}) → {3, 1}
      */
     public static int[] biggerTwo(int[] a, int[] b) {
-        int sumOfA = a[0] + a[1];
-        int sumOfB = b[0] + b[1];
+//        int sumOfA = a[0] + a[1];
+//        int sumOfB = b[0] + b[1];
+//
+//        if (sumOfA > sumOfB) {
+//            System.out.println(Arrays.toString(a));
+//            return a;
+//        } else if (sumOfA == sumOfB) {
+//            System.out.println(Arrays.toString(a));
+//            return a;
+//        } else {
+//            System.out.println(Arrays.toString(b));
+//            return b;
+//        }
 
-        if (sumOfA > sumOfB) {
-            System.out.println(Arrays.toString(a));
+        if ((a[0] + a[1]) > (b[0] + b[1])) {
             return a;
-        } else if (sumOfA == sumOfB) {
-            System.out.println(Arrays.toString(a));
-            return a;
-        } else {
-            System.out.println(Arrays.toString(b));
+        } else if ((a[0] + a[1]) < (b[0] + b[1])) {
             return b;
+        } else {
+            return a;
         }
     }
 
