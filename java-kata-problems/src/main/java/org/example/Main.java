@@ -130,9 +130,9 @@ public class Main {
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 4, 3}));
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 1, 2, 3}));
 
-        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
-        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
-        System.out.println("more14: " + more14(new int[]{1, 1}));
+//        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
+//        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
+//        System.out.println("more14: " + more14(new int[]{1, 1}));
 
     }
 
@@ -165,12 +165,15 @@ public class Main {
 
 //        return nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3;
 
-        for (int num : nums) {
-            if (num == 2 || num == 3) {
-                return true;
-            }
-        }
-        return false;
+//        for (int num : nums) {
+//            if (num == 2 || num == 3) {
+//                return true;
+//            }
+//        }
+//        return false;
+
+        return (nums[0] == 2 || nums[1] == 2 || nums[0] == 3 || nums[1] == 3);
+
     }
 
     /* ---No 14---
@@ -252,26 +255,26 @@ public class Main {
 //        }
 //        return 0;
 
-        if (a == b && b == c) {
-            return 20; // All are same
-        } else if (a == b || a == c || b == c) {
-            return 10; // 2 numbers are the same
-        } else {
-            return 0; // All different
-        }
-
-//        HashSet<Integer> uniqueNumbers = new HashSet<>();
-//        uniqueNumbers.add(a);
-//        uniqueNumbers.add(b);
-//        uniqueNumbers.add(c);
-//
-//        if (uniqueNumbers.size() == 1) {
-//            return 20; // All numbers are the same
-//        } else if (uniqueNumbers.size() == 2) {
-//            return 10; // Two numbers are the same
+//        if (a == b && b == c) {
+//            return 20; // All are same
+//        } else if (a == b || a == c || b == c) {
+//            return 10; // 2 numbers are the same
 //        } else {
-//            return 0; // All numbers are different
+//            return 0; // All different
 //        }
+
+        HashSet<Integer> uniqueNumbers = new HashSet<>();
+        uniqueNumbers.add(a);
+        uniqueNumbers.add(b);
+        uniqueNumbers.add(c);
+
+        if (uniqueNumbers.size() == 1) {
+            return 20; // All numbers are the same
+        } else if (uniqueNumbers.size() == 2) {
+            return 10; // Two numbers are the same
+        } else {
+            return 0; // All numbers are different
+        }
 
     }
 
