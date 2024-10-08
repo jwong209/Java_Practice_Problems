@@ -118,7 +118,21 @@ public class Main {
 //        System.out.println("foundIntTwice: " + foundIntTwice(Arrays.asList(6, 8, 10, 11, 13), 8));
 //        System.out.println("foundIntTwice: " + foundIntTwice(Arrays.asList(9, 23, 44, 2, 88, 44), 44));
 
-        System.out.println();
+//        System.out.println("comboString: " + comboString("Hello", "hi"));
+//        System.out.println("comboString: " + comboString("hi", "Hello"));
+//        System.out.println("comboString: " + comboString("aaa", "b"));
+
+//        System.out.println("countXX: " + countXX("abcxx"));
+//        System.out.println("countXX: " + countXX("xxx"));
+//        System.out.println("countXX: " + countXX("xxxx"));
+
+//        System.out.println("array123: " + array123(new int[]{1, 1, 2, 3, 1}));
+//        System.out.println("array123: " + array123(new int[]{1, 1, 2, 4, 3}));
+//        System.out.println("array123: " + array123(new int[]{1, 1, 2, 1, 2, 3}));
+
+        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
+        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
+        System.out.println("more14: " + more14(new int[]{1, 1}));
 
     }
 
@@ -774,6 +788,18 @@ public class Main {
     comboString("hi", "Hello") → "hiHellohi"
     comboString("aaa", "b") → "baaab"
      */
+    public static String comboString(String a, String b) {
+        String shorter = "";
+        String longer = "";
+        if (a.length() > b.length()) {
+            shorter += b;
+            longer += a;
+        } else {
+            shorter += a;
+            longer += b;
+        }
+        return shorter + longer + shorter;
+    }
 
     /* ---Count XX---
     Create a method called countXX that takes in a string called str. Return the number of "xx" in str. Instances of "xx" can overlap, so "xxx" contains "xx" twice.
@@ -784,6 +810,20 @@ public class Main {
     countXX("xxx") → 2
     countXX("xxxx") → 3
      */
+    public static int countXX(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length() - 2; i++) {
+            String currentSubstring = str.substring(i, i + 2);
+
+            if (currentSubstring.equals("xx")) {
+                count++;
+            }
+        }
+        if (str.endsWith("xx")) {
+            count++;
+        }
+        return count;
+    }
 
     /* ---Array 1 2 3---
     Create a method called array123 that takes in an integer array called nums. Return true if 1, 2, 3 appears in order, somewhere in nums. Otherwise, return false.
@@ -794,6 +834,18 @@ public class Main {
     array123({1, 1, 2, 4, 3}) → false
     array123({1, 1, 2, 1, 2, 3}) → true
      */
+    public static boolean array123(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                if (nums[i + 1] == 2) {
+                    if (nums[i + 2] == 3) {
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
 
     /* ---More 1 4---
     Create a method called more14 that takes in an array of integers called nums. Return true if the number of 1s in nums is greater than the number of 4s in nums. Otherwise return false.
@@ -804,6 +856,20 @@ public class Main {
     more14({1, 4, 1, 4}) → false
     more14({1, 1}) → true
      */
+    public static boolean more14(int[] nums) {
+        int count1s = 0;
+        int count4s = 0;
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                count1s++;
+            } else {
+                count4s++;
+            }
+        }
+
+        return count1s > count4s;
+    }
 
     /* ---No 4 Letter Words---
     Create a method called no4LetterWords that takes in an array of strings called strings. Return a List containing the elements of strings in the same order except for any that contain exactly 4 characters.
