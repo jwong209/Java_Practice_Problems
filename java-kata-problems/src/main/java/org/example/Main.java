@@ -1,5 +1,6 @@
 package org.example;
 
+import java.io.FilterOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -101,9 +102,23 @@ public class Main {
 //        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 2, 1}));
 //        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 1, 2, 2, 2, 1}));
 
-        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{1, 2, 3, 4})));
-        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{1, 2})));
-        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{8})));
+//        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{1, 2, 3, 4})));
+//        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{1, 2})));
+//        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{8})));
+
+//        System.out.println("evenlySpace: " + evenlySpaced(2, 4, 6));
+//        System.out.println("evenlySpace: " + evenlySpaced(4, 6, 2));
+//        System.out.println("evenlySpace: " + evenlySpaced(4, 6, 3));
+
+//        System.out.println("arrayFront9: " + arrayFront9(new int[]{1, 2, 9, 3, 4}));
+//        System.out.println("arrayFront9: " + arrayFront9(new int[]{1, 2, 3, 4, 9}));
+//        System.out.println("arrayFront9: " + arrayFront9(new int[]{9, 0}));
+
+//        System.out.println("foundIntTwice: " + foundIntTwice(Arrays.asList(5, 7, 9, 5, 11), 5));
+//        System.out.println("foundIntTwice: " + foundIntTwice(Arrays.asList(6, 8, 10, 11, 13), 8));
+//        System.out.println("foundIntTwice: " + foundIntTwice(Arrays.asList(9, 23, 44, 2, 88, 44), 44));
+
+        System.out.println();
 
     }
 
@@ -678,6 +693,40 @@ public class Main {
     evenlySpaced(4, 6, 2) → true
     evenlySpaced(4, 6, 3) → false
      */
+    public static boolean evenlySpaced(int a, int b, int c) {
+        int lowest = 1000;
+        int middle = 0;
+        int highest = -1000;
+
+        //assigning for a
+        if (a < b && a < c) {
+            lowest = a;
+        } else if (a > b && a > c) {
+            highest = a;
+        } else {
+            middle = a;
+        }
+
+        //assigning for b
+        if (b < a && b < c) {
+            lowest = b;
+        } else if (b > a && b > c) {
+            highest = b;
+        } else {
+            middle = b;
+        }
+
+        //assigning for c
+        if (c < a && c < b) {
+            lowest = c;
+        } else if (c > a && c > a) {
+            highest = c;
+        } else {
+            middle = c;
+        }
+
+        return (lowest + 2 == middle) && (middle + 2 == highest);
+    }
 
     /* ---Array Front 9---
     Create a method called arrayFront9 that takes in an integer array called nums. Return true if one of the first 4 elements in nums is a 9. The length of nums may be less than 4.
@@ -688,6 +737,14 @@ public class Main {
     arrayFront9({1, 2, 3, 4, 9}) → false
     arrayFront9({9, 0}) → true
      */
+    public static boolean arrayFront9(int[] nums) {
+        for (int i = 0; i < 4; i++) {
+            if (nums[i] == 9) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* ---Found Int Twice---
     Create a method called foundIntTwice that takes in a List of integers called nums and an integer value. Return true if value appears two or more times in nums. Otherwise return false.
@@ -698,6 +755,15 @@ public class Main {
     foundIntTwice( [6, 8, 10, 11, 13], 8 ) → false
     foundIntTwice( [9, 23, 44, 2, 88, 44], 44 ) → true
      */
+    public static boolean foundIntTwice(List<Integer> nums, int value) {
+        int count = 0;
+        for (Integer num : nums) {
+            if (num == value) {
+                count++;
+            }
+        }
+        return count >= 2;
+    }
 
     /* ---Combo String---
     Create a method called comboString that takes in two strings, a and b. Return a string of the form short+long+short, where short is the shorter of a and b and long is the longer of the two. You can assume the strings are different lengths, but they may be empty (length 0).
