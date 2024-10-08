@@ -97,9 +97,14 @@ public class Main {
 //        System.out.println("fizzArray: " + Arrays.toString(fizzArray(1)));
 //        System.out.println("fizzArray: " + Arrays.toString(fizzArray(0)));
 
-        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 1}));
-        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 2, 1}));
-        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 1, 2, 2, 2, 1}));
+//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 1}));
+//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 2, 2, 2, 1}));
+//        System.out.println("noTriples: " + noTriples(new int[]{1, 1, 1, 2, 2, 2, 1}));
+
+        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{1, 2, 3, 4})));
+        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{1, 2})));
+        System.out.println("swapEnds: " + Arrays.toString(swapEnds(new int[]{8})));
+
     }
 
     /* ---HELLO NAME---
@@ -654,6 +659,15 @@ public class Main {
     swapEnds({1, 2}) → {2, 1}
     swapEnds({8}) → {8}
      */
+    public static int[] swapEnds(int[] nums) {
+        int[] answer = new int[nums.length];
+        answer[0] = nums[nums.length - 1];
+        answer[answer.length - 1] = nums[0];
+        for (int i = 1; i < nums.length -1; i++) {
+            answer[i] = nums[i];
+        }
+        return answer;
+    }
 
     /* ---Evenly Space---
     Create a method called evenlySpaced that takes in three integers, a, b, and c. Return true if a, b, and c are evenly spaced, so the difference between the lowest value and the middle value is the same as the difference between the middle value and the highest value. Otherwise, return false.
