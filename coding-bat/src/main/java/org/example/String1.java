@@ -8,6 +8,35 @@ public class String1 {
 //        System.out.println("helloName: "+ string1.helloName("Alice"));
 //        System.out.println("helloName: "+ string1.helloName("X"));
 
+//        System.out.println("makeAbba: " + string1.makeAbba("Hi", "Bye"));
+//        System.out.println("makeAbba: " + string1.makeAbba("Yo", "Alice"));
+//        System.out.println("makeAbba: " + string1.makeAbba("What", "Up"));
+
+//        System.out.println("makeTags: " + string1.makeTags("i", "Yay"));
+//        System.out.println("makeTags: " + string1.makeTags("i", "Hello"));
+//        System.out.println("makeTags: " + string1.makeTags("cite", "Yay"));
+
+//        System.out.println("makeOutWord: " + string1.makeOutWord("<<>>", "Yay"));
+//        System.out.println("makeOutWord: " + string1.makeOutWord("<<>>", "WooHoo"));
+//        System.out.println("makeOutWord: " + string1.makeOutWord("[[]]", "word"));
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
 
     }
 
@@ -29,7 +58,9 @@ public class String1 {
         makeAbba("Yo", "Alice") → "YoAliceAliceYo"
         makeAbba("What", "Up") → "WhatUpUpWhat"
     */
-
+    public String makeAbba(String a, String b) {
+        return a + b + b + a;
+    }
 
     /* >>> makeTags <<<
         The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this example, the "i" tag makes <i> and </i> which surround the word "Yay". Given tag and word strings, create the HTML string with tags around the word, e.g. "<i>Yay</i>".
@@ -38,7 +69,9 @@ public class String1 {
         makeTags("i", "Hello") → "<i>Hello</i>"
         makeTags("cite", "Yay") → "<cite>Yay</cite>"
     */
-
+    public String makeTags(String a, String b) {
+        return "<" + a + ">" + b + "<" + a + ">";
+    }
 
     /* >>> makeOutWord <<<
         Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String starting at index i and going up to but not including index j.
@@ -47,7 +80,11 @@ public class String1 {
         makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
         makeOutWord("[[]]", "word") → "[[word]]"
     */
-
+    public String makeOutWord(String a, String b) {
+        String frontString = a.substring(0,2);
+        String backString = a.substring(2);
+        return frontString + b + backString;
+    }
 
     /* >>> extraEnd <<<
         Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string length will be at least 2.
