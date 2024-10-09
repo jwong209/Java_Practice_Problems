@@ -8,7 +8,7 @@ public class String1 {
 //        System.out.println("helloName: "+ string1.helloName("Alice"));
 //        System.out.println("helloName: "+ string1.helloName("X"));
 
-        
+
     }
 
     /* >>> helloName <<<
