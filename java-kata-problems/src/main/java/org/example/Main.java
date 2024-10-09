@@ -130,9 +130,9 @@ public class Main {
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 4, 3}));
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 1, 2, 3}));
 
-//        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
-//        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
-//        System.out.println("more14: " + more14(new int[]{1, 1}));
+        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
+        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
+        System.out.println("more14: " + more14(new int[]{1, 1}));
 
     }
 
