@@ -13,7 +13,7 @@ public class Main {
 
 //------------Practice problems------------
 //        System.out.println("helloName: " + helloName(("Bob")));
-//
+
 //        System.out.println("has23: " + has23(new int[]{2, 5}));
 //        System.out.println("has23: " + has23(new int[]{4, 3}));
 //        System.out.println("has23: " + has23(new int[]{4, 5}));
@@ -524,6 +524,7 @@ public class Main {
                 count++;
             }
         }
+
         return count;
     }
 
