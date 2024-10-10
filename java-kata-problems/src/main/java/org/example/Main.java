@@ -54,9 +54,9 @@ public class Main {
 //        System.out.println("doubleX: " + doubleX("axaxax"));
 //        System.out.println("doubleX: " + doubleX("xxxxx"));
 
-//        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{1, 2}, new int[]{3, 4})));
-//        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 4}, new int[]{1, 2})));
-//        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 1}, new int[]{2, 2})));
+//        System.out.println("biggerTwo: " + Arrays.toString(biggerTwo(new int[]{1, 2}, new int[]{3, 4})));
+//        System.out.println("biggerTwo: " + Arrays.toString(biggerTwo(new int[]{3, 4}, new int[]{1, 2})));
+//        System.out.println("biggerTwo: " + Arrays.toString(biggerTwo(new int[]{3, 1}, new int[]{2, 2})));
 
 //        System.out.println("lessBy10: " + lessBy10(1, 7, 11));
 //        System.out.println("lessBy10: " + lessBy10(1, 7, 10));
@@ -522,7 +522,8 @@ public class Main {
 //        return result.toString();
 
         String lastTwo = str.substring(str.length() - 2);
-        return lastTwo + lastTwo + lastTwo;
+//        return lastTwo + lastTwo + lastTwo;
+        return lastTwo.repeat(3);
     }
 
     /* ---First Half---

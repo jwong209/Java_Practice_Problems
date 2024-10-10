@@ -4,11 +4,19 @@ public class Warmup1 {
     public static void main(String[] args) {
         Warmup1 warmup1 = new Warmup1();
 
-        System.out.println("sleepIn: "+ warmup1.sleepIn(false,false));
-        System.out.println("sleepIn: "+ warmup1.sleepIn(true,false));
-        System.out.println("sleepIn: "+ warmup1.sleepIn(false,true));
+//        System.out.println("sleepIn: "+ warmup1.sleepIn(false,false));
+//        System.out.println("sleepIn: "+ warmup1.sleepIn(true,false));
+//        System.out.println("sleepIn: "+ warmup1.sleepIn(false,true));
 
-        System.out.println();
+//        System.out.println("monkeyTrouble: " + warmup1.monkeyTrouble(true, true));
+//        System.out.println("monkeyTrouble: " + warmup1.monkeyTrouble(false, false));
+//        System.out.println("monkeyTrouble: " + warmup1.monkeyTrouble(true, false));
+
+        System.out.println("sumDouble: " + warmup1.sumDouble(1,2));
+        System.out.println("sumDouble: " + warmup1.sumDouble(3,2));
+        System.out.println("sumDouble: " + warmup1.sumDouble(2,2));
+
+
     }
 
     /* >>> sleepIn <<<
@@ -27,6 +35,18 @@ public class Warmup1 {
         return false;
     }
 
+    /* >>> monkeyTrouble <<<
+        We have two monkeys, a and b, and the parameters aSmile and bSmile indicate if each is smiling. We are in trouble if they are both smiling or if neither of them is smiling. Return true if we are in trouble.
+
+        monkeyTrouble(true, true) → true
+        monkeyTrouble(false, false) → true
+        monkeyTrouble(true, false) → false
+     */
+    public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
+        if ((aSmile && !bSmile) || (bSmile && !aSmile)) return false;
+        return true;
+    }
+
     /* >>> sumDouble <<<
         Given two int values, return their sum. Unless the two values are the same, then return double their sum.
 
@@ -34,6 +54,12 @@ public class Warmup1 {
         sumDouble(3, 2) → 5
         sumDouble(2, 2) → 8
     */
+    public int sumDouble(int a, int b) {
+        if (a == b) {
+            return 2 * (a + b);
+        }
+        return a + b;
+    }
 
    /* >>> diff21 <<<
         Given an int n, return the absolute difference between n and 21, except return double the absolute difference if n is over 21.
