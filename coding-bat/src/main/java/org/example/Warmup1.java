@@ -27,12 +27,15 @@ public class Warmup1 {
        sleepIn(false, true) → true
     */
     public boolean sleepIn(boolean weekday, boolean vacation) {
-        if (vacation) {
-            return true;
-        }
-        if (!vacation && !weekday) return true;
+        //Solution 1
+//        if (vacation) {
+//            return true;
+//        }
+//        if (!vacation && !weekday) return true;
+//        return false;
 
-        return false;
+        //Solution 2
+        return !weekday || vacation;
     }
 
     /* >>> monkeyTrouble <<<
@@ -45,6 +48,20 @@ public class Warmup1 {
     public boolean monkeyTrouble(boolean aSmile, boolean bSmile) {
         if ((aSmile && !bSmile) || (bSmile && !aSmile)) return false;
         return true;
+
+        /*
+         if (aSmile && bSmile) {
+            return true;
+        }
+        if (!aSmile && !bSmile) {
+            return true;
+        }
+        return false;
+        // The above can be shortened to:
+        //   return ((aSmile && bSmile) || (!aSmile && !bSmile));
+        // Or this very short version (think about how this is the same as the above)
+        //   return (aSmile == bSmile);
+         */
     }
 
     /* >>> sumDouble <<<

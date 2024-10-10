@@ -20,23 +20,37 @@ public class String1 {
 //        System.out.println("makeOutWord: " + string1.makeOutWord("<<>>", "WooHoo"));
 //        System.out.println("makeOutWord: " + string1.makeOutWord("[[]]", "word"));
 
-        System.out.println();
+//        System.out.println("extraEnd: " + string1.extraEnd("Hello"));
+//        System.out.println("extraEnd: " + string1.extraEnd("ab"));
+//        System.out.println("extraEnd: " + string1.extraEnd("Hi"));
 
-        System.out.println();
+//        System.out.println("firstTwo: " + string1.firstTwo("Hello"));
+//        System.out.println("firstTwo: " + string1.firstTwo("abcdefg"));
+//        System.out.println("firstTwo: " + string1.firstTwo("ab"));
 
-        System.out.println();
+//        System.out.println("firstHalf: " + string1.firstHalf("WooHoo"));
+//        System.out.println("firstHalf: " + string1.firstHalf("HelloThere"));
+//        System.out.println("firstHalf: " + string1.firstHalf("abcdefg"));
 
-        System.out.println();
+        System.out.println("withoutEnd: " + string1.withoutEnd("Hello"));
+        System.out.println("withoutEnd: " + string1.withoutEnd("java"));
+        System.out.println("withoutEnd: " + string1.withoutEnd("coding"));
 
-        System.out.println();
+        System.out.println("comboString: ");
 
-        System.out.println();
+        System.out.println("nonStart: ");
 
-        System.out.println();
+        System.out.println("left2: ");
 
-        System.out.println();
+        System.out.println("right2: ");
 
-        System.out.println();
+        System.out.println("theEnd: ");
+
+        System.out.println("withoutEnd2: ");
+        System.out.println("middleTwo: ");
+        System.out.println("endsLy: ");
+        System.out.println("nTwice: ");
+        System.out.println("twoChar: ");
 
     }
 
@@ -89,11 +103,14 @@ public class String1 {
     /* >>> extraEnd <<<
         Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string length will be at least 2.
 
-
         extraEnd("Hello") → "lololo"
         extraEnd("ab") → "ababab"
         extraEnd("Hi") → "HiHiHi"
     */
+    public String extraEnd(String str) {
+        String substringEnd = str.substring(str.length() - 2);
+        return substringEnd + substringEnd + substringEnd;
+    }
 
     /* >>> firstTwo <<<
         Given a string, return the string made of its first two chars, so the String "Hello" yields "He". If the string is shorter than length 2, return whatever there is, so "X" yields "X", and the empty string "" yields the empty string "". Note that str.length() returns the length of a string.
@@ -102,6 +119,13 @@ public class String1 {
         firstTwo("abcdefg") → "ab"
         firstTwo("ab") → "ab"
     */
+    public String firstTwo(String str) {
+        if (str.length() < 2) {
+            return str;
+        }
+        String subString = str.substring(0, 2);
+        return subString;
+    }
 
      /* >>> firstHalf <<<
         Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".
@@ -110,6 +134,10 @@ public class String1 {
         firstHalf("HelloThere") → "Hello"
         firstHalf("abcdef") → "abc"
     */
+    public String firstHalf(String str) {
+        String firstHalf = str.substring(0, str.length()/2);
+        return firstHalf;
+    }
 
      /* >>> withoutEnd <<<
         Given a string, return a version without the first and last char, so "Hello" yields "ell". The string length will be at least 2.
@@ -118,6 +146,9 @@ public class String1 {
         withoutEnd("java") → "av"
         withoutEnd("coding") → "odin"
     */
+     public String withoutEnd(String str) {
+         return str.substring(1, str.length()- 1);
+     }
 
      /* >>> comboString <<<
         Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on the inside. The strings will not be the same length, but they may be empty (length 0).
@@ -159,12 +190,12 @@ public class String1 {
         theEnd("oh", true) → "o"
     */
 
-     /* >>> withouEnd2 <<<
+     /* >>> withoutEnd2 <<<
         Given a string, return a version without both the first and last char of the string. The string may be any length, including 0.
 
-        withouEnd2("Hello") → "ell"
-        withouEnd2("abc") → "b"
-        withouEnd2("ab") → ""
+        withoutEnd2("Hello") → "ell"
+        withoutEnd2("abc") → "b"
+        withoutEnd2("ab") → ""
     */
 
      /* >>> middleTwo <<<
