@@ -54,9 +54,9 @@ public class Main {
 //        System.out.println("doubleX: " + doubleX("axaxax"));
 //        System.out.println("doubleX: " + doubleX("xxxxx"));
 
-        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{1, 2}, new int[]{3, 4})));
-        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 4}, new int[]{1, 2})));
-        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 1}, new int[]{2, 2})));
+//        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{1, 2}, new int[]{3, 4})));
+//        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 4}, new int[]{1, 2})));
+//        System.out.println("biggetTwo: " + Arrays.toString(biggerTwo(new int[]{3, 1}, new int[]{2, 2})));
 
 //        System.out.println("lessBy10: " + lessBy10(1, 7, 11));
 //        System.out.println("lessBy10: " + lessBy10(1, 7, 10));
@@ -130,9 +130,16 @@ public class Main {
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 4, 3}));
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 1, 2, 3}));
 
-        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
-        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
-        System.out.println("more14: " + more14(new int[]{1, 1}));
+//        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
+//        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
+//        System.out.println("more14: " + more14(new int[]{1, 1}));
+
+//        System.out.println("no4LetterWords: " + no4LetterWords(new String[]{"Train", "Car"}));
+//        System.out.println("no4LetterWords: " + no4LetterWords(new String[]{"Red", "White"}));
+
+//        System.out.println("sumOdds: " + sumOdds());
+
+
 
     }
 
@@ -524,7 +531,6 @@ public class Main {
                 count++;
             }
         }
-
         return count;
     }
 
@@ -888,6 +894,15 @@ public class Main {
     no4LetterWords( {"Train", "Boat", "Car"} ) →   ["Train", "Car"]
     no4LetterWords( {"Red", "White", "Blue"} ) →   ["Red", "White"]
      */
+    public static List<String> no4LetterWords(String[] strings) {
+        List<String> answer = new ArrayList<>();
+        for (String word: strings) {
+            if (strings.length != 4) {
+                answer.add(word);
+            }
+        }
+        return answer;
+    }
 
     /* ---Sum Odds---
     Create a method called sumOdds with no parameters. Return the sum of the odd integers between 1 and 100 inclusive.
@@ -896,6 +911,15 @@ public class Main {
 
     sumOdds() → 2500
      */
+    public static int sumOdds() {
+        int sum = 0;
+        for (int i = 0; i <= 100; i ++) {
+            if (i % 2 != 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
 
     /* ---Sum Odds Between Values---
     Create a method called sumOddsBetweenValues that takes in two integers start and end. Return the sum of the odd integers between start and end inclusive. You can assume end isn't less than start (but they may be equal).
@@ -906,6 +930,7 @@ public class Main {
     sumOddsBetweenValues(28,30) → 29
     sumOddsBetweenValues(18, 18) → 0
      */
+    public 
 
     /* ---Fizz Array 3---
     Create a method called fizzArray3 that takes in two integers start and end. Return a new array containing the sequence of integers from start up to but not including end. You can assume end is greater than or equal to start.
