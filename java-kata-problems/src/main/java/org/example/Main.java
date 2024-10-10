@@ -139,7 +139,31 @@ public class Main {
 
 //        System.out.println("sumOdds: " + sumOdds());
 
+//        System.out.println("sumOddsBetweenValues: " + sumOddsBetweenValues(0, 5));
+//        System.out.println("sumOddsBetweenValues: " + sumOddsBetweenValues(28, 30));
+//        System.out.println("sumOddsBetweenValues: " + sumOddsBetweenValues(18, 18));
 
+//        System.out.println("fizzArray3: " + Arrays.toString(fizzArray3(5, 10)));
+//        System.out.println("fizzArray3: " + Arrays.toString(fizzArray3(11, 12)));
+//        System.out.println("fizzArray3: " + Arrays.toString(fizzArray3(3, 3)));
+
+//        System.out.println("isStrictlyIncreasing: " + isStrictlyIncreasing(new int[]{5, 7, 8, 10}));
+//        System.out.println("isStrictlyIncreasing: " + isStrictlyIncreasing(new int[]{5, 7, 7, 10}));
+//        System.out.println("isStrictlyIncreasing: " + isStrictlyIncreasing(new int[]{-5, -3, 0, 17}));
+
+//        System.out.println("factorial: " + factorial(3));
+//        System.out.println("factorial: " + factorial(4));
+//        System.out.println("factorial: " + factorial(10));
+
+//        System.out.println("hasBad: " + hasBad("badxx"));
+//        System.out.println("hasBad: " + hasBad("xbadxx"));
+//        System.out.println("hasBad: " + hasBad("xxbadxx"));
+
+//        System.out.println("frontTimes: " + frontTimes("Chocolate", 2));
+//        System.out.println("frontTimes: " + frontTimes("Chocolate", 3));
+//        System.out.println("frontTimes: " + frontTimes("Ab", 3));
+
+        System.out.println();
 
     }
 
@@ -930,7 +954,15 @@ public class Main {
     sumOddsBetweenValues(28,30) → 29
     sumOddsBetweenValues(18, 18) → 0
      */
-    public 
+    public static int sumOddsBetweenValues(int start, int end) {
+        int sum = 0;
+        for (int i = start; i <= end; i++) {
+            if (i % 2 != 0) {
+                sum += i;
+            }
+        }
+        return sum;
+    }
 
     /* ---Fizz Array 3---
     Create a method called fizzArray3 that takes in two integers start and end. Return a new array containing the sequence of integers from start up to but not including end. You can assume end is greater than or equal to start.
@@ -941,6 +973,13 @@ public class Main {
     fizzArray3(11, 12) → {11}
     fizzArray3(3, 3) → {}
      */
+    public static int[] fizzArray3(int start, int end) {
+        int[] answer = new int[end - start];
+        for (int i = start; i < end; i++) {
+            answer[i - start] = i;
+        }
+        return answer;
+    }
 
     /* ---Is Strictly Increasing---
     Create a method called isStrictlyIncreasing that takes in an integer array called nums. Return true if the values in the array are strictly increasing. Return false otherwise.
@@ -951,6 +990,14 @@ public class Main {
     isStrictlyIncreasing({5,7,7,10}) → false
     isStrictlyIncreasing({-5,-3,0,17}) → true
      */
+    public static boolean isStrictlyIncreasing(int[] nums) {
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] >= nums[i + 1]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* ---Factorial---
     Create a method called factorial that takes in an integer n and returns the factorial of the number. A factorial is the product of all positive integers less than or equal to n.
@@ -961,6 +1008,13 @@ public class Main {
     factorial(4) → 24 (since 1 * 2 * 3 * 4 = 24)
     factorial(10) → 3628800
      */
+    public static int factorial(int n) {
+        int product = 1;
+        for (int i = 1; i <= n; i++) {
+            product *= i;
+        }
+        return product;
+    }
 
     /* ---Has Bad---
     Create a method called hasBad that takes in a string called str. Return true if "bad" appears starting at index 0 or 1 in str -- otherwise return false. str may be any length, including 0.
@@ -971,6 +1025,13 @@ public class Main {
     hasBad("xbadxx") → true
     hasBad("xxbadxx") → false
      */
+    public static boolean hasBad(String str) {
+        String testingSub = str.substring(0, 4);
+        if (testingSub.contains("bad")) {
+            return true;
+        }
+        return false;
+    }
 
     /* ---Front Times---
     Create a method called frontTimes that takes in a string str and an integer n. The front of str is the first 3 characters, or whatever is there if str is less than length 3. Return a string made up of n copies of the front.
@@ -981,6 +1042,13 @@ public class Main {
     frontTimes("Chocolate", 3) → "ChoChoCho"
     frontTimes("Ab", 3) → "AbAbAb"
      */
+    public static String frontTimes(String str, int n) {
+        if (str.length() < 3) {
+            return str.repeat(n);
+        }
+        String front = str.substring(0, 3);
+        return front.repeat(n);
+    }
 
     /* ---Reverse String---
     Create a method called reverseString that takes in a string called str. Return a string containing str in reverse order. str may be empty, but not null.
