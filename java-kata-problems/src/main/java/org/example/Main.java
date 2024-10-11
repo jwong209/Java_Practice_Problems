@@ -163,9 +163,23 @@ public class Main {
 //        System.out.println("frontTimes: " + frontTimes("Chocolate", 3));
 //        System.out.println("frontTimes: " + frontTimes("Ab", 3));
 
-        System.out.println();
+//        System.out.println("reverseString: " + reverseString("Hello!"));
+//        System.out.println("reverseString: " + reverseString("Kata"));
+//        System.out.println("reverseString: " + reverseString(""));
 
-    }
+//        System.out.println("reverseList: " + reverseList(new ArrayList<>(Arrays.asList("purple", "green", "blue", "yellow", "green"))));
+//        System.out.println("reverseList: " + reverseList(new ArrayList<>(Arrays.asList("jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"))));
+
+//        System.out.println("list2Array: " + Arrays.toString(list2Array(Arrays.asList("aa", "ab", "ac"))));
+//        System.out.println("list2Array: " + Arrays.toString(list2Array(Arrays.asList("as", "df", "jk"))));
+//        System.out.println("list2Array: " + Arrays.toString(list2Array(Arrays.asList("aaa", "bbb", "ccc", "ddd"))));
+
+        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(11, 200, 43, 84, 9917, 4321, 1, 33333, 8997))));
+        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(987, 1234, 9381, 731, 43718, 8932))));
+        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(34070, 1380, 81238, 7782, 234, 64362, 627))));
+
+
+}
 
     /* ---HELLO NAME---
     Create a method called helloName that takes in a string called name. Return a string containing a greeting of the form "Hello ____!" replacing the blank with name.
@@ -1060,6 +1074,15 @@ public class Main {
     reverseString(“Kata”) → “ataK”
     reverseString(“”) → “”
      */
+    public static String reverseString(String str) {
+//        String answer = "";
+//        for (int i = str.length() - 1; i >= 0; i--) {
+//            answer += str.charAt(i);
+//        }
+//        return answer;
+
+        return new StringBuilder(str).reverse().toString();
+    }
 
     /* ---Reverse List---
     Create a method called reverseList that takes in a List of strings called strings. Return a new List in reverse order of the original.
@@ -1068,6 +1091,14 @@ public class Main {
     reverseList( ["purple", "green", "blue", "yellow", "green" ])  →  ["green", "yellow", "blue", green", "purple" ]
     reverseList( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"} ) →  ["way", "the", "all", "jingle", "bells", "jingle", "bells", "jingle"]
      */
+
+    public static List<String> reverseList(List<String> strings) {
+        List<String> answer = new ArrayList<String>();
+        for (int i = strings.size() - 1; i >= 0; i--) {
+            answer.add(strings.get(i));
+        }
+        return answer;
+    }
 
     /* ---List To Array---
     Create a method called list2Array that takes in a List of strings called strings. Return an array containing the same strings in the same order. Avoid using a standard library method that does the conversion for you.
@@ -1078,6 +1109,13 @@ public class Main {
     list2Array( ["as", "df", "jk"] ) →   {"as", "df", "jk"}
     list2Array( ["aaa", "bbb", "ccc", "ddd"] ) →   {"aaa", "bbb", "ccc", "ddd"}
      */
+    public static String[]  list2Array(List<String> strings) {
+        String[] answer = new String[strings.size()];
+        for (int i = 0; i < strings.size(); i++) {
+            answer[i] = strings.get(i);
+        }
+        return answer;
+    }
 
     /* ---Find Largest---
     Create a method called findLargest that takes in a List of integers called nums. Return the largest value in nums.
@@ -1088,6 +1126,15 @@ public class Main {
     findLargest( [987, 1234, 9381, 731, 43718, 8932] ) →  43718
     findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) →  64362.
      */
+    public static int findLargest(List<Integer> nums) {
+        Integer largest = Integer.MIN_VALUE;
+        for (Integer num : nums) {
+            if (num > largest) {
+                largest = num;
+            }
+        }
+        return largest;
+    }
 
     /* ---Distinct Values---
     Create a method called distinctValues that takes in a List of strings called strings. Return a List that contains the distinct values in strings.
