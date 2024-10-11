@@ -122,9 +122,9 @@ public class Main {
 //        System.out.println("comboString: " + comboString("hi", "Hello"));
 //        System.out.println("comboString: " + comboString("aaa", "b"));
 
-//        System.out.println("countXX: " + countXX("abcxx"));
-//        System.out.println("countXX: " + countXX("xxx"));
-//        System.out.println("countXX: " + countXX("xxxx"));
+        System.out.println("countXX: " + countXX("abcxx"));
+        System.out.println("countXX: " + countXX("xxx"));
+        System.out.println("countXX: " + countXX("xxxx"));
 
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 3, 1}));
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 4, 3}));
@@ -189,9 +189,9 @@ public class Main {
 //        System.out.println("arrayInt2ListDouble: " + arrayInt2ListDouble(new int[]{745, 23, 44, 9017, 6}));
 //        System.out.println("arrayInt2ListDouble: " + arrayInt2ListDouble(new int[]{84, 99, 3285, 13, 877}));
 
-        System.out.println("makeOutWord: " + makeOutWord("<<>>", "Yay"));
-        System.out.println("makeOutWord: " + makeOutWord("<<>>", "WooHoo"));
-        System.out.println("makeOutWord: " + makeOutWord("[[]]", "word"));
+//        System.out.println("makeOutWord: " + makeOutWord("<<>>", "Yay"));
+//        System.out.println("makeOutWord: " + makeOutWord("<<>>", "WooHoo"));
+//        System.out.println("makeOutWord: " + makeOutWord("[[]]", "word"));
 
 
 }
@@ -758,13 +758,20 @@ public class Main {
     swapEnds({8}) → {8}
      */
     public static int[] swapEnds(int[] nums) {
-        int[] answer = new int[nums.length];
-        answer[0] = nums[nums.length - 1];
-        answer[answer.length - 1] = nums[0];
-        for (int i = 1; i < nums.length -1; i++) {
-            answer[i] = nums[i];
+//        int[] answer = new int[nums.length];
+//        answer[0] = nums[nums.length - 1];
+//        answer[answer.length - 1] = nums[0];
+//        for (int i = 1; i < nums.length -1; i++) {
+//            answer[i] = nums[i];
+//        }
+//        return answer;
+
+        if (nums.length > 1) {
+            int temp = nums[0];
+            nums[0] = nums[nums.length - 1];
+            nums[nums.length - 1] = temp;
         }
-        return answer;
+        return nums;
     }
 
     /* ---Evenly Space---
@@ -777,38 +784,45 @@ public class Main {
     evenlySpaced(4, 6, 3) → false
      */
     public static boolean evenlySpaced(int a, int b, int c) {
-        int lowest = 1000;
-        int middle = 0;
-        int highest = -1000;
+//        int lowest = 1000;
+//        int middle = 0;
+//        int highest = -1000;
+//        //assigning for a
+//        if (a < b && a < c) {
+//            lowest = a;
+//        } else if (a > b && a > c) {
+//            highest = a;
+//        } else {
+//            middle = a;
+//        }
+//        //assigning for b
+//        if (b < a && b < c) {
+//            lowest = b;
+//        } else if (b > a && b > c) {
+//            highest = b;
+//        } else {
+//            middle = b;
+//        }
+//        //assigning for c
+//        if (c < a && c < b) {
+//            lowest = c;
+//        } else if (c > a && c > a) {
+//            highest = c;
+//        } else {
+//            middle = c;
+//        }
+//        return (lowest + 2 == middle) && (middle + 2 == highest);
 
-        //assigning for a
-        if (a < b && a < c) {
-            lowest = a;
-        } else if (a > b && a > c) {
-            highest = a;
-        } else {
-            middle = a;
-        }
+            // Sort the numbers
+            int[] sorted = {a, b, c};
+            Arrays.sort(sorted);
 
-        //assigning for b
-        if (b < a && b < c) {
-            lowest = b;
-        } else if (b > a && b > c) {
-            highest = b;
-        } else {
-            middle = b;
-        }
+            // Calculate the differences
+            int diff1 = sorted[1] - sorted[0];
+            int diff2 = sorted[2] - sorted[1];
 
-        //assigning for c
-        if (c < a && c < b) {
-            lowest = c;
-        } else if (c > a && c > a) {
-            highest = c;
-        } else {
-            middle = c;
-        }
-
-        return (lowest + 2 == middle) && (middle + 2 == highest);
+            // Compare the differences
+            return diff1 == diff2;
     }
 
     /* ---Array Front 9---
@@ -827,6 +841,14 @@ public class Main {
             }
         }
         return false;
+
+//        int maxIndex = Math.min(4, nums.length - 1);
+//        for (int i = 0; i <= maxIndex; i++) {
+//            if (nums[i] == 9) {
+//                return true;
+//            }
+//        }
+//        return false;
     }
 
     /* ---Found Int Twice---
@@ -858,16 +880,34 @@ public class Main {
     comboString("aaa", "b") → "baaab"
      */
     public static String comboString(String a, String b) {
-        String shorter = "";
-        String longer = "";
-        if (a.length() > b.length()) {
-            shorter += b;
-            longer += a;
-        } else {
-            shorter += a;
-            longer += b;
+//        String shorter = "";
+//        String longer = "";
+//        if (a.length() > b.length()) {
+//            shorter += b;
+//            longer += a;
+//        } else {
+//            shorter += a;
+//            longer += b;
+//        }
+//        return shorter + longer + shorter;
+
+        int lenA = a.length();
+        int lenB = b.length();
+
+        if (lenA == 0 && lenB == 0) {
+            return "";
         }
-        return shorter + longer + shorter;
+        if (lenA == 0) {
+            return b + b + a;
+        }
+        if (lenB == 0) {
+            return a + a + b;
+        }
+        if (lenA < lenB) {
+            return a + b + a;
+        } else {
+            return b + a + b;
+        }
     }
 
     /* ---Count XX---
@@ -880,16 +920,24 @@ public class Main {
     countXX("xxxx") → 3
      */
     public static int countXX(String str) {
-        int count = 0;
-        for (int i = 0; i < str.length() - 2; i++) {
-            String currentSubstring = str.substring(i, i + 2);
+//        int count = 0;
+//        for (int i = 0; i < str.length() - 2; i++) {
+//            String currentSubstring = str.substring(i, i + 2);
+//
+//            if (currentSubstring.equals("xx")) {
+//                count++;
+//            }
+//        }
+//        if (str.endsWith("xx")) {
+//            count++;
+//        }
+//        return count;
 
-            if (currentSubstring.equals("xx")) {
+        int count = 0;
+        for (int i = 0; i <= str.length() - 2; i++) { 
+            if (str.substring(i, i + 2).equals("xx")) {
                 count++;
             }
-        }
-        if (str.endsWith("xx")) {
-            count++;
         }
         return count;
     }
