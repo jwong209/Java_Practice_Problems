@@ -174,9 +174,24 @@ public class Main {
 //        System.out.println("list2Array: " + Arrays.toString(list2Array(Arrays.asList("as", "df", "jk"))));
 //        System.out.println("list2Array: " + Arrays.toString(list2Array(Arrays.asList("aaa", "bbb", "ccc", "ddd"))));
 
-        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(11, 200, 43, 84, 9917, 4321, 1, 33333, 8997))));
-        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(987, 1234, 9381, 731, 43718, 8932))));
-        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(34070, 1380, 81238, 7782, 234, 64362, 627))));
+//        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(11, 200, 43, 84, 9917, 4321, 1, 33333, 8997))));
+//        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(987, 1234, 9381, 731, 43718, 8932))));
+//        System.out.println("findLargest: " + findLargest(new ArrayList<>(Arrays.asList(34070, 1380, 81238, 7782, 234, 64362, 627))));
+
+//        System.out.println("distinctValues: " + distinctValues(new ArrayList<>(Arrays.asList("red", "yellow", "green", "yellow", "blue", "green", "purple"))));
+//        System.out.println("distinctValues: " + distinctValues(new ArrayList<>(Arrays.asList("jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"))));
+
+//        System.out.println("array2List: " + array2List(new String[]{"Apple", "Orange", "Banana"}));
+//        System.out.println("array2List: " + array2List(new String[]{"Red", "Orange", "Yellow"}));
+//        System.out.println("array2List: " + array2List(new String[]{"Left", "Right", "Forward", "Back"}));
+
+//        System.out.println("arrayInt2ListDouble: " + arrayInt2ListDouble(new int[]{5, 8, 11, 200, 97}));
+//        System.out.println("arrayInt2ListDouble: " + arrayInt2ListDouble(new int[]{745, 23, 44, 9017, 6}));
+//        System.out.println("arrayInt2ListDouble: " + arrayInt2ListDouble(new int[]{84, 99, 3285, 13, 877}));
+
+        System.out.println("makeOutWord: " + makeOutWord("<<>>", "Yay"));
+        System.out.println("makeOutWord: " + makeOutWord("<<>>", "WooHoo"));
+        System.out.println("makeOutWord: " + makeOutWord("[[]]", "word"));
 
 
 }
@@ -1144,6 +1159,15 @@ public class Main {
     distinctValues( ["red", "yellow", "green", "yellow", "blue", "green", "purple"] ) →  ["red", "yellow", "green", "blue", "purple"]
     distinctValues( ["jingle", "bells", "jingle", "bells", "jingle", "all", "the", "way"] ) →  ["jingle", "bells", "all", "the", "way"]
      */
+    public static List<String> distinctValues(List<String> strings) {
+        List<String> answer = new ArrayList<String>();
+        for (String string : strings) {
+            if (!answer.contains(string)) {
+                answer.add(string);
+            }
+        }
+        return answer;
+    }
 
     /* ---Array To List---
     Create a method called array2List that takes in a string array called strings. Return a List containing the elements of strings in the same order. Avoid using a standard library method that does the conversion for you.
@@ -1154,6 +1178,13 @@ public class Main {
     array2List( {"Red", "Orange", "Yellow"} ) →   ["Red", "Orange", "Yellow"]
     array2List( {"Left", "Right", "Forward", "Back"} ) →   ["Left", "Right", "Forward", "Back"]
      */
+    public static List<String> array2List(String[] strings) {
+        List<String> answer = new ArrayList<>();
+        for (String string : strings) {
+            answer.add(string);
+        }
+        return answer;
+    }
 
     /* ---Array Int To List Double---
     Create a method called arrayInt2ListDouble that takes in an integer array called ints. Divide each value in ints by 2, and return them in a List of Doubles.
@@ -1164,6 +1195,14 @@ public class Main {
     arrayInt2ListDouble( {745, 23, 44, 9017, 6} ) →  [372.5, 11.5, 22, 4508.5, 3]
     arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) →  [42, 49.5, 1642.5, 6.5, 438.5]
      */
+    public static List<Double> arrayInt2ListDouble(int[] ints) {
+        List<Double> answer = new ArrayList<>();
+        for (int num : ints) {
+            double doubleDivided = (double)num / 2.0;
+            answer.add(doubleDivided);
+        }
+        return answer;
+    }
 
     /* ---Make Out Word---
     Create a method called makeOutWord that takes in two strings, outword and word. Return a new string where the word is in the middle of the outword string. You can assume the length of outword is even.
@@ -1174,6 +1213,11 @@ public class Main {
     makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
     makeOutWord("[[]]", "word") → "[[word]]"
      */
+    public static String makeOutWord(String outword, String word) {
+        String firstHalf = outword.substring(0, outword.length()/2);
+        String secondHalf = outword.substring(outword.length()/2);
+        return firstHalf + word + secondHalf;
+    }
 
     /* ---Make Middle---
     Create a method called makeMiddle that takes in an integer array nums. Return a new array length 2 containing the middle two elements from nums. You can assume the length of nums is even and 2 or more.
