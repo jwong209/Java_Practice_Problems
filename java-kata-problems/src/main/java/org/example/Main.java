@@ -122,9 +122,9 @@ public class Main {
 //        System.out.println("comboString: " + comboString("hi", "Hello"));
 //        System.out.println("comboString: " + comboString("aaa", "b"));
 
-        System.out.println("countXX: " + countXX("abcxx"));
-        System.out.println("countXX: " + countXX("xxx"));
-        System.out.println("countXX: " + countXX("xxxx"));
+//        System.out.println("countXX: " + countXX("abcxx"));
+//        System.out.println("countXX: " + countXX("xxx"));
+//        System.out.println("countXX: " + countXX("xxxx"));
 
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 3, 1}));
 //        System.out.println("array123: " + array123(new int[]{1, 1, 2, 4, 3}));
@@ -193,6 +193,21 @@ public class Main {
 //        System.out.println("makeOutWord: " + makeOutWord("<<>>", "WooHoo"));
 //        System.out.println("makeOutWord: " + makeOutWord("[[]]", "word"));
 
+//        System.out.println("makeMiddle: " + Arrays.toString(makeMiddle(new int[]{1, 2, 3, 4})));
+//        System.out.println("makeMiddle: " + Arrays.toString(makeMiddle(new int[]{7, 1, 2, 3, 4, 9})));
+//        System.out.println("makeMiddle: " + Arrays.toString(makeMiddle(new int[]{1, 2})));
+
+//        System.out.println("blackjack: " + blackjack(19, 21));
+//        System.out.println("blackjack: " + blackjack(21, 19));
+//        System.out.println("blackjack: " + blackjack(19, 22));
+
+//        System.out.println("fizzBuzz: " + Arrays.toString(fizzBuzz()));
+
+//        System.out.println("fibonacci: " + Arrays.toString(fibonacci()));
+
+        System.out.println("primeFactors: " + Arrays.toString(primeFactors(6)));
+        System.out.println("primeFactors: " + Arrays.toString(primeFactors(28)));
+        System.out.println("primeFactors: " + Arrays.toString(primeFactors(667)));
 
 }
 
@@ -1276,6 +1291,17 @@ public class Main {
     makeMiddle({7, 1, 2, 3, 4, 9}) → {2, 3}
     makeMiddle({1, 2}) → {1, 2}
      */
+    public static int[] makeMiddle(int[] nums) {
+        if (nums.length == 2) {
+            return nums;
+        }
+
+        int firstMid = nums[(nums.length / 2) - 1];
+        int secondMid = nums[nums.length/2];
+
+        int[] answer = new int[] {firstMid, secondMid};
+        return answer;
+    }
 
     /* ---Blackjack---
     Create a method called blackjack that takes in two integers, a and b. Return whichever value is nearest to 21 without going over. Return 0 if they both go over.
@@ -1286,7 +1312,25 @@ public class Main {
     blackjack(21, 19) → 21
     blackjack(19, 22) → 19
      */
-
+    public static int blackjack(int a, int b) {
+        if (a > 21 && b > 21) {
+            return 0;
+        } else if (a > 21 && b <= 21) {
+            return b;
+        } else if (b > 21 && a <= 21) {
+            return a;
+        } else if (a == 21) {
+            return a;
+        } else if (b == 21) {
+            return b;
+        } else if (21 - a < 21 - b) {
+            return a;
+        } else if (21 - b < 21 - a) {
+            return  b;
+        }  else {
+            return 0;
+        }
+    }
 
     /* ---Fizz Buzz---
     Create a method called fizzBuzz with no parameters. Return an array of 100 strings representing the values 1-100. If the value is a multiple of both 3 and 5, put “FizzBuzz” in the array. If the value is a multiple of 3 (but not 5), put “Fizz” in the array. If the value is a multiple of 5 (but not 3), put “Buzz” in the array. For all other values, put a string containing the value in the array.
@@ -1295,7 +1339,22 @@ public class Main {
 
     fizzBuzz() → {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", ...}
      */
+    public static String[] fizzBuzz() {
+        String[] result = new String[100];
+        for (int i = 1; i <= 100; i++) {
+            if (i % 5 == 0 && i % 3 == 0) {
+                result[i - 1] = "FizzBuzz";
+            } else if (i % 5 == 0) {
+                result[i - 1] = "Buzz";
+            } else if (i % 3 == 0) {
+                result[i - 1] = "Fizz";
+            } else {
+                result[i - 1] = String.valueOf(i);
+            }
+        }
 
+        return result;
+    }
 
     /* ---Fibonacci---
     Create a method called fibonacci with no parameters. In a Fibonacci sequence, every number after the first two is the sum of the two preceding ones. Return an array of integers containing the Fibonacci sequence of 0, 1, 1, 2, 3, and so on for the values less than 2000.
@@ -1304,7 +1363,42 @@ public class Main {
 
     fibonacci() → {1, 1, 2, 3, 5, 8, 13, ... 987, 1597}
      */
+    public static int[] fibonacci() {
+        int first = 0;
+        int second = 1;
 
+        int n = 2000; //testing this number
+
+        String resultsString = "";
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+//            System.out.println(first);
+            resultsString += second;
+            count++;
+
+            int next = first + second;
+            first = second;
+            second = next;
+
+            if (second > n) {
+                break;
+            }
+
+            resultsString += ",";
+
+        }
+
+        // System.out.println(resultsString);
+        int[] finalAnswer = new int[count];
+
+        String[] resultArray = resultsString.split(",");
+        for (int i = 0; i < resultArray.length; i++) {
+            finalAnswer[i] = Integer.valueOf(resultArray[i]);
+        }
+
+        return finalAnswer;
+    }
 
     /* ---Prime Factors---
     Create a method called primeFactors that takes in an integer n. Return an integer array of the [prime factors] of n(https://www.mathsisfun.com/definitions/prime-factor.html). Prime factors are the numbers you can multiply to get n that you can't break down into any smaller factors. You can assume the input is greater than 1.
@@ -1315,5 +1409,38 @@ public class Main {
     primeFactors(28) → {2, 2, 7}
     primeFactors(667) → {23, 29}
      */
+    public static int[] primeFactors(int n) {
+        int number = n;
+        int count = 0;
+
+        String resultString = "";
+
+        for(int i = 2; i < number; i++) {
+            while(number % i == 0) {
+                resultString += i + ",";
+//                System.out.println(i);
+                number = number/i;
+                count++;
+            }
+
+        }
+        if (number > 2) {
+//            System.out.println(number);
+            resultString += number;
+            count++;
+        }
+
+//        System.out.println("count: " + count);
+//        System.out.println("String length: " + resultString.length());
+
+        int[] answer = new int[count];
+        String[] resultArray = resultString.split(",");
+
+        for (int i = 0; i < resultArray.length; i++) {
+            answer[i] = Integer.valueOf(resultArray[i]);
+        }
+
+        return answer;
+    }
 
 }
