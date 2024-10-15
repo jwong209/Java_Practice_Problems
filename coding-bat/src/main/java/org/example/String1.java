@@ -47,17 +47,29 @@ public class String1 {
 //        System.out.println("left2: " + string1.left2("Hello"));
 //        System.out.println("left2: " + string1.left2("java"));
 //        System.out.println("left2: " + string1.left2("Hi"));
-//
-        System.out.println("right2: " + string1.right2("Hello"));
-        System.out.println("right2: " + string1.right2("java"));
-        System.out.println("right2: " + string1.right2("Hi"));
-//
-//        System.out.println("theEnd: ");
-//
-//        System.out.println("withoutEnd2: ");
-//        System.out.println("middleTwo: ");
-//        System.out.println("endsLy: ");
+
+//        System.out.println("right2: " + string1.right2("Hello"));
+//        System.out.println("right2: " + string1.right2("java"));
+//        System.out.println("right2: " + string1.right2("Hi"));
+
+//        System.out.println("theEnd: " + string1.theEnd("Hello", true));
+//        System.out.println("theEnd: " + string1.theEnd("Hello", false));
+//        System.out.println("theEnd: " + string1.theEnd("oh", true));
+
+//        System.out.println("withoutEnd2: " + string1.withoutEnd("Hello"));
+//        System.out.println("withoutEnd2: " + string1.withoutEnd("abc"));
+//        System.out.println("withoutEnd2: " + string1.withoutEnd("ab"));
+
+//        System.out.println("middleTwo: " + string1.middleTwo("string"));
+//        System.out.println("middleTwo: " + string1.middleTwo("code"));
+//        System.out.println("middleTwo: " + string1.middleTwo("Practice"));
+
+//        System.out.println("endsLy: " + string1.endsLy("oddly"));
+//        System.out.println("endsLy: " + string1.endsLy("y"));
+//        System.out.println("endsLy: " + string1.endsLy("oddy"));
+
 //        System.out.println("nTwice: ");
+
 //        System.out.println("twoChar: ");
 
     }
@@ -226,6 +238,13 @@ public class String1 {
         theEnd("Hello", false) → "o"
         theEnd("oh", true) → "o"
     */
+     public String theEnd(String str, boolean front) {
+         if (front) {
+             return str.substring(0, 1);
+         } else {
+             return str.substring(str.length() - 1);
+         }
+     }
 
      /* >>> withoutEnd2 <<<
         Given a string, return a version without both the first and last char of the string. The string may be any length, including 0.
@@ -234,6 +253,14 @@ public class String1 {
         withoutEnd2("abc") → "b"
         withoutEnd2("ab") → ""
     */
+     public String withouEnd2(String str) {
+         if (str.length() < 3) {
+             return "";
+         }
+         String firstPass = str.substring(1);
+         String secondPass = firstPass.substring(0, firstPass.length() - 1);
+         return secondPass;
+     }
 
      /* >>> middleTwo <<<
         Given a string of even length, return a string made of the middle two chars, so the string "string" yields "ri". The string length will be at least 2.
@@ -242,6 +269,12 @@ public class String1 {
         middleTwo("code") → "od"
         middleTwo("Practice") → "ct"
     */
+     public String middleTwo(String str) {
+         if (str.length() == 2) {
+             return str;
+         }
+         return str.substring((str.length() / 2) -1, (str.length() / 2) + 1);
+     }
 
      /* >>> endsLy <<<
         Given a string, return true if it ends in "ly".
@@ -250,6 +283,9 @@ public class String1 {
         endsLy("y") → false
         endsLy("oddy") → false
     */
+     public boolean endsLy(String str) {
+         return str.endsWith("ly");
+     }
 
      /* >>> nTwice <<<
         Given a string and an int n, return a string made of the first and last n chars from the string. The string length will be at least n.
