@@ -68,9 +68,21 @@ public class String1 {
 //        System.out.println("endsLy: " + string1.endsLy("y"));
 //        System.out.println("endsLy: " + string1.endsLy("oddy"));
 
-//        System.out.println("nTwice: ");
+//        System.out.println("nTwice: " + string1.nTwice("Hello", 2));
+//        System.out.println("nTwice: " + string1.nTwice("Chocolate", 3));
+//        System.out.println("nTwice: " + string1.nTwice("Chocolate", 1));
 
-//        System.out.println("twoChar: ");
+//        System.out.println("twoChar: " + string1.twoChar("java", 0));
+//        System.out.println("twoChar: " + string1.twoChar("java", 2));
+//        System.out.println("twoChar: " + string1.twoChar("java", 3));
+
+//        System.out.println("middleThree: " + string1.middleThree("Candy"));
+//        System.out.println("middleThree: " + string1.middleThree("and"));
+//        System.out.println("middleThree: " + string1.middleThree("solving"));
+
+//        System.out.println("hasBad: " + string1.hasBad("badxx"));
+//        System.out.println("hasBad: " + string1.hasBad("xbadxx"));
+//        System.out.println("hasBad: " + string1.hasBad("xxbadxx"));
 
     }
 
@@ -294,6 +306,11 @@ public class String1 {
         nTwice("Chocolate", 3) → "Choate"
         nTwice("Chocolate", 1) → "Ce"
     */
+    public String nTwice(String str, int n) {
+        String subFront = str.substring(0, n);
+        String subEnd = str.substring(str.length() - n);
+        return subFront + subEnd;
+    }
 
      /* >>> twoChar <<<
         Given a string and an index, return a string length 2 starting at the given index. If the index is too big or too small to define a string length 2, use the first 2 chars. The string length will be at least 2.
@@ -302,6 +319,19 @@ public class String1 {
         twoChar("java", 2) → "va"
         twoChar("java", 3) → "ja"
     */
+     public String twoChar(String str, int index) {
+         String substring = "";
+
+         if (index > str.length() - 2 || index < 0) {
+             substring = str.substring(0, 2);
+         } else if (index == str.length() -2) {
+             substring = str.substring(str.length() - 2);
+         } else {
+             substring = str.substring(index, index + 2);
+         }
+
+         return substring;
+     }
 
     /* >>> middleThree <<<
         Given a string of odd length, return the string length 3 from its middle, so "Candy" yields "and". The string length will be at least 3.
@@ -310,6 +340,12 @@ public class String1 {
         middleThree("and") → "and"
         middleThree("solving") → "lvi"
      */
+    public String middleThree(String str) {
+        if (str.length() < 4) {
+            return str;
+        }
+        return str.substring((str.length() / 2) - 1, (str.length() / 2) + 2);
+    }
 
     /* >>> hasBad <<<
         Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with "badxxx" or "xbadxx" but not "xxbadxx". The string may be any length, including 0. Note: use .equals() to compare 2 strings.
@@ -318,6 +354,27 @@ public class String1 {
         hasBad("xbadxx") → true
         hasBad("xxbadxx") → false
      */
+    public boolean hasBad(String str) {
+        if (str.length() < 3) {
+            return false;
+        }
+
+        if (str.length() == 3) {
+            if (str.equals("bad")) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+
+        if (str.substring(0, 3).equals("bad")) {
+            return true;
+        } else if (str.substring(1, 4).equals("bad")) {
+            return true;
+        }
+        return false;
+    }
+
 
     /* >>> atFirst <<<
         Given a string, return a string length 2 made of its first 2 chars. If the string length is less than 2, use '@' for the missing chars.
