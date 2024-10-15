@@ -32,25 +32,33 @@ public class String1 {
 //        System.out.println("firstHalf: " + string1.firstHalf("HelloThere"));
 //        System.out.println("firstHalf: " + string1.firstHalf("abcdefg"));
 
-        System.out.println("withoutEnd: " + string1.withoutEnd("Hello"));
-        System.out.println("withoutEnd: " + string1.withoutEnd("java"));
-        System.out.println("withoutEnd: " + string1.withoutEnd("coding"));
+//        System.out.println("withoutEnd: " + string1.withoutEnd("Hello"));
+//        System.out.println("withoutEnd: " + string1.withoutEnd("java"));
+//        System.out.println("withoutEnd: " + string1.withoutEnd("coding"));
 
-        System.out.println("comboString: ");
+//        System.out.println("comboString: " + string1.comboString("Hello", "hi"));
+//        System.out.println("comboString: " + string1.comboString("hi", "Hello"));
+//        System.out.println("comboString: " + string1.comboString("aaa", "b"));
 
-        System.out.println("nonStart: ");
+//        System.out.println("nonStart: " + string1.nonStart("Hello", "There"));
+//        System.out.println("nonStart: " + string1.nonStart("java", "code"));
+//        System.out.println("nonStart: " + string1.nonStart("shotl", "java"));
 
-        System.out.println("left2: ");
-
-        System.out.println("right2: ");
-
-        System.out.println("theEnd: ");
-
-        System.out.println("withoutEnd2: ");
-        System.out.println("middleTwo: ");
-        System.out.println("endsLy: ");
-        System.out.println("nTwice: ");
-        System.out.println("twoChar: ");
+//        System.out.println("left2: " + string1.left2("Hello"));
+//        System.out.println("left2: " + string1.left2("java"));
+//        System.out.println("left2: " + string1.left2("Hi"));
+//
+        System.out.println("right2: " + string1.right2("Hello"));
+        System.out.println("right2: " + string1.right2("java"));
+        System.out.println("right2: " + string1.right2("Hi"));
+//
+//        System.out.println("theEnd: ");
+//
+//        System.out.println("withoutEnd2: ");
+//        System.out.println("middleTwo: ");
+//        System.out.println("endsLy: ");
+//        System.out.println("nTwice: ");
+//        System.out.println("twoChar: ");
 
     }
 
@@ -157,6 +165,12 @@ public class String1 {
         comboString("hi", "Hello") → "hiHellohi"
         comboString("aaa", "b") → "baaab"
     */
+    public String comboString(String a, String b) {
+        if (a.length() > b.length()) {
+            return b + a + b;
+        }
+        return a + b + a;
+    }
 
      /* >>> nonStart <<<
         Given 2 strings, return their concatenation, except omit the first char of each. The strings will be at least length 1.
@@ -165,6 +179,11 @@ public class String1 {
         nonStart("java", "code") → "avaode"
         nonStart("shotl", "java") → "hotlava"
     */
+    public String nonStart(String a, String b) {
+        String aString = a.substring(1);
+        String bString = b.substring(1);
+        return aString + bString;
+    }
 
      /* >>> left2 <<<
         Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end. The string length will be at least 2.
@@ -173,6 +192,16 @@ public class String1 {
         left2("java") → "vaja"
         left2("Hi") → "Hi"
     */
+    public String left2(String str) {
+        if (str.length() < 2) {
+            return str;
+        }
+
+        String subEnd = str.substring(2);
+        String subStart = str. substring(0, 2);
+
+        return subEnd + subStart;
+    }
 
      /* >>> right2 <<<
         Given a string, return a "rotated right 2" version where the last 2 chars are moved to the start. The string length will be at least 2.
@@ -181,6 +210,14 @@ public class String1 {
         right2("java") → "vaja"
         right2("Hi") → "Hi"
     */
+    public String right2(String str) {
+        if (str.length() < 3) {
+            return str;
+        }
+        String rightTwo = str.substring(str.length() - 2);
+        String left = str.substring(0, str.length() -2);
+        return rightTwo + left;
+    }
 
      /* >>> theEnd <<<
         Given a string, return a string length 1 from its front, unless front is false, in which case return a string length 1 from its back. The string will be non-empty.
