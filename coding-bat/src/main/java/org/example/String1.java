@@ -84,6 +84,22 @@ public class String1 {
 //        System.out.println("hasBad: " + string1.hasBad("xbadxx"));
 //        System.out.println("hasBad: " + string1.hasBad("xxbadxx"));
 
+//        System.out.println("atFirst: " + string1.atFirst("he"));
+//        System.out.println("atFirst: " + string1.atFirst("hi"));
+//        System.out.println("atFirst: " + string1.atFirst("h"));
+
+//        System.out.println("lastChar: " + string1.lastChars("last", "chars"));
+//        System.out.println("lastChar: " + string1.lastChars("yo", "java"));
+//        System.out.println("lastChar: " + string1.lastChars("hi", ""));
+
+//        System.out.println("conCat: " + string1.conCat("abc", "cat"));
+//        System.out.println("conCat: " + string1.conCat("dog", "cat"));
+//        System.out.println("conCat: " + string1.conCat("abc", ""));
+
+        System.out.println("lastTwo: " + string1.lastTwo("coding"));
+        System.out.println("lastTwo: " + string1.lastTwo("cat"));
+        System.out.println("lastTwo: " + string1.lastTwo("ab"));
+
     }
 
     /* >>> helloName <<<
@@ -320,17 +336,25 @@ public class String1 {
         twoChar("java", 3) → "ja"
     */
      public String twoChar(String str, int index) {
-         String substring = "";
+//         String substring = "";
+//
+//         if (index > str.length() - 2 || index < 0) {
+//             substring = str.substring(0, 2);
+//         } else if (index == str.length() -2) {
+//             substring = str.substring(str.length() - 2);
+//         } else {
+//             substring = str.substring(index, index + 2);
+//         }
+//
+//         return substring;
 
-         if (index > str.length() - 2 || index < 0) {
-             substring = str.substring(0, 2);
-         } else if (index == str.length() -2) {
-             substring = str.substring(str.length() - 2);
+         if (index >= 0 && index <= str.length() - 2) {
+             // Extract 2 characters starting at the given index
+             return str.substring(index, index + 2);
          } else {
-             substring = str.substring(index, index + 2);
+             // Default to the first 2 characters
+             return str.substring(0, 2);
          }
-
-         return substring;
      }
 
     /* >>> middleThree <<<
@@ -383,6 +407,17 @@ public class String1 {
         atFirst("hi") → "hi"
         atFirst("h") → "h@"
      */
+    public String atFirst(String str) {
+        if (str.length() == 0) {
+            return "@@";
+        }
+        if (str.length() < 2) {
+            return str + "@";
+        }
+
+        String substring = str.substring(0, 2);
+        return substring;
+    }
 
     /* >>> lastChars <<<
         Given 2 strings, a and b, return a new string made of the first char of a and the last char of b, so "yo" and "java" yields "ya". If either string is length 0, use '@' for its missing char.
@@ -391,6 +426,23 @@ public class String1 {
         lastChars("yo", "java") → "ya"
         lastChars("hi", "") → "h@"
      */
+    public String lastChars(String a, String b) {
+        String first = "";
+        String last = "";
+
+        if (a.length() == 0) {
+            first = "@";
+        } else {
+            first = a.substring(0, 1);
+        }
+        if (b.length() == 0) {
+            last = "@";
+        } else {
+            last = b.substring(b.length() - 1);
+        }
+
+        return first + last;
+    }
 
     /* >>> conCat <<<
         Given two strings, append them together (known as "concatenation") and return the result. However, if the concatenation creates a double-char, then omit one of the chars, so "abc" and "cat" yields "abcat".
@@ -399,6 +451,19 @@ public class String1 {
         conCat("dog", "cat") → "dogcat"
         conCat("abc", "") → "abc"
      */
+    public String conCat(String a, String b) {
+        if (a.length() == 0) {
+            return b;
+        }
+        if (b.length() == 0) {
+            return a;
+        }
+        if (b.substring(0, 1).equals(a.substring(a.length() -1))) {
+            return a + b.substring(1);
+        } else {
+            return a + b;
+        }
+    }
 
     /* >>> lastTwo <<<
         Given a string of any length, return a new string where the last 2 chars, if present, are swapped, so "coding" yields "codign".
@@ -407,6 +472,17 @@ public class String1 {
         lastTwo("cat") → "cta"
         lastTwo("ab") → "ba"
      */
+    public String lastTwo(String str) {
+        if (str.length() < 2) {
+            return str;
+        }
+
+        String substring = str.substring(0, str.length() - 2);
+        String secondFromLast = Character.toString(str.charAt(str.length() - 2));
+        String lastChar = Character.toString(str.charAt(str.length() - 1));
+
+        return substring + lastChar + secondFromLast;
+    }
 
     /* >>> seeColor <<<
         Given a string, if the string begins with "red" or "blue" return that color string, otherwise return the empty string.
