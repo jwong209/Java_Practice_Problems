@@ -96,9 +96,33 @@ public class String1 {
 //        System.out.println("conCat: " + string1.conCat("dog", "cat"));
 //        System.out.println("conCat: " + string1.conCat("abc", ""));
 
-        System.out.println("lastTwo: " + string1.lastTwo("coding"));
-        System.out.println("lastTwo: " + string1.lastTwo("cat"));
-        System.out.println("lastTwo: " + string1.lastTwo("ab"));
+//        System.out.println("lastTwo: " + string1.lastTwo("coding"));
+//        System.out.println("lastTwo: " + string1.lastTwo("cat"));
+//        System.out.println("lastTwo: " + string1.lastTwo("ab"));
+
+//        System.out.println("seeColor: " + string1.seeColor("redxx"));
+//        System.out.println("seeColor: " + string1.seeColor("xxred"));
+//        System.out.println("seeColor: " + string1.seeColor("blueTimes"));
+
+//        System.out.println("frontAgain: " + string1.frontAgain("edited"));
+//        System.out.println("frontAgain: " + string1.frontAgain("edit"));
+//        System.out.println("frontAgain: " + string1.frontAgain("ed"));
+
+//        System.out.println("minCat: " + string1.minCat("Hello", "Hi"));
+//        System.out.println("minCat: " + string1.minCat("Hello", "java"));
+//        System.out.println("minCat: " + string1.minCat("java", "Hello"));
+
+//        System.out.println("extraFront: " + string1.extraFront("Hello"));
+//        System.out.println("extraFront: " + string1.extraFront("ab"));
+//        System.out.println("extraFront: " + string1.extraFront("H"));
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
+
+        System.out.println();
 
     }
 
@@ -491,6 +515,15 @@ public class String1 {
         seeColor("xxred") → ""
         seeColor("blueTimes") → "blue"
      */
+    public String seeColor(String str) {
+        if (str.startsWith("red")) {
+            return "red";
+        } else if (str.startsWith("blue")) {
+            return "blue";
+        } else {
+            return "";
+        }
+    }
 
     /* >>> frontAgain <<<
         Given a string, return true if the first 2 chars in the string also appear at the end of the string, such as with "edited".
@@ -499,6 +532,16 @@ public class String1 {
         frontAgain("edit") → false
         frontAgain("ed") → true
      */
+    public boolean frontAgain(String str) {
+        if (str.length() < 2) {
+            return false;
+        }
+
+        String frontSubstring = str.substring(0, 2);
+        String backSubstring = str.substring(str.length() -2);
+
+        return frontSubstring.equals(backSubstring);
+    }
 
     /* >>> minCat <<<
         Given two strings, append them together (known as "concatenation") and return the result. However, if the strings are different lengths, omit chars from the longer string so it is the same length as the shorter string. So "Hello" and "Hi" yield "loHi". The strings may be any length.
@@ -507,6 +550,21 @@ public class String1 {
         minCat("Hello", "java") → "ellojava"
         minCat("java", "Hello") → "javaello"
      */
+    public String minCat(String a, String b) {
+        String aSubstring = "";
+        String bSubstring = "";
+
+        if (a.length() < b.length()) {
+            aSubstring = a;
+            bSubstring = b.substring(b.length() - a.length());
+        }
+        if (b.length() < a.length()) {
+            bSubstring = b;
+            aSubstring = a.substring(a.length() - b.length());
+        }
+
+        return aSubstring + bSubstring;
+    }
 
     /* >>> extraFront <<<
         Given a string, return a new string made of 3 copies of the first 2 chars of the original string. The string may be any length. If there are fewer than 2 chars, use whatever is there.
@@ -515,6 +573,16 @@ public class String1 {
         extraFront("ab") → "ababab"
         extraFront("H") → "HHH"
      */
+    public String extraFront(String str) {
+        if (str.length() < 2) {
+            return str + str + str;
+        }
+
+        String substring = str.substring(0, 2);
+
+        // return substring.repeat(3);
+        return substring + substring + substring;
+    }
 
     /* >>> without2 <<<
         Given a string, if a length 2 substring appears at both its beginning and end, return a string without the substring at the beginning, so "HelloHe" yields "lloHe". The substring may overlap with itself, so "Hi" yields "". Otherwise, return the original string unchanged.
