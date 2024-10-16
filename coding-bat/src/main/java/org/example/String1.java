@@ -116,13 +116,25 @@ public class String1 {
 //        System.out.println("extraFront: " + string1.extraFront("ab"));
 //        System.out.println("extraFront: " + string1.extraFront("H"));
 
-        System.out.println();
+//        System.out.println("without2: " + string1.without2("HelloHe"));
+//        System.out.println("without2: " + string1.without2("HelloHi"));
+//        System.out.println("without2: " + string1.without2("Hi"));
 
-        System.out.println();
+//        System.out.println("deFront: " + string1.deFront("Hello"));
+//        System.out.println("deFront: " + string1.deFront("java"));
+//        System.out.println("deFront: " + string1.deFront("away"));
 
-        System.out.println();
+//        System.out.println("startWord: " + string1.startWord("hippo", "hi"));
+//        System.out.println("startWord: " + string1.startWord("hippo", "xip"));
+//        System.out.println("startWord: " + string1.startWord("hippo", "i"));
 
-        System.out.println();
+//        System.out.println("withoutX: " + string1.withoutX("xHix"));
+//        System.out.println("withoutX: " + string1.withoutX("xHi"));
+//        System.out.println("withoutX: " + string1.withoutX("Hxix"));
+
+//        System.out.println("withoutX2: " + string1.withoutX2("xHi"));
+//        System.out.println("withoutX2: " + string1.withoutX2("Hxi"));
+//        System.out.println("withoutX2: " + string1.withoutX2("Hi"));
 
     }
 
@@ -591,6 +603,21 @@ public class String1 {
         without2("HelloHi") → "HelloHi"
         without2("Hi") → ""
      */
+    public String without2(String str) {
+        if (str.length() == 1) {
+            return str;
+        }
+        if (str.length() < 2) {
+            return "";
+        }
+
+        String substring = str.substring(str.length() - 2);
+        if (str.substring(0, 2).equals(substring)) {
+            return str.substring(2);
+        } else {
+            return str;
+        }
+    }
 
     /* >>> deFront <<<
         Given a string, return a version without the first 2 chars. Except keep the first char if it is 'a' and keep the second char if it is 'b'. The string may be any length. Harder than it looks.
@@ -599,6 +626,19 @@ public class String1 {
         deFront("java") → "va"
         deFront("away") → "aay"
      */
+    public String deFront(String str) {
+        String answer = "";
+
+        if (str.substring(0, 1).equals("a")) {
+            answer += "a";
+        }
+        if (str.substring(1, 2).equals("b")) {
+            answer += "b";
+        }
+
+        answer += str.substring(2);
+        return answer;
+    }
 
     /* >>> startWord <<<
         Given a string and a second "word" string, we'll say that the word matches the string if it appears at the front of the string, except its first char does not need to match exactly. On a match, return the front of the string, or otherwise return the empty string. So, so with the string "hippo" the word "hi" returns "hi" and "xip" returns "hip". The word will be at least length 1.
@@ -607,6 +647,23 @@ public class String1 {
         startWord("hippo", "xip") → "hip"
         startWord("hippo", "i") → "h"
      */
+    public String startWord(String str, String word) {
+        if (word.length() > str.length()) {
+            return "";
+        }
+
+        if (word.length() == 1) {
+            return Character.toString(str.charAt(0));
+        }
+
+        String wordSubstring = word.substring(1);
+        String strSubstring = str.substring(1, word.length());
+
+        if (strSubstring.equals(wordSubstring)) {
+            return str.substring(0, word.length());
+        }
+        return "";
+    }
 
     /* >>> withoutX <<<
         Given a string, if the first or last chars are 'x', return the string without those 'x' chars, and otherwise return the string unchanged.
@@ -615,6 +672,18 @@ public class String1 {
         withoutX("xHi") → "Hi"
         withoutX("Hxix") → "Hxi"
      */
+    public String withoutX(String str) {
+        String answer = "";
+
+        for (int i = 0; i < str.length(); i++) {
+            if (str.charAt(i) == 'x' && (i == 0 || i == str.length() - 1)) {
+                continue;
+            }
+            answer += Character.toString(str.charAt(i));
+        }
+
+        return answer;
+    }
 
     /* >>> withoutX2 <<<
         Given a string, if one or both of the first 2 chars is 'x', return the string without those 'x' chars, and otherwise return the string unchanged. This is a little harder than it looks.
@@ -623,5 +692,23 @@ public class String1 {
         withoutX2("Hxi") → "Hi"
         withoutX2("Hi") → "Hi"
      */
+    public String withoutX2(String str) {
+        if (str.length() == 0) {
+            return "";
+        }
+        if (str.length() < 3) {
+            if (str.contains("x")) {
+                return str.replace("x", "");
+            }
+        }
 
+        String substring = str.substring(0,2);
+        String restOfString = str.substring(2);
+
+        if (substring.contains("x")) {
+            return substring.replace("x", "") + restOfString;
+        }
+
+        return str;
+    }
 }
