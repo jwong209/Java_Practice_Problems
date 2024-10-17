@@ -48,17 +48,23 @@ public class Array1 {
 //        System.out.println("makeEnds: " + Arrays.toString(array1.makeEnds(new int[]{1, 2, 3, 4})));
 //        System.out.println("makeEnds: " + Arrays.toString(array1.makeEnds(new int[]{7, 4, 6, 2})));
 
-        System.out.println("");
+//        System.out.println("has23: " + array1.has23(new int[]{2, 5}));
+//        System.out.println("has23: " + array1.has23(new int[]{4, 3}));
+//        System.out.println("has23: " + array1.has23(new int[]{4, 5}));
 
-        System.out.println("");
+//        System.out.println("no23: " + array1.no23(new int[]{4, 5}));
+//        System.out.println("no23: " + array1.no23(new int[]{4, 2}));
+//        System.out.println("no23: " + array1.no23(new int[]{3, 5}));
 
-        System.out.println("");
+        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{4, 5, 6})));
+        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{1, 2})));
+        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{3})));
 
-        System.out.println("");
+        System.out.println("double23: ");
 
-        System.out.println("");
-        
-        System.out.println("");
+        System.out.println("fix23: ");
+
+        System.out.println("start1: ");
 
     }
 
@@ -134,7 +140,6 @@ public class Array1 {
          return sum;
      }
 
-
      /* >>> rotateLeft3 <<<
         Given an array of ints length 3, return an array with the elements "rotated left" so {1, 2, 3} yields {2, 3, 1}.
 
@@ -143,12 +148,19 @@ public class Array1 {
         rotateLeft3([7, 0, 0]) → [0, 0, 7]
     */
      public int[] rotateLeft3(int[] nums) {
-         int[] newArray = new int[nums.length];
-         for (int i = 1; i < nums.length; i++) {
-             newArray[i - 1] = nums[i];
-         }
-         newArray[newArray.length - 1] = nums[0];
-         return newArray;
+//         int[] newArray = new int[nums.length];
+//         for (int i = 1; i < nums.length; i++) {
+//             newArray[i - 1] = nums[i];
+//         }
+//         newArray[newArray.length - 1] = nums[0];
+//         return newArray;
+
+         int[] answer = new int[nums.length];
+         answer[0] = nums[1];
+         answer[1] = nums[2];
+         answer[2] = nums[0];
+
+         return answer;
      }
 
      /* >>> reverse3 <<<
@@ -174,21 +186,26 @@ public class Array1 {
         maxEnd3([2, 11, 3]) → [3, 3, 3]
     */
      public int[] maxEnd3(int[] nums) {
-         int[] answer = new int[nums.length];
-         int largest = -1000;
+//         int[] answer = new int[nums.length];
+//         int largest = -1000;
+//
+//         if (nums[0] >= nums[nums.length -1]) {
+//             largest = nums[0];
+//         } else if (nums[0] <= nums[nums.length -1]) {
+//             largest = nums[nums.length -1];
+//         }
+//         for (int i = 0; i < nums.length; i++) {
+//             answer[i] = largest;
+//         }
+//
+//         return answer;
 
-         if (nums[0] >= nums[nums.length -1]) {
-             largest = nums[0];
-         } else if (nums[0] <= nums[nums.length -1]) {
-             largest = nums[nums.length -1];
-         }
-         for (int i = 0; i < nums.length; i++) {
-             answer[i] = largest;
-         }
-
-         return answer;
+         int max = Math.max(nums[0], nums[2]);
+         nums[0] = max;
+         nums[1] = max;
+         nums[2] = max;
+         return nums;
      }
-
 
      /* >>> sum2 <<<
         Given an array of ints, return the sum of the first 2 elements in the array. If the array length is less than 2, just sum up the elements that exist, returning 0 if the array is length 0.
@@ -219,9 +236,14 @@ public class Array1 {
         middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
     */
      public int[] middleWay(int[] a, int[] b) {
+//         int[] answer = new int[2];
+//         answer[0] = a[a.length / 2];
+//         answer[1] = b[b.length / 2];
+//         return answer;
+
          int[] answer = new int[2];
-         answer[0] = a[a.length / 2];
-         answer[1] = b[b.length / 2];
+         answer[0] = a[1];
+         answer[1] = b[1];
          return answer;
      }
 
@@ -246,6 +268,12 @@ public class Array1 {
         has23([4, 3]) → true
         has23([4, 5]) → false
     */
+     public boolean has23(int[] nums) {
+         if (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3) {
+             return true;
+         }
+         return false;
+     }
 
      /* >>> no23 <<<
         Given an int array length 2, return true if it does not contain a 2 or 3.
@@ -254,6 +282,12 @@ public class Array1 {
         no23([4, 2]) → false
         no23([3, 5]) → false
     */
+     public boolean no23(int[] nums) {
+         if (nums[0] == 2 || nums[0] == 3 || nums[1] == 2 || nums[1] == 3) {
+             return false;
+         }
+         return true;
+     }
 
      /* >>> makeLast <<<
         Given an int array, return a new array with double the length where its last element is the same as the original array, and all the other elements are 0. The original array will be length 1 or more. Note: by default, a new int array contains all 0's.
@@ -262,6 +296,18 @@ public class Array1 {
         makeLast([1, 2]) → [0, 0, 0, 2]
         makeLast([3]) → [0, 3]
     */
+     public int[] makeLast(int[] nums) {
+//         int[] answer = new int[nums.length * 2];
+//         for (int i = 0; i < nums.length -1 ; i++) {
+//             answer[i] = 0;
+//         }
+//         answer[answer.length -1] = nums[nums.length -1];
+//         return answer;
+
+         int[] newArr = new int[nums.length * 2];
+         newArr[newArr.length - 1] = nums[nums.length - 1];
+         return newArr;
+     }
 
      /* >>> double23 <<<
         Given an int array, return true if the array contains 2 twice, or 3 twice. The array will be length 0, 1, or 2.
@@ -270,6 +316,17 @@ public class Array1 {
         double23([3, 3]) → true
         double23([2, 3]) → false
     */
+     public boolean double23(int[] nums) {
+         if (nums.length < 2) {
+             return false;
+         }
+
+         if ((nums[0] == 2 && nums[1] == 2) || (nums[0] == 3 && nums[1] == 3)) {
+             return true;
+         }
+
+         return false;
+     }
 
      /* >>> fix23 <<<
         Given an int array length 3, if there is a 2 in the array immediately followed by a 3, set the 3 element to 0. Return the changed array.
@@ -278,6 +335,18 @@ public class Array1 {
         fix23([2, 3, 5]) → [2, 0, 5]
         fix23([1, 2, 1]) → [1, 2, 1]
     */
+     public int[] fix23(int[] nums) {
+         int[] answer = new int[nums.length];
+         for (int i = 1; i < nums.length; i++) {
+             answer[0] = nums[0];
+             if (nums[i] == 3 && nums[i - 1] == 2) {
+                 answer[i] = 0;
+             } else {
+                 answer[i] = nums[i];
+             }
+         }
+         return answer;
+     }
 
      /* >>> start1 <<<
         Start with 2 int arrays, a and b, of any length. Return how many of the arrays have 1 as their first element.
@@ -286,6 +355,34 @@ public class Array1 {
         start1([7, 2, 3], [1]) → 1
         start1([1, 2], []) → 1
     */
+     public int start1(int[] a, int[] b) {
+         int aCount = 0;
+         int bCount = 0;
+         if (a.length == 0 && b.length == 0) {
+             return 0;
+         }
+         //if a[] is empty
+         if (a.length == 0) {
+             if (b[0] == 1) {
+                 return 1;
+             }
+         }
+         //if b[] is empty
+         if (b.length == 0) {
+             if (a[0] == 1) {
+                 return 1;
+             }
+         }
+         if (a.length > 0 && b.length > 0) {
+             if (a[0] == 1) {
+                 aCount++;
+             }
+             if (b[0] == 1) {
+                 bCount++;
+             }
+         }
+         return aCount + bCount;
+     }
 
      /* >>> biggerTwo <<<
         Start with 2 int arrays, a and b, each length 2. Consider the sum of the values in each array. Return the array which has the largest sum. In event of a tie, return a.
