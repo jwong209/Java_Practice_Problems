@@ -610,22 +610,37 @@ public class Array1 {
         make2([], [1, 2]) → [1, 2]
     */
      public int[] make2(int[] a, int[] b) {
-         int[] answer = new int[2];
-         if (a.length == 0) {
-             for (int i = 0; i < 2; i++) {
-                 answer[i] = b[i];
-             }
-             return answer;
+//         int[] answer = new int[2];
+//         if (a.length == 0) {
+//             for (int i = 0; i < 2; i++) {
+//                 answer[i] = b[i];
+//             }
+//             return answer;
+//         }
+//         if (a.length == 1) {
+//             answer[0] = a[0];
+//             answer[1] = b[0];
+//             return answer;
+//         }
+//         for (int i = 0; i < 2; i ++) {
+//             answer[i] = a[i];
+//         }
+//         return answer;
+
+         int[] result = new int[2]; // Create an array of length 2
+         int index = 0;
+
+         // Add elements from array a
+         for (int i = 0; i < a.length && index < 2; i++) {
+             result[index++] = a[i];
          }
-         if (a.length == 1) {
-             answer[0] = a[0];
-             answer[1] = b[0];
-             return answer;
+
+         // Add elements from array b if needed
+         for (int i = 0; i < b.length && index < 2; i++) {
+             result[index++] = b[i];
          }
-         for (int i = 0; i < 2; i ++) {
-             answer[i] = a[i];
-         }
-         return answer;
+
+         return result;
      }
 
      /* >>> front11 <<<
