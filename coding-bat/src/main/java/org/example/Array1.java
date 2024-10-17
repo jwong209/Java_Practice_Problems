@@ -56,15 +56,21 @@ public class Array1 {
 //        System.out.println("no23: " + array1.no23(new int[]{4, 2}));
 //        System.out.println("no23: " + array1.no23(new int[]{3, 5}));
 
-        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{4, 5, 6})));
-        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{1, 2})));
-        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{3})));
+//        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{4, 5, 6})));
+//        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{1, 2})));
+//        System.out.println("makeLast: " + Arrays.toString(array1.makeLast(new int[]{3})));
 
-        System.out.println("double23: ");
+//        System.out.println("double23: " + array1.double23(new int[]{2, 2}));
+//        System.out.println("double23: " + array1.double23(new int[]{3, 3}));
+//        System.out.println("double23: " + array1.double23(new int[]{2, 3}));
 
-        System.out.println("fix23: ");
+//        System.out.println("fix23: " + Arrays.toString(array1.fix23(new int[]{1, 2, 3})));
+//        System.out.println("fix23: " + Arrays.toString(array1.fix23(new int[]{2, 3, 5})));
+//        System.out.println("fix23: " + Arrays.toString(array1.fix23(new int[]{1, 2, 1})));
 
-        System.out.println("start1: ");
+        System.out.println("start1: " + array1.start1(new int[]{1, 2, 3}, new int[]{1, 3}));
+//        System.out.println("start1: " + array1.start1(new int[]{7, 2, 3}, new int[]{1}));
+//        System.out.println("start1: " + array1.start1(new int[]{1, 2}, new int[]{}));
 
     }
 
@@ -320,11 +326,9 @@ public class Array1 {
          if (nums.length < 2) {
              return false;
          }
-
          if ((nums[0] == 2 && nums[1] == 2) || (nums[0] == 3 && nums[1] == 3)) {
              return true;
          }
-
          return false;
      }
 
@@ -336,16 +340,24 @@ public class Array1 {
         fix23([1, 2, 1]) → [1, 2, 1]
     */
      public int[] fix23(int[] nums) {
-         int[] answer = new int[nums.length];
-         for (int i = 1; i < nums.length; i++) {
-             answer[0] = nums[0];
-             if (nums[i] == 3 && nums[i - 1] == 2) {
-                 answer[i] = 0;
-             } else {
-                 answer[i] = nums[i];
-             }
+//         int[] answer = new int[nums.length];
+//         for (int i = 1; i < nums.length; i++) {
+//             answer[0] = nums[0];
+//             if (nums[i] == 3 && nums[i - 1] == 2) {
+//                 answer[i] = 0;
+//             } else {
+//                 answer[i] = nums[i];
+//             }
+//         }
+//         return answer;
+
+         if (nums[0] == 2 && nums[1] == 3) {
+             nums[1] = 0;
          }
-         return answer;
+         if (nums[1] == 2 && nums[2] == 3) {
+             nums[2] = 0;
+         }
+         return nums;
      }
 
      /* >>> start1 <<<
@@ -356,32 +368,41 @@ public class Array1 {
         start1([1, 2], []) → 1
     */
      public int start1(int[] a, int[] b) {
-         int aCount = 0;
-         int bCount = 0;
-         if (a.length == 0 && b.length == 0) {
-             return 0;
+//         int aCount = 0;
+//         int bCount = 0;
+//         if (a.length == 0 && b.length == 0) {
+//             return 0;
+//         }
+//         //if a[] is empty
+//         if (a.length == 0) {
+//             if (b[0] == 1) {
+//                 return 1;
+//             }
+//         }
+//         //if b[] is empty
+//         if (b.length == 0) {
+//             if (a[0] == 1) {
+//                 return 1;
+//             }
+//         }
+//         if (a.length > 0 && b.length > 0) {
+//             if (a[0] == 1) {
+//                 aCount++;
+//             }
+//             if (b[0] == 1) {
+//                 bCount++;
+//             }
+//         }
+//         return aCount + bCount;
+
+         int count = 0;
+         if (a.length > 0 && a[0] == 1) {
+             count++;
          }
-         //if a[] is empty
-         if (a.length == 0) {
-             if (b[0] == 1) {
-                 return 1;
-             }
+         if (b.length > 0 && b[0] == 1) {
+             count++;
          }
-         //if b[] is empty
-         if (b.length == 0) {
-             if (a[0] == 1) {
-                 return 1;
-             }
-         }
-         if (a.length > 0 && b.length > 0) {
-             if (a[0] == 1) {
-                 aCount++;
-             }
-             if (b[0] == 1) {
-                 bCount++;
-             }
-         }
-         return aCount + bCount;
+         return count;
      }
 
      /* >>> biggerTwo <<<
