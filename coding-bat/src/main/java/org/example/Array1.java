@@ -24,7 +24,29 @@ public class Array1 {
 //        System.out.println("sum3: " + array1.sum3(new int[]{5, 11, 2}));
 //        System.out.println("sum3: " + array1.sum3(new int[]{7, 0, 0}));
 
-        System.out.println("");
+//        System.out.println("rotateLeft3: " + Arrays.toString(array1.rotateLeft3(new int[]{1, 2, 3})));
+//        System.out.println("rotateLeft3: " + Arrays.toString(array1.rotateLeft3(new int[]{5, 11, 9})));
+//        System.out.println("rotateLeft3: " + Arrays.toString(array1.rotateLeft3(new int[]{7, 0, 0})));
+
+//        System.out.println("reverse3: " + Arrays.toString(array1.reverse3(new int[]{1, 2, 3})));
+//        System.out.println("reverse3: " + Arrays.toString(array1.reverse3(new int[]{5, 11, 9})));
+//        System.out.println("reverse3: " + Arrays.toString(array1.reverse3(new int[]{7, 0, 0})));
+
+//        System.out.println("maxEnd3: " + Arrays.toString(array1.maxEnd3(new int[]{1, 2, 3})));
+//        System.out.println("maxEnd3: " + Arrays.toString(array1.maxEnd3(new int[]{11, 5, 9})));
+//        System.out.println("maxEnd3: " + Arrays.toString(array1.maxEnd3(new int[]{2, 11, 3})));
+
+//        System.out.println("sum2: " + array1.sum2(new int[]{1, 2, 3}));
+//        System.out.println("sum2: " + array1.sum2(new int[]{1, 1}));
+//        System.out.println("sum2: " + array1.sum2(new int[]{1, 1, 1, 1}));
+
+//        System.out.println("middleWay: " + Arrays.toString(array1.middleWay(new int[]{1, 2, 3}, new int[]{4, 5, 6})));
+//        System.out.println("middleWay: " + Arrays.toString(array1.middleWay(new int[]{7, 7, 7}, new int[]{3, 8,0})));
+//        System.out.println("middleWay: " + Arrays.toString(array1.middleWay(new int[]{5, 2, 9}, new int[]{1, 4, 5})));
+
+//        System.out.println("makeEnds: " + Arrays.toString(array1.makeEnds(new int[]{1, 2, 3})));
+//        System.out.println("makeEnds: " + Arrays.toString(array1.makeEnds(new int[]{1, 2, 3, 4})));
+//        System.out.println("makeEnds: " + Arrays.toString(array1.makeEnds(new int[]{7, 4, 6, 2})));
 
         System.out.println("");
 
@@ -34,6 +56,8 @@ public class Array1 {
 
         System.out.println("");
 
+        System.out.println("");
+        
         System.out.println("");
 
     }
@@ -118,6 +142,14 @@ public class Array1 {
         rotateLeft3([5, 11, 9]) → [11, 9, 5]
         rotateLeft3([7, 0, 0]) → [0, 0, 7]
     */
+     public int[] rotateLeft3(int[] nums) {
+         int[] newArray = new int[nums.length];
+         for (int i = 1; i < nums.length; i++) {
+             newArray[i - 1] = nums[i];
+         }
+         newArray[newArray.length - 1] = nums[0];
+         return newArray;
+     }
 
      /* >>> reverse3 <<<
         Given an array of ints length 3, return a new array with the elements in reverse order, so {1, 2, 3} becomes {3, 2, 1}.
@@ -126,6 +158,13 @@ public class Array1 {
         reverse3([5, 11, 9]) → [9, 11, 5]
         reverse3([7, 0, 0]) → [0, 0, 7]
     */
+     public int[] reverse3(int[] nums) {
+         int[] answer = new int[nums.length];
+         for (int i = nums.length - 1; i >= 0; i--) {
+             answer[(nums.length - 1) - i] = nums[i];
+         }
+         return answer;
+     }
 
      /* >>> maxEnd3 <<<
         Given an array of ints length 3, figure out which is larger, the first or last element in the array, and set all the other elements to be that value. Return the changed array.
@@ -134,6 +173,22 @@ public class Array1 {
         maxEnd3([11, 5, 9]) → [11, 11, 11]
         maxEnd3([2, 11, 3]) → [3, 3, 3]
     */
+     public int[] maxEnd3(int[] nums) {
+         int[] answer = new int[nums.length];
+         int largest = -1000;
+
+         if (nums[0] >= nums[nums.length -1]) {
+             largest = nums[0];
+         } else if (nums[0] <= nums[nums.length -1]) {
+             largest = nums[nums.length -1];
+         }
+         for (int i = 0; i < nums.length; i++) {
+             answer[i] = largest;
+         }
+
+         return answer;
+     }
+
 
      /* >>> sum2 <<<
         Given an array of ints, return the sum of the first 2 elements in the array. If the array length is less than 2, just sum up the elements that exist, returning 0 if the array is length 0.
@@ -142,6 +197,19 @@ public class Array1 {
         sum2([1, 1]) → 2
         sum2([1, 1, 1, 1]) → 2
     */
+     public int sum2(int[] nums) {
+         int sum = 0;
+         if (nums.length == 0) {
+             return 0;
+         }
+         if (nums.length == 1) {
+             return nums[0];
+         }
+         for (int i = 0; i < 2; i++) {
+             sum += nums[i];
+         }
+         return sum;
+     }
 
      /* >>> middleWay <<<
         Given 2 int arrays, a and b, each length 3, return a new array length 2 containing their middle elements.
@@ -150,6 +218,12 @@ public class Array1 {
         middleWay([7, 7, 7], [3, 8, 0]) → [7, 8]
         middleWay([5, 2, 9], [1, 4, 5]) → [2, 4]
     */
+     public int[] middleWay(int[] a, int[] b) {
+         int[] answer = new int[2];
+         answer[0] = a[a.length / 2];
+         answer[1] = b[b.length / 2];
+         return answer;
+     }
 
      /* >>> makeEnds <<<
         Given an array of ints, return a new array length 2 containing the first and last elements from the original array. The original array will be length 1 or more.
@@ -158,6 +232,12 @@ public class Array1 {
         makeEnds([1, 2, 3, 4]) → [1, 4]
         makeEnds([7, 4, 6, 2]) → [7, 2]
     */
+     public int[] makeEnds(int[] nums) {
+         int[] answer = new int[2];
+         answer[0]= nums[0];
+         answer[1] = nums[nums.length -1];
+         return answer;
+     }
 
      /* >>> has23 <<<
         Given an int array length 2, return true if it contains a 2 or a 3.
