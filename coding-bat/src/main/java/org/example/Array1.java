@@ -92,7 +92,25 @@ public class Array1 {
 //        System.out.println("midThree: " + Arrays.toString(array1.midThree(new int[]{8, 6, 7, 5, 3, 0, 9})));
 //        System.out.println("midThree: " + Arrays.toString(array1.midThree(new int[]{1, 2, 3})));
 
-        System.out.println();
+//        System.out.println("maxTriple: " + array1.maxTriple(new int[]{1, 2, 3}));
+//        System.out.println("maxTriple: " + array1.maxTriple(new int[]{1, 5, 3}));
+//        System.out.println("maxTriple: " + array1.maxTriple(new int[]{5, 2, 3}));
+
+//        System.out.println("frontPiece: " + Arrays.toString(array1.frontPiece(new int[]{1, 2, 3})));
+//        System.out.println("frontPiece: " + Arrays.toString(array1.frontPiece(new int[]{1, 2})));
+//        System.out.println("frontPiece: " + Arrays.toString(array1.frontPiece(new int[]{1})));
+
+//        System.out.println("unlucky1: " + array1.unlucky1(new int[]{1, 3, 4, 5}));
+//        System.out.println("unlucky1: " + array1.unlucky1(new int[]{2, 1, 3, 4, 5}));
+//        System.out.println("unlucky1: " + array1.unlucky1(new int[]{1, 1, 1}));
+
+//        System.out.println("make2: " + Arrays.toString(array1.make2(new int[]{4, 5}, new int[]{1, 2, 3})));
+//        System.out.println("make2: " + Arrays.toString(array1.make2(new int[]{4}, new int[]{1, 2, 3})));
+//        System.out.println("make2: " + Arrays.toString(array1.make2(new int[]{1, 2}, new int[]{1, 2})));
+
+//        System.out.println("front11: " + Arrays.toString(array1.front11(new int[]{1, 2, 3}, new int[]{7, 9, 8})));
+//        System.out.println("front11: " + Arrays.toString(array1.front11(new int[]{1}, new int[]{2})));
+//        System.out.println("front11: " + Arrays.toString(array1.front11(new int[]{1, 7}, new int[]{})));
 
     }
 
@@ -491,13 +509,20 @@ public class Array1 {
         swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
     */
      public int[] swapEnds(int[] nums) {
-         int[] answer = new int[nums.length];
-         answer[0] = nums[nums.length - 1];
-         answer[answer.length - 1] = nums[0];
-         for (int i = 1; i < nums.length -1; i++) {
-             answer[i] = nums[i];
+//         int[] answer = new int[nums.length];
+//         answer[0] = nums[nums.length - 1];
+//         answer[answer.length - 1] = nums[0];
+//         for (int i = 1; i < nums.length -1; i++) {
+//             answer[i] = nums[i];
+//         }
+//         return answer;
+
+         if (nums.length > 1) {
+             int temp = nums[0];
+             nums[0] = nums[nums.length - 1];
+             nums[nums.length - 1] = temp;
          }
-         return answer;
+         return nums;
      }
 
      /* >>> midThree <<<
@@ -523,6 +548,20 @@ public class Array1 {
         maxTriple([1, 5, 3]) → 5
         maxTriple([5, 2, 3]) → 5
     */
+     public int maxTriple(int[] nums) {
+//         int largest = -10000;
+//
+//         for (int i = 0; i < nums.length; i += nums.length/2) {
+//             if (nums[i] > largest) {
+//                 largest = nums[i];
+//             }
+//         }
+//         return largest;
+
+         int middleIndex = nums.length / 2;
+         int max = Math.max(nums[0], Math.max(nums[middleIndex], nums[nums.length - 1]));
+         return max;
+     }
 
      /* >>> frontPiece <<<
         Given an int array of any length, return a new array of its first 2 elements. If the array is smaller than length 2, use whatever elements are present.
@@ -531,6 +570,13 @@ public class Array1 {
         frontPiece([1, 2]) → [1, 2]
         frontPiece([1]) → [1]
     */
+     public int[] frontPiece(int[] nums) {
+         if (nums.length < 2) {
+             return nums;
+         }
+         int[] answer = new int[]{nums[0], nums[1]};
+         return answer;
+     }
 
      /* >>> unlucky1 <<<
         We'll say that a 1 immediately followed by a 3 in an array is an "unlucky" 1. Return true if the given array contains an unlucky 1 in the first 2 or last 2 positions in the array.
@@ -539,6 +585,22 @@ public class Array1 {
         unlucky1([2, 1, 3, 4, 5]) → true
         unlucky1([1, 1, 1]) → false
     */
+     public boolean unlucky1(int[] nums) {
+         if (nums.length < 2) {
+             return false;
+         }
+         for (int i = 0; i < 2; i++) {
+             if (nums[i] == 1 && nums[i + 1] == 3) {
+                 return true;
+             }
+         }
+         for (int i = nums.length - 2; i < nums.length -1; i++) {
+             if (nums[i] == 1 && nums[i + 1] == 3) {
+                 return true;
+             }
+         }
+         return false;
+     }
 
      /* >>> make2 <<<
         Given 2 int arrays, a and b, return a new array length 2 containing, as much as will fit, the elements from a followed by the elements from b. The arrays may be any length, including 0, but there will be 2 or more elements available between the 2 arrays.
@@ -547,6 +609,24 @@ public class Array1 {
         make2([4], [1, 2, 3]) → [4, 1]
         make2([], [1, 2]) → [1, 2]
     */
+     public int[] make2(int[] a, int[] b) {
+         int[] answer = new int[2];
+         if (a.length == 0) {
+             for (int i = 0; i < 2; i++) {
+                 answer[i] = b[i];
+             }
+             return answer;
+         }
+         if (a.length == 1) {
+             answer[0] = a[0];
+             answer[1] = b[0];
+             return answer;
+         }
+         for (int i = 0; i < 2; i ++) {
+             answer[i] = a[i];
+         }
+         return answer;
+     }
 
      /* >>> front11 <<<
         Given 2 int arrays, a and b, of any length, return a new array with the first element of each array. If either array is length 0, ignore that array.
@@ -555,5 +635,25 @@ public class Array1 {
         front11([1], [2]) → [1, 2]
         front11([1, 7], []) → [1]
     */
+     public int[] front11(int[] a, int[] b) {
+         if (a.length == 0 && b.length == 0) {
+             int[] answer = new int[0];
+             return answer;
+         }
+         if (b.length == 0) {
+             int[] answer = new int[1];
+             answer[0] = a[0];
+             return answer;
+         }
+         if (a.length == 0) {
+             int[] answer = new int[1];
+             answer[0] = b[0];
+             return answer;
+         }
+         int[] answer = new int[2];
+         answer[0] = a[0];
+         answer[1] = b[0];
+         return answer;
+     }
 
 }
