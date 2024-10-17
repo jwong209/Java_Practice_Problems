@@ -68,9 +68,31 @@ public class Array1 {
 //        System.out.println("fix23: " + Arrays.toString(array1.fix23(new int[]{2, 3, 5})));
 //        System.out.println("fix23: " + Arrays.toString(array1.fix23(new int[]{1, 2, 1})));
 
-        System.out.println("start1: " + array1.start1(new int[]{1, 2, 3}, new int[]{1, 3}));
+//        System.out.println("start1: " + array1.start1(new int[]{1, 2, 3}, new int[]{1, 3}));
 //        System.out.println("start1: " + array1.start1(new int[]{7, 2, 3}, new int[]{1}));
 //        System.out.println("start1: " + array1.start1(new int[]{1, 2}, new int[]{}));
+
+//        System.out.println("biggerTwo: " + Arrays.toString(array1.biggerTwo(new int[]{1,2}, new int[]{3, 4})));
+//        System.out.println("biggerTwo: " + Arrays.toString(array1.biggerTwo(new int[]{3, 4}, new int[]{1, 2})));
+//        System.out.println("biggerTwo: " + Arrays.toString(array1.biggerTwo(new int[]{1, 1}, new int[]{1, 2})));
+
+//        System.out.println("makeMiddle: " + Arrays.toString(array1.makeMiddle(new int[]{1, 2, 3, 4})));
+//        System.out.println("makeMiddle: " + Arrays.toString(array1.makeMiddle(new int[]{7, 1, 2, 3, 4, 9})));
+//        System.out.println("makeMiddle: " + Arrays.toString(array1.makeMiddle(new int[]{1, 2})));
+
+//        System.out.println("plusTwo: " + Arrays.toString(array1.plusTwo(new int[]{1, 2}, new int[]{3, 4})));
+//        System.out.println("plusTwo: " + Arrays.toString(array1.plusTwo(new int[]{4, 4}, new int[]{2, 2})));
+//        System.out.println("plusTwo: " + Arrays.toString(array1.plusTwo(new int[]{9, 2}, new int[]{3, 4})));
+
+//        System.out.println("swapEnds: " + Arrays.toString(array1.swapEnds(new int[]{1, 2, 3, 4})));
+//        System.out.println("swapEnds: " + Arrays.toString(array1.swapEnds(new int[]{1, 2, 3})));
+//        System.out.println("swapEnds: " + Arrays.toString(array1.swapEnds(new int[]{8, 6, 7, 9, 5})));
+
+//        System.out.println("midThree: " + Arrays.toString(array1.midThree(new int[]{1, 2, 3, 4, 5})));
+//        System.out.println("midThree: " + Arrays.toString(array1.midThree(new int[]{8, 6, 7, 5, 3, 0, 9})));
+//        System.out.println("midThree: " + Arrays.toString(array1.midThree(new int[]{1, 2, 3})));
+
+        System.out.println();
 
     }
 
@@ -412,6 +434,18 @@ public class Array1 {
         biggerTwo([3, 4], [1, 2]) → [3, 4]
         biggerTwo([1, 1], [1, 2]) → [1, 2]
     */
+     public int[] biggerTwo(int[] a, int[] b) {
+         int sumOfA = a[0] + a[1];
+         int sumOfB = b[0] + b[1];
+
+         if (sumOfA > sumOfB) {
+             return a;
+         } else if (sumOfA == sumOfB) {
+             return a;
+         } else {
+             return b;
+         }
+     }
 
      /* >>> makeMiddle <<<
         Given an array of ints of even length, return a new array length 2 containing the middle two elements from the original array. The original array will be length 2 or more.
@@ -420,6 +454,15 @@ public class Array1 {
         makeMiddle([7, 1, 2, 3, 4, 9]) → [2, 3]
         makeMiddle([1, 2]) → [1, 2]
     */
+     public int[] makeMiddle(int[] nums) {
+         if (nums.length == 2) {
+             return nums;
+         }
+         int firstMid = nums[(nums.length / 2) - 1];
+         int secondMid = nums[nums.length/2];
+         int[] answer = new int[] {firstMid, secondMid};
+         return answer;
+     }
 
      /* >>> plusTwo <<<
         Given 2 int arrays, each length 2, return a new array length 4 containing all their elements.
@@ -428,6 +471,17 @@ public class Array1 {
         plusTwo([4, 4], [2, 2]) → [4, 4, 2, 2]
         plusTwo([9, 2], [3, 4]) → [9, 2, 3, 4]
     */
+     public int[] plusTwo(int[] a, int[] b) {
+         int[] answer =  new int[a.length + b.length];
+
+         for (int i = 0; i < a.length; i++) {
+             answer[i] = a[i];
+         }
+         for (int i = 0; i < b.length; i++) {
+             answer[a.length + i] = b[i];
+         }
+         return answer;
+     }
 
      /* >>> swapEnds <<<
         Given an array of ints, swap the first and last elements in the array. Return the modified array. The array length will be at least 1.
@@ -436,6 +490,15 @@ public class Array1 {
         swapEnds([1, 2, 3]) → [3, 2, 1]
         swapEnds([8, 6, 7, 9, 5]) → [5, 6, 7, 9, 8]
     */
+     public int[] swapEnds(int[] nums) {
+         int[] answer = new int[nums.length];
+         answer[0] = nums[nums.length - 1];
+         answer[answer.length - 1] = nums[0];
+         for (int i = 1; i < nums.length -1; i++) {
+             answer[i] = nums[i];
+         }
+         return answer;
+     }
 
      /* >>> midThree <<<
         Given an array of ints of odd length, return a new array length 3 containing the elements from the middle of the array. The array length will be at least 3.
@@ -445,6 +508,13 @@ public class Array1 {
         midThree([8, 6, 7, 5, 3, 0, 9]) → [7, 5, 3]
         midThree([1, 2, 3]) → [1, 2, 3]
     */
+     public int[] midThree(int[] nums) {
+         int[] answer = new int[3];
+         answer[1] = nums[nums.length/2];
+         answer[0] = nums[nums.length/2 - 1];
+         answer[2] = nums[nums.length/2 + 1];
+         return answer;
+     }
 
      /* >>> maxTriple <<<
         Given an array of ints of odd length, look at the first, last, and middle values in the array and return the largest. The array length will be a least 1.
