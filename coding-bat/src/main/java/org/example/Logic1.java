@@ -18,9 +18,33 @@ public class Logic1 {
 //        System.out.println("caughtSpeeding: " + caughtSpeeding(65, false));
 //        System.out.println("caughtSpeeding: " + caughtSpeeding(65, true));
 
-        System.out.println("sortaSum: " + sortaSum(3, 4));
-        System.out.println("sortaSum: " + sortaSum(9, 4));
-        System.out.println("sortaSum: " + sortaSum(10, 11));
+//        System.out.println("sortaSum: " + sortaSum(3, 4));
+//        System.out.println("sortaSum: " + sortaSum(9, 4));
+//        System.out.println("sortaSum: " + sortaSum(10, 11));
+
+//        System.out.println("alarmClock: " + alarmClock(1, false));
+//        System.out.println("alarmClock: " + alarmClock(5, false));
+//        System.out.println("alarmClock: " + alarmClock(0, false));
+
+//        System.out.println("love6: " + love6(6, 4));
+//        System.out.println("love6: " + love6(4, 5));
+//        System.out.println("love6: " + love6(1, 5));
+
+//        System.out.println("in1To10: " + in1To10(5, false));
+//        System.out.println("in1To10: " + in1To10(11, false));
+//        System.out.println("in1To10: " + in1To10(11, true));
+
+//        System.out.println("specialEleven: " + specialEleven(22));
+//        System.out.println("specialEleven: " + specialEleven(23));
+//        System.out.println("specialEleven: " + specialEleven(24));
+
+//        System.out.println("more20: " + more20(20));
+//        System.out.println("more20: " + more20(21));
+//        System.out.println("more20: " + more20(22));
+
+        System.out.println();
+
+
     }
 
     /* >>> cigarParty <<<
@@ -117,6 +141,13 @@ public class Logic1 {
         sortaSum(9, 4) → 20
         sortaSum(10, 11) → 21
      */
+    public static int sortaSum(int a, int b) {
+        int sum = a + b;
+        if (sum >= 10 && sum <= 19) {
+            return 20;
+        }
+        return sum;
+    }
 
     /* >>> alarmClock <<<
         Given a day of the week encoded as 0=Sun, 1=Mon, 2=Tue, ...6=Sat, and a boolean indicating if we are on vacation, return a string of the form "7:00" indicating when the alarm clock should ring. Weekdays, the alarm should be "7:00" and on the weekend it should be "10:00". Unless we are on vacation -- then on weekdays it should be "10:00" and weekends it should be "off".
@@ -125,12 +156,15 @@ public class Logic1 {
         alarmClock(5, false) → "7:00"
         alarmClock(0, false) → "10:00"
      */
-    public static int sortaSum(int a, int b) {
-        int sum = a + b;
-        if (sum >= 10 && sum <= 19) {
-            return 20;
+    public static String alarmClock(int day, boolean vacation) {
+        boolean isWeekday = day >= 1 && day <= 5;
+        String alarmTime;
+        if (!vacation) {
+            alarmTime = isWeekday ? "7:00" : "10:00";
+        } else {
+            alarmTime = isWeekday ? "10:00" : "off";
         }
-        return sum;
+        return alarmTime;
     }
 
     /* >>> love6 <<<
@@ -140,6 +174,19 @@ public class Logic1 {
         love6(4, 5) → false
         love6(1, 5) → true
      */
+    public static boolean love6(int a, int b) {
+        int sum = (a + b);
+        int difference = Math.abs(a - b);
+        int differenceTwo = b - a;
+
+        if (a == 6 || b == 6) {
+            return true;
+        }
+        if (sum == 6 || difference == 6) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> in1To10 <<<
         Given a number n, return true if n is in the range 1..10, inclusive. Unless outsideMode is true, in which case return true if the number is less or equal to 1, or greater or equal to 10.
@@ -148,6 +195,18 @@ public class Logic1 {
         in1To10(11, false) → false
         in1To10(11, true) → true
      */
+    public static boolean in1To10(int n, boolean outsideMode) {
+        if (outsideMode) {
+            if (n <= 1 || n >= 10)
+                return true;
+        }
+        if (!outsideMode) {
+            if (n >= 1 && n <= 10) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* >>> specialEleven <<<
         We'll say a number is special if it is a multiple of 11 or if it is one more than a multiple of 11. Return true if the given non-negative number is special. Use the % "mod" operator -- see Introduction to Mod
@@ -156,6 +215,11 @@ public class Logic1 {
         specialEleven(23) → true
         specialEleven(24) → false
      */
+    public static boolean specialEleven(int n) {
+        boolean isSpecial = n % 11 == 0;
+        boolean isSpecialOneMore = (n -1) % 11 == 0;
+        return isSpecial || isSpecialOneMore;
+    }
 
     /* >>> more20 <<<
         Return true if the given non-negative number is 1 or 2 more than a multiple of 20. See also: Introduction to Mod
@@ -164,6 +228,12 @@ public class Logic1 {
         more20(21) → true
         more20(22) → true
      */
+    public static boolean more20(int n) {
+        if ((n - 1) % 20 == 0 || (n -2) % 20 ==0) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> old35 <<<
         Return true if the given non-negative number is a multiple of 3 or 5, but not both. Use the % "mod" operator -- see Introduction to Mod

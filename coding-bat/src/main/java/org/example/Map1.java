@@ -5,108 +5,107 @@ import java.util.Map;
 
 public class Map1 {
     public static void main(String[] args) {
-//        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
-//            put("a", "candy");
-//            put("b", "dirt");
-//        }}));
-//        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
-//            put("a", "candy");
-//        }}));
-//
-//        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
-//            put("a", "candy");
-//            put("b", "carrot");
-//            put("c", "meh");
-//        }}));
-
-//        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
-//            put("a", "aaa");
-//            put("b", "bbb");
-//            put("c", "ccc");
-//        }}));
-//        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
-//            put("b", "xyz");
-//            put("c", "ccc");
-//        }}));
-//        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
-//            put("a", "aaa");
-//            put("c", "meh");
-//            put("d", "hi");
-//        }}));
-
-//        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
-//            put("a", "Hi");
-//            put("b", "There");
-//        }}));
-//        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
-//            put("a", "Hi");
-//        }}));
-//        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
-//            put("b", "There");
-//        }}));
-//        HashMap<String, String> map3 = new HashMap<>();
-//        map3.put("b", "There");
-//        System.out.println("mapAB: " + mapAB(map3));
-
-//        System.out.println("topping1: " + topping1(new HashMap<>(){{
-//            put("ice cream", "peanuts");
-//        }}));
-//        System.out.println("topping1: " + topping1(new HashMap<>(){{
-//            put("bread", "butter");
-//        }}));
-//        System.out.println("topping1: " + topping1(new HashMap<>(){{
-//            put("pancake", "syrup");
-//        }}));
-
-//        System.out.println("topping2: " + topping2(new HashMap<>(){{
-//            put("ice cream", "cherry");
-//        }}));System.out.println("topping2: " + topping2(new HashMap<>(){{
-//            put("spinach", "dirt");
-//            put("ice cream", "cherry");
-//        }}));System.out.println("topping2: " + topping2(new HashMap<>(){{
-//            put("yogurt", "salt");
-//        }}));
-
-//        System.out.println("topping3: " + topping3(new HashMap<>(){{
-//            put("potato", "ketchup");
-//        }}));
-//        System.out.println("topping3: " + topping3(new HashMap<>(){{
-//            put("potato", "butter");
-//        }}));
-//        System.out.println("topping3: " + topping3(new HashMap<>(){{
-//            put("salad", "oil");
-//            put("potato", "ketchup");
-//        }}));
-
-//        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
-//            put("a", "aaa");
-//            put("b", "aaa");
-//            put("c", "cake");
-//        }}));
-//        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
-//            put("a", "aaa");
-//            put("b", "bbb");
-//        }}));
-//        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
-//            put("a", "aaa");
-//            put("b", "bbb");
-//            put("c", "aaa");
-//        }}));
-
-//        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
-//            put("a", "aaa");
-//            put("c", "cake");
-//        }}));
-//        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
-//            put("b", "bbb");
-//            put("c", "cake");
-//        }}));
-//        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
-//            put("a", "aaa");
-//            put("b", "bbb");
-//            put("c", "cake");
-//        }}));
-
+        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
+            put("a", "candy");
+            put("b", "dirt");
+        }}));
+        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
+            put("a", "candy");
+        }}));
+        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
+            put("a", "candy");
+            put("b", "carrot");
+            put("c", "meh");
+        }}));
+        System.out.println();
+        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+            put("a", "aaa");
+            put("b", "bbb");
+            put("c", "ccc");
+        }}));
+        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+            put("b", "xyz");
+            put("c", "ccc");
+        }}));
+        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+            put("a", "aaa");
+            put("c", "meh");
+            put("d", "hi");
+        }}));
+        System.out.println();
+        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+            put("a", "Hi");
+            put("b", "There");
+        }}));
+        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+            put("a", "Hi");
+        }}));
+        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+            put("b", "There");
+        }}));
+        HashMap<String, String> map3 = new HashMap<>();
+        map3.put("b", "There");
+        System.out.println("mapAB: " + mapAB(map3));
+        System.out.println();
+        System.out.println("topping1: " + topping1(new HashMap<>(){{
+            put("ice cream", "peanuts");
+        }}));
+        System.out.println("topping1: " + topping1(new HashMap<>(){{
+            put("bread", "butter");
+        }}));
+        System.out.println("topping1: " + topping1(new HashMap<>(){{
+            put("pancake", "syrup");
+        }}));
+        System.out.println();
+        System.out.println("topping2: " + topping2(new HashMap<>(){{
+            put("ice cream", "cherry");
+        }}));System.out.println("topping2: " + topping2(new HashMap<>(){{
+            put("spinach", "dirt");
+            put("ice cream", "cherry");
+        }}));System.out.println("topping2: " + topping2(new HashMap<>(){{
+            put("yogurt", "salt");
+        }}));
+        System.out.println();
+        System.out.println("topping3: " + topping3(new HashMap<>(){{
+            put("potato", "ketchup");
+        }}));
+        System.out.println("topping3: " + topping3(new HashMap<>(){{
+            put("potato", "butter");
+        }}));
+        System.out.println("topping3: " + topping3(new HashMap<>(){{
+            put("salad", "oil");
+            put("potato", "ketchup");
+        }}));
+        System.out.println();
+        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
+            put("a", "aaa");
+            put("b", "aaa");
+            put("c", "cake");
+        }}));
+        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
+            put("a", "aaa");
+            put("b", "bbb");
+        }}));
+        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
+            put("a", "aaa");
+            put("b", "bbb");
+            put("c", "aaa");
+        }}));
+        System.out.println();
+        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
+            put("a", "aaa");
+            put("c", "cake");
+        }}));
+        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
+            put("b", "bbb");
+            put("c", "cake");
+        }}));
+        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
+            put("a", "aaa");
+            put("b", "bbb");
+            put("c", "cake");
+        }}));
+        System.out.println();
         System.out.println("mapAB4: " + mapAB4(new HashMap<>(){{
             put("a", "aaa");
             put("b", "bb");
