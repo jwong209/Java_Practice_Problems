@@ -1,10 +1,61 @@
 package org.example;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Map1 {
     public static void main(String[] args) {
-        Map1 map1 = new Map1();
+//        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
+//            put("a", "candy");
+//            put("b", "dirt");
+//        }}));
+//        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
+//            put("a", "candy");
+//        }}));
+//
+//        System.out.println("mapBully: " + mapBully(new HashMap<String, String>() {{
+//            put("a", "candy");
+//            put("b", "carrot");
+//            put("c", "meh");
+//        }}));
 
-        System.out.println();
+        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+            put("a", "aaa");
+            put("b", "bbb");
+            put("c", "ccc");
+        }}));
+        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+            put("b", "xyz");
+            put("c", "ccc");
+        }}));
+        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+            put("a", "aaa");
+            put("c", "meh");
+            put("d", "hi");
+        }}));
+
+        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+            put("a", "Hi");
+            put("b", "There");
+        }}));
+        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+            put("a", "Hi");
+        }}));
+        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+            put("b", "There");
+        }}));
+
+        System.out.println("topping1: ");
+
+        System.out.println("topping2: ");
+
+        System.out.println("topping3: ");
+
+        System.out.println("mapAB2: ");
+
+        System.out.println("mapAB3: ");
+
+        System.out.println("mapAB4: ");
     }
 
     /* >>> mapBully <<<
@@ -14,6 +65,13 @@ public class Map1 {
         mapBully({"a": "candy"}) → {"a": "", "b": "candy"}
         mapBully({"a": "candy", "b": "carrot", "c": "meh"}) → {"a": "", "b": "candy", "c": "meh"}
      */
+    public static Map<String, String> mapBully(Map<String, String> map) {
+        if (map.containsKey("a")) {
+            map.put("b", map.get("a"));
+            map.put("a", "");
+        }
+        return map;
+    }
 
     /* >>> mapShare <<<
         Modify and return the given map as follows: if the key "a" has a value, set the key "b" to have that same value. In all cases remove the key "c", leaving the rest of the map unchanged.
@@ -22,6 +80,13 @@ public class Map1 {
         mapShare({"b": "xyz", "c": "ccc"}) → {"b": "xyz"}
         mapShare({"a": "aaa", "c": "meh", "d": "hi"}) → {"a": "aaa", "b": "aaa", "d": "hi"}
      */
+    public static Map<String, String> mapShare(Map<String, String> map) {
+        if (map.containsKey("a")) {
+            map.put("b", map.get("a"));
+        }
+        map.remove("c");
+        return map;
+    }
 
     /* >>> mapAB <<<
         Modify and return the given map as follows: for this problem the map may or may not contain the "a" and "b" keys. If both keys are present, append their 2 string values together and store the result under the key "ab".
@@ -30,6 +95,14 @@ public class Map1 {
         mapAB({"a": "Hi"}) → {"a": "Hi"}
         mapAB({"b": "There"}) → {"b": "There"}
      */
+    public static Map<String, String> mapAB(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")) {
+            String abConcat = map.get("a") + map.get("b");
+            map.put("ab", abConcat);
+        }
+        return map;
+    }
+
 
     /* >>> topping1 <<<
         Given a map of food keys and topping values, modify and return the map as follows: if the key "ice cream" is present, set its value to "cherry". In all cases, set the key "bread" to have the value "butter".
