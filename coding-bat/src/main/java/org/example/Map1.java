@@ -19,43 +19,108 @@ public class Map1 {
 //            put("c", "meh");
 //        }}));
 
-        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+//        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+//            put("a", "aaa");
+//            put("b", "bbb");
+//            put("c", "ccc");
+//        }}));
+//        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+//            put("b", "xyz");
+//            put("c", "ccc");
+//        }}));
+//        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
+//            put("a", "aaa");
+//            put("c", "meh");
+//            put("d", "hi");
+//        }}));
+
+//        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+//            put("a", "Hi");
+//            put("b", "There");
+//        }}));
+//        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+//            put("a", "Hi");
+//        }}));
+//        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
+//            put("b", "There");
+//        }}));
+//        HashMap<String, String> map3 = new HashMap<>();
+//        map3.put("b", "There");
+//        System.out.println("mapAB: " + mapAB(map3));
+
+//        System.out.println("topping1: " + topping1(new HashMap<>(){{
+//            put("ice cream", "peanuts");
+//        }}));
+//        System.out.println("topping1: " + topping1(new HashMap<>(){{
+//            put("bread", "butter");
+//        }}));
+//        System.out.println("topping1: " + topping1(new HashMap<>(){{
+//            put("pancake", "syrup");
+//        }}));
+
+//        System.out.println("topping2: " + topping2(new HashMap<>(){{
+//            put("ice cream", "cherry");
+//        }}));System.out.println("topping2: " + topping2(new HashMap<>(){{
+//            put("spinach", "dirt");
+//            put("ice cream", "cherry");
+//        }}));System.out.println("topping2: " + topping2(new HashMap<>(){{
+//            put("yogurt", "salt");
+//        }}));
+
+//        System.out.println("topping3: " + topping3(new HashMap<>(){{
+//            put("potato", "ketchup");
+//        }}));
+//        System.out.println("topping3: " + topping3(new HashMap<>(){{
+//            put("potato", "butter");
+//        }}));
+//        System.out.println("topping3: " + topping3(new HashMap<>(){{
+//            put("salad", "oil");
+//            put("potato", "ketchup");
+//        }}));
+
+//        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
+//            put("a", "aaa");
+//            put("b", "aaa");
+//            put("c", "cake");
+//        }}));
+//        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
+//            put("a", "aaa");
+//            put("b", "bbb");
+//        }}));
+//        System.out.println("mapAB2: " + mapAB2(new HashMap<>(){{
+//            put("a", "aaa");
+//            put("b", "bbb");
+//            put("c", "aaa");
+//        }}));
+
+//        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
+//            put("a", "aaa");
+//            put("c", "cake");
+//        }}));
+//        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
+//            put("b", "bbb");
+//            put("c", "cake");
+//        }}));
+//        System.out.println("mapAB3: " + mapAB3(new HashMap<>(){{
+//            put("a", "aaa");
+//            put("b", "bbb");
+//            put("c", "cake");
+//        }}));
+
+        System.out.println("mapAB4: " + mapAB4(new HashMap<>(){{
             put("a", "aaa");
+            put("b", "bb");
+            put("c", "cake");
+        }}));
+        System.out.println("mapAB4: " + mapAB4(new HashMap<>(){{
+            put("a", "aa");
             put("b", "bbb");
-            put("c", "ccc");
+            put("c", "cake");
         }}));
-        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
-            put("b", "xyz");
-            put("c", "ccc");
+        System.out.println("mapAB4: " + mapAB4(new HashMap<>(){{
+            put("a", "aa");
+            put("b", "bbb");
         }}));
-        System.out.println("mapShare: " + mapShare(new HashMap<String, String>() {{
-            put("a", "aaa");
-            put("c", "meh");
-            put("d", "hi");
-        }}));
-
-        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
-            put("a", "Hi");
-            put("b", "There");
-        }}));
-        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
-            put("a", "Hi");
-        }}));
-        System.out.println("mapAB: " + mapAB(new HashMap<String, String>(){{
-            put("b", "There");
-        }}));
-
-        System.out.println("topping1: ");
-
-        System.out.println("topping2: ");
-
-        System.out.println("topping3: ");
-
-        System.out.println("mapAB2: ");
-
-        System.out.println("mapAB3: ");
-
-        System.out.println("mapAB4: ");
     }
 
     /* >>> mapBully <<<
@@ -103,7 +168,6 @@ public class Map1 {
         return map;
     }
 
-
     /* >>> topping1 <<<
         Given a map of food keys and topping values, modify and return the map as follows: if the key "ice cream" is present, set its value to "cherry". In all cases, set the key "bread" to have the value "butter".
 
@@ -111,6 +175,13 @@ public class Map1 {
         topping1({}) → {"bread": "butter"}
         topping1({"pancake": "syrup"}) → {"bread": "butter", "pancake": "syrup"}
      */
+    public static Map<String, String> topping1(Map<String, String> map) {
+        if (map.containsKey("ice cream")) {
+            map.put("ice cream", "cherry");
+        }
+        map.put("bread", "butter");
+        return map;
+    }
 
     /* >>> topping2 <<<
         Given a map of food keys and their topping values, modify and return the map as follows: if the key "ice cream" has a value, set that as the value for the key "yogurt" also. If the key "spinach" has a value, change that value to "nuts".
@@ -119,6 +190,15 @@ public class Map1 {
         topping2({"spinach": "dirt", "ice cream": "cherry"}) → {"yogurt": "cherry", "spinach": "nuts", "ice cream": "cherry"}
         topping2({"yogurt": "salt"}) → {"yogurt": "salt"}
      */
+    public static Map<String, String> topping2(Map<String, String> map) {
+        if (map.containsKey("ice cream")) {
+            map.put("yogurt", map.get("ice cream"));
+        }
+        if (map.containsKey("spinach")) {
+            map.put("spinach", "nuts");
+        }
+        return map;
+    }
 
     /* >>> topping3 <<<
         Given a map of food keys and topping values, modify and return the map as follows: if the key "potato" has a value, set that as the value for the key "fries". If the key "salad" has a value, set that as the value for the key "spinach".
@@ -127,6 +207,15 @@ public class Map1 {
         topping3({"potato": "butter"}) → {"potato": "butter", "fries": "butter"}
         topping3({"salad": "oil", "potato": "ketchup"}) → {"spinach": "oil", "salad": "oil", "potato": "ketchup", "fries": "ketchup"}
      */
+    public static Map<String, String> topping3(Map<String, String> map) {
+        if (map.containsKey("potato")) {
+            map.put("fries", map.get("potato"));
+        }
+        if (map.containsKey("salad")) {
+            map.put("spinach", map.get("salad"));
+        }
+        return map;
+    }
 
     /* >>> mapAB2 <<<
         Modify and return the given map as follows: if the keys "a" and "b" are both in the map and have equal values, remove them both.
@@ -135,6 +224,13 @@ public class Map1 {
         mapAB2({"a": "aaa", "b": "bbb"}) → {"a": "aaa", "b": "bbb"}
         mapAB2({"a": "aaa", "b": "bbb", "c": "aaa"}) → {"a": "aaa", "b": "bbb", "c": "aaa"}
      */
+    public static Map<String, String> mapAB2(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b") && map.get("a").equals(map.get("b"))) {
+            map.remove("a");
+            map.remove("b");
+        }
+        return map;
+    }
 
     /* >>> mapAB3 <<<
         Modify and return the given map as follows: if exactly one of the keys "a" or "b" has a value in the map (but not both), set the other to have that same value in the map.
@@ -143,6 +239,14 @@ public class Map1 {
         mapAB3({"b": "bbb", "c": "cake"}) → {"a": "bbb", "b": "bbb", "c": "cake"}
         mapAB3({"a": "aaa", "b": "bbb", "c": "cake"}) → {"a": "aaa", "b": "bbb", "c": "cake"}
      */
+    public static Map<String, String> mapAB3(Map<String, String> map) {
+        if (map.containsKey("a") && !map.containsKey("b")) {
+            map.put("b", map.get("a"));
+        } else if (!map.containsKey("a") && map.containsKey("b")) {
+            map.put("a", map.get("b"));
+        }
+        return map;
+    }
 
     /* >>> mapAB4 <<<
         Modify and return the given map as follows: if the keys "a" and "b" have values that have different lengths, then set "c" to have the longer value. If the values exist and have the same length, change them both to the empty string in the map.
@@ -151,5 +255,18 @@ public class Map1 {
         mapAB4({"a": "aa", "b": "bbb", "c": "cake"}) → {"a": "aa", "b": "bbb", "c": "bbb"}
         mapAB4({"a": "aa", "b": "bbb"}) → {"a": "aa", "b": "bbb", "c": "bbb"}
      */
+    public static Map<String, String> mapAB4(Map<String, String> map) {
+        if (map.containsKey("a") && map.containsKey("b")) {
+            if (map.get("a").length() > map.get("b").length()) {
+                map.put("c", map.get("a"));
+            } else if (map.get("b").length() > map.get("a").length()){
+                map.put("c", map.get("b"));
+            } else {
+                map.put("a", "");
+                map.put("b", "");
+            }
+        }
+        return map;
+    }
 
 }
