@@ -42,6 +42,22 @@ public class Logic1 {
 //        System.out.println("more20: " + more20(21));
 //        System.out.println("more20: " + more20(22));
 
+//        System.out.println("old35: " + old35(3));
+//        System.out.println("old35: " + old35(10));
+//        System.out.println("old35: " + old35(15));
+
+//        System.out.println("less20: " + less20(18));
+//        System.out.println("less20: " + less20(19));
+//        System.out.println("less20: " + less20(20));
+
+//        System.out.println("near10: " + nearTen(12));
+//        System.out.println("near10: " + nearTen(17));
+//        System.out.println("near10: " + nearTen(19));
+
+        System.out.println("teenSum: " + teenSum(3, 4));
+        System.out.println("teenSum: " + teenSum(10, 13));
+        System.out.println("teenSum: " + teenSum(13, 2));
+
         System.out.println();
 
 
@@ -89,21 +105,23 @@ public class Logic1 {
         squirrelPlay(95, true) → true
      */
     public static boolean squirrelPlay(int temp, boolean isSummer) {
-        if (isSummer) {
-            if (temp >= 60 && temp <= 100) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        if (!isSummer) {
-            if (temp >= 60 && temp <= 90) {
-                return true;
-            }
-        }
-        return false;
-    }
+//        if (isSummer) {
+//            if (temp >= 60 && temp <= 100) {
+//                return true;
+//            } else {
+//                return false;
+//            }
+//        }
+//        if (!isSummer) {
+//            if (temp >= 60 && temp <= 90) {
+//                return true;
+//            }
+//        }
+//        return false;
 
+        int upperLimit = isSummer ? 100 : 90;
+        return temp >= 60 && temp <= upperLimit;
+    }
 
     /* >>> caughtSpeeding <<<
         You are driving a little too fast, and a police officer stops you. Write code to compute the result, encoded as an int value: 0=no ticket, 1=small ticket, 2=big ticket. If speed is 60 or less, the result is 0. If speed is between 61 and 80 inclusive, the result is 1. If speed is 81 or more, the result is 2. Unless it is your birthday -- on that day, your speed can be 5 higher in all cases.
@@ -242,6 +260,17 @@ public class Logic1 {
         old35(10) → true
         old35(15) → false
      */
+    public static boolean old35(int n) {
+        if (n % 5 == 0 && n % 3 == 0) {
+            return false;
+        } else if (n % 5 == 0) {
+            return true;
+        } else if (n % 3 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     /* >>> less20 <<<
         Return true if the given non-negative number is 1 or 2 less than a multiple of 20. So for example 38 and 39 return true, but 40 returns false. See also: Introduction to Mod
@@ -250,6 +279,12 @@ public class Logic1 {
         less20(19) → true
         less20(20) → false
      */
+    public static boolean less20(int n) {
+        if ((n + 1) % 20 == 0 || (n + 2) % 20 == 0) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> nearTen <<<
         Given a non-negative number "num", return true if num is within 2 of a multiple of 10. Note: (a % b) is the remainder of dividing a by b, so (7 % 5) is 2. See also: Introduction to Mod
@@ -258,6 +293,12 @@ public class Logic1 {
         nearTen(17) → false
         nearTen(19) → true
      */
+    public static boolean nearTen(int num) {
+        if ((num + 1)%10 == 0 || (num + 2)%10 == 0 || (num - 2)%10 == 0 || (num - 1)%10 == 0 || num % 10 == 0) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> teenSum <<<
         Given 2 ints, a and b, return their sum. However, "teen" values in the range 13..19 inclusive, are extra lucky. So if either value is a teen, just return 19.
@@ -266,6 +307,15 @@ public class Logic1 {
         teenSum(10, 13) → 19
         teenSum(13, 2) → 19
      */
+    public static int teenSum(int a, int b) {
+        int sum = a + b;
+        boolean aIsTeen = a >= 13 && a <= 19;
+        boolean bIsTeen = b >= 13 && b <= 19;
+        if (aIsTeen || bIsTeen) {
+            return 19;
+        }
+        return sum;
+    }
 
     /* >>> answerCell <<<
         Your cell phone rings. Return true if you should answer it. Normally you answer, except in the morning you only answer if it is your mom calling. In all cases, if you are asleep, you do not answer.
