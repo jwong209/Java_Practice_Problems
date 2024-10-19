@@ -54,11 +54,25 @@ public class Logic1 {
 //        System.out.println("near10: " + nearTen(17));
 //        System.out.println("near10: " + nearTen(19));
 
-        System.out.println("teenSum: " + teenSum(3, 4));
-        System.out.println("teenSum: " + teenSum(10, 13));
-        System.out.println("teenSum: " + teenSum(13, 2));
+//        System.out.println("teenSum: " + teenSum(3, 4));
+//        System.out.println("teenSum: " + teenSum(10, 13));
+//        System.out.println("teenSum: " + teenSum(13, 2));
 
-        System.out.println();
+//        System.out.println("answerCell: " + answerCell(false, false, false));
+//        System.out.println("answerCell: " + answerCell(false, false, true));
+//        System.out.println("answerCell: " + answerCell(true, false, false));
+
+//        System.out.println("teaParty: " + teaParty(6, 8));
+//        System.out.println("teaParty: " + teaParty(3, 8));
+//        System.out.println("teaParty: " + teaParty(20, 6));
+
+//        System.out.println("fizzString: " + fizzString("fig"));
+//        System.out.println("fizzString: " + fizzString("dib"));
+//        System.out.println("fizzString: " + fizzString("fib"));
+
+        System.out.println("fizzString2: " + fizzString2(1));
+        System.out.println("fizzString2: " + fizzString2(2));
+        System.out.println("fizzString2: " + fizzString2(3));
 
 
     }
@@ -247,10 +261,12 @@ public class Logic1 {
         more20(22) → true
      */
     public static boolean more20(int n) {
-        if ((n - 1) % 20 == 0 || (n -2) % 20 ==0) {
-            return true;
-        }
-        return false;
+//        if ((n - 1) % 20 == 0 || (n -2) % 20 ==0) {
+//            return true;
+//        }
+//        return false;
+
+        return (n >= 20 && (n % 20 == 1 || n % 20 == 2)) || n == 1 || n == 2;
     }
 
     /* >>> old35 <<<
@@ -294,10 +310,13 @@ public class Logic1 {
         nearTen(19) → true
      */
     public static boolean nearTen(int num) {
-        if ((num + 1)%10 == 0 || (num + 2)%10 == 0 || (num - 2)%10 == 0 || (num - 1)%10 == 0 || num % 10 == 0) {
-            return true;
-        }
-        return false;
+//        if ((num + 1)%10 == 0 || (num + 2)%10 == 0 || (num - 2)%10 == 0 || (num - 1)%10 == 0 || num % 10 == 0) {
+//            return true;
+//        }
+//        return false;
+
+        int remainder = num % 10;
+        return (remainder <= 2 || remainder >= 8);
     }
 
     /* >>> teenSum <<<
@@ -324,6 +343,17 @@ public class Logic1 {
         answerCell(false, false, true) → false
         answerCell(true, false, false) → false
      */
+    public static boolean answerCell(boolean isMorning, boolean isMom, boolean isAsleep) {
+        if (isAsleep) {
+            return false;
+        }
+        if (!isAsleep) {
+            if (isMorning && !isMom) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* >>> teaParty <<<
         We are having a party with amounts of tea and candy. Return the int outcome of the party encoded as 0=bad, 1=good, or 2=great. A party is good (1) if both tea and candy are at least 5. However, if either tea or candy is at least double the amount of the other one, the party is great (2). However, in all cases, if either tea or candy is less than 5, the party is always bad (0).
@@ -332,6 +362,18 @@ public class Logic1 {
         teaParty(3, 8) → 0
         teaParty(20, 6) → 2
      */
+    public static int teaParty(int tea, int candy) {
+        if (tea < 5 || candy < 5) {
+            return 0;
+        }
+        if (tea >= 2 * candy || candy >= 2 * tea) {
+            return 2;
+        }
+        if (tea >= 5 && candy >= 5) {
+            return 1;
+        }
+        return 0;
+    }
 
     /* >>> fizzString <<<
         Given a string str, if the string starts with "f" return "Fizz". If the string ends with "b" return "Buzz". If both the "f" and "b" conditions are true, return "FizzBuzz". In all other cases, return the string unchanged. (See also: FizzBuzz Code)
@@ -340,6 +382,19 @@ public class Logic1 {
         fizzString("dib") → "Buzz"
         fizzString("fib") → "FizzBuzz"
      */
+    public static String fizzString(String str) {
+        for (int i = 0; i < str.length(); i++) {
+            if (str.startsWith("f") && str.endsWith("b")) {
+                return "FizzBuzz";
+            } else if (str.startsWith("f")) {
+                return "Fizz";
+            } else if (str.endsWith("b")) {
+                return "Buzz";
+            }
+
+        }
+        return str;
+    }
 
     /* >>> fizzString2 <<<
         Given an int n, return the string form of the number followed by "!". So the int 6 yields "6!". Except if the number is divisible by 3 use "Fizz" instead of the number, and if the number is divisible by 5 use "Buzz", and if divisible by both 3 and 5, use "FizzBuzz". Note: the % "mod" operator computes the remainder after division, so 23 % 10 yields 3. What will the remainder be when one number divides evenly into another? (See also: FizzBuzz Code and Introduction to Mod)
@@ -348,6 +403,16 @@ public class Logic1 {
         fizzString2(2) → "2!"
         fizzString2(3) → "Fizz!"
      */
+    public static String fizzString2(int n) {
+        if (n % 3 == 0 && n % 5 == 0) {
+            return "FizzBuzz!";
+        } else if (n % 3 == 0) {
+            return "Fizz!";
+        } else if (n % 5 == 0) {
+            return "Buzz!";
+        }
+        return Integer.toString(n) + "!";
+    }
 
     /* >>> twoAsOne <<<
         Given three ints, a b c, return true if it is possible to add two of the ints to get the third.
