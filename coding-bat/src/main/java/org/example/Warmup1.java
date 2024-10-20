@@ -12,9 +12,17 @@ public class Warmup1 {
 //        System.out.println("monkeyTrouble: " + warmup1.monkeyTrouble(false, false));
 //        System.out.println("monkeyTrouble: " + warmup1.monkeyTrouble(true, false));
 
-        System.out.println("sumDouble: " + warmup1.sumDouble(1,2));
-        System.out.println("sumDouble: " + warmup1.sumDouble(3,2));
-        System.out.println("sumDouble: " + warmup1.sumDouble(2,2));
+//        System.out.println("sumDouble: " + warmup1.sumDouble(1,2));
+//        System.out.println("sumDouble: " + warmup1.sumDouble(3,2));
+//        System.out.println("sumDouble: " + warmup1.sumDouble(2,2));
+
+//        System.out.println("diff21: " + diff21(19));
+//        System.out.println("diff21: " + diff21(10));
+//        System.out.println("diff21: " + diff21(21));
+
+        System.out.println("parrotTrouble: " + parrotTrouble(true, 6));
+        System.out.println("parrotTrouble: " + parrotTrouble(true, 7));
+        System.out.println("parrotTrouble: " + parrotTrouble(false, 6));
 
 
     }
@@ -85,6 +93,12 @@ public class Warmup1 {
         diff21(10) → 11
         diff21(21) → 0
     */
+   public static int diff21(int n) {
+       if (n > 21) {
+           return 2 * Math.abs(n - 21);
+       }
+       return Math.abs(n - 21);
+   }
 
    /* >>> parrotTrouble <<<
         We have a loud talking parrot. The "hour" parameter is the current hour time in the range 0..23. We are in trouble if the parrot is talking and the hour is before 7 or after 20. Return true if we are in trouble.
@@ -93,6 +107,9 @@ public class Warmup1 {
         parrotTrouble(true, 7) → false
         parrotTrouble(false, 6) → false
     */
+   public static boolean parrotTrouble(boolean talking, int hour) {
+       return (talking && (hour < 7 || hour > 20));
+   }
 
    /* >>> makes10 <<<
         Given 2 ints, a and b, return true if one if them is 10 or if their sum is 10.

@@ -88,6 +88,12 @@ public class Logic1 {
 
         System.out.println("lastDigit: ");
 
+        System.out.println("lessBy10: ");
+
+        System.out.println("withoutDoubles: ");
+
+        System.out.println("maxMod5: ");
+
 
     }
 
@@ -310,10 +316,12 @@ public class Logic1 {
         less20(20) → false
      */
     public static boolean less20(int n) {
-        if ((n + 1) % 20 == 0 || (n + 2) % 20 == 0) {
-            return true;
-        }
-        return false;
+//        if ((n + 1) % 20 == 0 || (n + 2) % 20 == 0) {
+//            return true;
+//        }
+//        return false;
+
+        return n % 20 == 18 || n % 20 == 19;
     }
 
     /* >>> nearTen <<<
@@ -482,7 +490,7 @@ public class Logic1 {
         }
         return true;
     }
-    
+
     /* >>> lastDigit <<<
         Given three ints, a b c, return true if two or more of them have the same rightmost digit. The ints are non-negative. Note: the % "mod" operator computes the remainder, e.g. 17 % 10 is 7.
 
