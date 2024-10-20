@@ -70,9 +70,23 @@ public class Logic1 {
 //        System.out.println("fizzString: " + fizzString("dib"));
 //        System.out.println("fizzString: " + fizzString("fib"));
 
-        System.out.println("fizzString2: " + fizzString2(1));
-        System.out.println("fizzString2: " + fizzString2(2));
-        System.out.println("fizzString2: " + fizzString2(3));
+//        System.out.println("fizzString2: " + fizzString2(1));
+//        System.out.println("fizzString2: " + fizzString2(2));
+//        System.out.println("fizzString2: " + fizzString2(3));
+
+//        System.out.println("twoAsOne: " + twoAsOne(1, 2, 3));
+//        System.out.println("twoAsOne: " + twoAsOne(3, 1, 2));
+//        System.out.println("twoAsOne: " + twoAsOne(3, 2, 2));
+
+//        System.out.println("inOrder: " + inOrder(1, 2, 4, false));
+//        System.out.println("inOrder: " + inOrder(1, 2, 1, false));
+//        System.out.println("inOrder: " + inOrder(1, 1, 2, true));
+
+//        System.out.println("inOrderEqual: " + inOrderEqual(2, 5, 11, false));
+//        System.out.println("inOrderEqual: " + inOrderEqual(5, 7, 6, false));
+//        System.out.println("inOrderEqual: " + inOrderEqual(5, 5, 7, true));
+
+        System.out.println("lastDigit: ");
 
 
     }
@@ -421,6 +435,16 @@ public class Logic1 {
         twoAsOne(3, 1, 2) → true
         twoAsOne(3, 2, 2) → false
      */
+    public static boolean twoAsOne(int a, int b, int c) {
+        if (a + b == c) {
+            return true;
+        } else if (b + c == a) {
+            return true;
+        } else if (a + c == b) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> inOrder <<<
         Given three ints, a b c, return true if b is greater than a, and c is greater than b. However, with the exception that if "bOk" is true, b does not need to be greater than a.
@@ -429,6 +453,15 @@ public class Logic1 {
         inOrder(1, 2, 1, false) → false
         inOrder(1, 1, 2, true) → true
      */
+    public static boolean inOrder(int a, int b, int c, boolean bOk) {
+        if (c > b && b > a) {
+            return true;
+        }
+        if (bOk && c > b) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> inOrderEqual <<<
         Given three ints, a b c, return true if they are in strict increasing order, such as 2 5 11, or 5 6 7, but not 6 5 7 or 5 5 7. However, with the exception that if "equalOk" is true, equality is allowed, such as 5 5 7 or 5 5 5.
@@ -437,7 +470,19 @@ public class Logic1 {
         inOrderEqual(5, 7, 6, false) → false
         inOrderEqual(5, 5, 7, true) → true
      */
-
+    public static boolean inOrderEqual(int a, int b, int c, boolean equalOk) {
+        int[] nums = new int[]{a, b, c};
+        for (int i = 0; i < nums.length -1; i++) {
+            if (equalOk && nums[i] > nums[i+1]) {
+                return false;
+            }
+            if (!equalOk && nums[i] >= nums[i+1]) {
+                return false;
+            }
+        }
+        return true;
+    }
+    
     /* >>> lastDigit <<<
         Given three ints, a b c, return true if two or more of them have the same rightmost digit. The ints are non-negative. Note: the % "mod" operator computes the remainder, e.g. 17 % 10 is 7.
 
