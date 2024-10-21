@@ -102,7 +102,25 @@ public class Logic1 {
 //        System.out.println("maxMod5: " + maxMod5(6, 2));
 //        System.out.println("maxMod5: " + maxMod5(3, 2));
 
-        System.out.println("");
+//        System.out.println("redTicket: " + redTicket(2, 2, 2));
+//        System.out.println("redTicket: " + redTicket(2, 2, 1));
+//        System.out.println("redTicket: " + redTicket(0, 0, 0));
+
+//        System.out.println("greenTicket: " + greenTicket(1, 2, 3));
+//        System.out.println("greenTicket: " + greenTicket(2, 2, 2));
+//        System.out.println("greenTicket: " + greenTicket(1, 1, 2));
+
+//        System.out.println("blueTicket: " + blueTicket(9, 1, 0));
+//        System.out.println("blueTicket: " + blueTicket(9, 2, 0));
+//        System.out.println("blueTicket: " + blueTicket(6, 1, 4));
+
+//        System.out.println("shareDigit: " + shareDigit(12, 23));
+//        System.out.println("shareDigit: " + shareDigit(12, 43));
+//        System.out.println("shareDigit: " + shareDigit(12, 44));
+
+//        System.out.println("sumLimit: " + sumLimit(2, 3));
+//        System.out.println("sumLimit: " + sumLimit(8, 3));
+//        System.out.println("sumLimit: " + sumLimit(8, 1));
 
 
     }
@@ -578,6 +596,19 @@ public class Logic1 {
         redTicket(2, 2, 1) → 0
         redTicket(0, 0, 0) → 5
      */
+    public static int redTicket(int a, int b, int c) {
+        if (a == 2 && b == 2 && c == 2) {
+            return 10;
+        }
+        if (a == b && b == c) {
+            return 5;
+        }
+        if (a != b && a != c) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 
     /* >>> greenTicket <<<
         You have a green lottery ticket, with ints a, b, and c on it. If the numbers are all different from each other, the result is 0. If all of the numbers are the same, the result is 20. If two of the numbers are the same, the result is 10.
@@ -586,6 +617,19 @@ public class Logic1 {
         greenTicket(2, 2, 2) → 20
         greenTicket(1, 1, 2) → 10
      */
+    public static int greenTicket(int a, int b, int c) {
+        boolean different = a != b && b != c && a != c;
+        boolean same = a == b || b == c || a == c;
+        boolean allSame = a == b && b == c;
+
+        if (different) {
+            return 0;
+        } else if (allSame) {
+            return 20;
+        } else {
+            return 10;
+        }
+    }
 
     /* >>> blueTicket <<<
         You have a blue lottery ticket, with ints a, b, and c on it. This makes three pairs, which we'll call ab, bc, and ac. Consider the sum of the numbers in each pair. If any pair sums to exactly 10, the result is 10. Otherwise if the ab sum is exactly 10 more than either bc or ac sums, the result is 5. Otherwise the result is 0.
@@ -594,6 +638,21 @@ public class Logic1 {
         blueTicket(9, 2, 0) → 0
         blueTicket(6, 1, 4) → 10
      */
+    public static int blueTicket(int a, int b, int c) {
+        boolean ab = a + b == 10;
+        boolean bc = b + c == 10;
+        boolean ac = a + c == 10;
+        boolean ab10Morebc = a + b == 10 + b + c;
+        boolean ab10Moreac = a + b == 10 + a + c;
+
+        if (ab || bc || ac) {
+            return 10;
+        }
+        if (ab10Morebc || ab10Moreac) {
+            return 5;
+        }
+        return 0;
+    }
 
     /* >>> shareDigit <<<
         Given two ints, each in the range 10..99, return true if there is a digit that appears in both numbers, such as the 2 in 12 and 23. (Note: division, e.g. n/10, gives the left digit while the % "mod" n%10 gives the right digit.)
@@ -602,6 +661,12 @@ public class Logic1 {
         shareDigit(12, 43) → false
         shareDigit(12, 44) → false
      */
+    public static boolean shareDigit(int a, int b) {
+        if (a % 10 == b % 10 || a / 10 == b / 10 || a % 10 == b /10 || a/10 == b%10) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> sumLimit <<<
         Given 2 non-negative ints, a and b, return their sum, so long as the sum has the same number of digits as a. If the sum has more digits than a, just return a without b. (Note: one way to compute the number of digits of a non-negative int n is to convert it to a string with String.valueOf(n) and then check the length of the string.)
@@ -610,5 +675,16 @@ public class Logic1 {
         sumLimit(8, 3) → 8
         sumLimit(8, 1) → 9
      */
+    public static int sumLimit(int a, int b) {
+        String stringA = String.valueOf(a);
+        String stringB = String.valueOf(b);
 
+        int sum = a + b;
+        String stringSum = String.valueOf(sum);
+
+        if (stringSum.length() > stringA.length()) {
+            return a;
+        }
+        return sum;
+    }
 }
