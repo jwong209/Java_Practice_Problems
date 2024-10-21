@@ -4,6 +4,26 @@ public class String2 {
     public static void main(String[] args) {
         String2 string2 = new String2();
 
+//        System.out.println("doubleChar: " + doubleChar("The"));
+//        System.out.println("doubleChar: " + doubleChar("AAbb"));
+//        System.out.println("doubleChar: " + doubleChar("Hi-There"));
+
+//        System.out.println("countHi: " + countHi("abc hi ho"));
+//        System.out.println("countHi: " + countHi("ABChi hi"));
+//        System.out.println("countHi: " + countHi("hihi"));
+
+//        System.out.println("catDog: " + catDog("catdog"));
+//        System.out.println("catDog: " + catDog("catcat"));
+//        System.out.println("catDog: " + catDog("1cat1cadodog"));
+
+//        System.out.println("countCode: " + countCode("aaacodebbb"));
+//        System.out.println("countCode: " + countCode("codexxcode"));
+//        System.out.println("countCode: " + countCode("cozexxcope"));
+
+        System.out.println("endOther: ");
+
+        System.out.println("xyzThere: ");
+
         System.out.println();
     }
 
@@ -14,6 +34,22 @@ public class String2 {
         doubleChar("AAbb") → "AAAAbbbb"
         doubleChar("Hi-There") → "HHii--TThheerree"
      */
+    public static String doubleChar(String str) {
+//        String answer = "";
+//        for (int i = 0; i < str.length(); i++) {
+//            answer += str.charAt(i);
+//            answer += str.charAt(i);
+//        }
+//        return answer;
+
+        String result = "";
+        for (int i = 0; i < str.length(); i++) {
+            result = result + str.charAt(i) + str.charAt(i);
+            // Alternately:
+            // result = result + str.substring(i, i+1) + str.substring(i, i+1);
+        }
+        return result;
+    }
 
     /* >>> countHi <<<
         Return the number of times that the string "hi" appears anywhere in the given string.
@@ -22,6 +58,17 @@ public class String2 {
         countHi("ABChi hi") → 2
         countHi("hihi") → 2
      */
+    public static int countHi(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length() -1; i++) {
+            String substring = str.substring(i, i + 2);
+
+            if (substring.equals("hi")) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     /* >>> catDog <<<
         Return true if the string "cat" and "dog" appear the same number of times in the given string.
@@ -30,6 +77,25 @@ public class String2 {
         catDog("catcat") → false
         catDog("1cat1cadodog") → true
      */
+    public static boolean catDog(String str) {
+        int catCount = 0;
+        int dogCount = 0;
+
+        for (int i = 0; i < str.length() - 2; i++) {
+            String substring = str.substring(i, i + 3);
+
+            if (substring.equals("cat")) {
+                catCount++;
+            }
+            if (substring.equals("dog")) {
+                dogCount++;
+            }
+        }
+        if (catCount == dogCount) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> countCode <<<
         Return the number of times that the string "code" appears anywhere in the given string, except we'll accept any letter for the 'd', so "cope" and "cooe" count.
@@ -38,6 +104,19 @@ public class String2 {
         countCode("codexxcode") → 2
         countCode("cozexxcope") → 2
      */
+    public static int countCode(String str) {
+        int count = 0;
+        for (int i = 0; i < str.length() - 3; i++) {
+            String firstHalf = str.substring(i, i + 2);
+            String lastHalf = str.substring(i + 3, i + 4);
+            String substring = str.substring(i, i + 4);
+
+            if (firstHalf.equals("co") && lastHalf.equals("e")) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     /* >>> endOther <<<
         Given two strings, return true if either of the strings appears at the very end of the other string, ignoring upper/lower case differences (in other words, the computation should not be "case sensitive"). Note: str.toLowerCase() returns the lowercase version of a string.
