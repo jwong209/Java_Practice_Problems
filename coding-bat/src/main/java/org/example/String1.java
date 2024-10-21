@@ -242,10 +242,14 @@ public class String1 {
         comboString("aaa", "b") → "baaab"
     */
     public String comboString(String a, String b) {
-        if (a.length() > b.length()) {
-            return b + a + b;
-        }
-        return a + b + a;
+//        if (a.length() > b.length()) {
+//            return b + a + b;
+//        }
+//        return a + b + a;
+
+        String shortStr = a.length() < b.length() ? a : b;
+        String longStr = a.length() > b.length() ? a : b;
+        return shortStr + longStr + shortStr;
     }
 
      /* >>> nonStart <<<
@@ -463,21 +467,26 @@ public class String1 {
         lastChars("hi", "") → "h@"
      */
     public String lastChars(String a, String b) {
-        String first = "";
-        String last = "";
+//        String first = "";
+//        String last = "";
+//
+//        if (a.length() == 0) {
+//            first = "@";
+//        } else {
+//            first = a.substring(0, 1);
+//        }
+//        if (b.length() == 0) {
+//            last = "@";
+//        } else {
+//            last = b.substring(b.length() - 1);
+//        }
+//
+//        return first + last;
 
-        if (a.length() == 0) {
-            first = "@";
-        } else {
-            first = a.substring(0, 1);
-        }
-        if (b.length() == 0) {
-            last = "@";
-        } else {
-            last = b.substring(b.length() - 1);
-        }
+        char firstChar = a.length() > 0 ? a.charAt(0) : '@';
+        char lastChar = b.length() > 0 ? b.charAt(b.length() - 1) : '@';
 
-        return first + last;
+        return "" + firstChar + lastChar;
     }
 
     /* >>> conCat <<<
