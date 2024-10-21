@@ -86,13 +86,23 @@ public class Logic1 {
 //        System.out.println("inOrderEqual: " + inOrderEqual(5, 7, 6, false));
 //        System.out.println("inOrderEqual: " + inOrderEqual(5, 5, 7, true));
 
-        System.out.println("lastDigit: ");
+//        System.out.println("lastDigit: " + lastDigit(23, 19, 13));
+//        System.out.println("lastDigit: " + lastDigit(23, 19, 12));
+//        System.out.println("lastDigit: " + lastDigit(23, 19, 3));
 
-        System.out.println("lessBy10: ");
+//        System.out.println("lessBy10: " + lessBy10(1, 7, 11));
+//        System.out.println("lessBy10: " + lessBy10(1, 7, 10));
+//        System.out.println("lessBy10: " + lessBy10(11,1, 7));
 
-        System.out.println("withoutDoubles: ");
+//        System.out.println("withoutDoubles: " + withoutDoubles(2, 3, true));
+//        System.out.println("withoutDoubles: " + withoutDoubles(3, 3, true));
+//        System.out.println("withoutDoubles: " + withoutDoubles(3, 3, false));
 
-        System.out.println("maxMod5: ");
+//        System.out.println("maxMod5: " + maxMod5(2, 3));
+//        System.out.println("maxMod5: " + maxMod5(6, 2));
+//        System.out.println("maxMod5: " + maxMod5(3, 2));
+
+        System.out.println("");
 
 
     }
@@ -498,6 +508,12 @@ public class Logic1 {
         lastDigit(23, 19, 12) → false
         lastDigit(23, 19, 3) → true
      */
+    public static boolean lastDigit(int a, int b, int c) {
+        if ((a % 10 == c % 10) || (a % 10 == b % 10) || (b % 10 == c % 10)) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> lessBy10 <<<
         Given three ints, a b c, return true if one of them is 10 or more less than one of the others.
@@ -506,6 +522,12 @@ public class Logic1 {
         lessBy10(1, 7, 10) → false
         lessBy10(11, 1, 7) → true
      */
+    public static boolean lessBy10(int a, int b, int c) {
+        boolean ab = Math.abs(a - b) >= 10;
+        boolean bc = Math.abs(b - c) >= 10;
+        boolean ac = Math.abs(a - c) >= 10;
+        return ab || bc || ac;
+    }
 
     /* >>> withoutDoubles <<<
         Return the sum of two 6-sided dice rolls, each in the range 1..6. However, if noDoubles is true, if the two dice show the same value, increment one die to the next value, wrapping around to 1 if its value was 6.
@@ -514,6 +536,15 @@ public class Logic1 {
         withoutDoubles(3, 3, true) → 7
         withoutDoubles(3, 3, false) → 6
      */
+    public static int withoutDoubles(int die1, int die2, boolean noDoubles) {
+        if (noDoubles & die1 == die2) {
+            die1++;
+            if (die1 > 6) {
+                die1 = 1;
+            }
+        }
+        return die1 + die2;
+    }
 
     /* >>> maxMod5 <<<
         Given two int values, return whichever value is larger. However if the two values have the same remainder when divided by 5, then the return the smaller value. However, in all cases, if the two values are the same, return 0. Note: the % "mod" operator computes the remainder, e.g. 7 % 5 is 2.
@@ -522,6 +553,23 @@ public class Logic1 {
         maxMod5(6, 2) → 6
         maxMod5(3, 2) → 3
      */
+    public static int maxMod5(int a, int b) {
+        if (a == b) {
+            return 0;
+        }
+        if (a % 5 == b % 5) {
+            if (a > b) {
+                return b;
+            } else {
+                return a;
+            }
+        }
+        if (a > b) {
+            return a;
+        } else {
+            return b;
+        }
+    }
 
     /* >>> redTicket <<<
         You have a red lottery ticket showing ints a, b, and c, each of which is 0, 1, or 2. If they are all the value 2, the result is 10. Otherwise if they are all the same, the result is 5. Otherwise so long as both b and c are different from a, the result is 1. Otherwise the result is 0.

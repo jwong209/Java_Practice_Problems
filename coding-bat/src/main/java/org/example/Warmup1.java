@@ -20,9 +20,11 @@ public class Warmup1 {
 //        System.out.println("diff21: " + diff21(10));
 //        System.out.println("diff21: " + diff21(21));
 
-        System.out.println("parrotTrouble: " + parrotTrouble(true, 6));
-        System.out.println("parrotTrouble: " + parrotTrouble(true, 7));
-        System.out.println("parrotTrouble: " + parrotTrouble(false, 6));
+//        System.out.println("parrotTrouble: " + parrotTrouble(true, 6));
+//        System.out.println("parrotTrouble: " + parrotTrouble(true, 7));
+//        System.out.println("parrotTrouble: " + parrotTrouble(false, 6));
+
+
 
 
     }
