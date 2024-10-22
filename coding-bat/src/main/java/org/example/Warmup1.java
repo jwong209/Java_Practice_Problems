@@ -24,6 +24,25 @@ public class Warmup1 {
 //        System.out.println("parrotTrouble: " + parrotTrouble(true, 7));
 //        System.out.println("parrotTrouble: " + parrotTrouble(false, 6));
 
+//        System.out.println("makes10: " + makes10(9, 10));
+//        System.out.println("makes10: " + makes10(9, 9));
+//        System.out.println("makes10: " + makes10(1, 9));
+
+//        System.out.println("nearHundred: " + nearHundred(93));
+//        System.out.println("nearHundred: " + nearHundred(90));
+//        System.out.println("nearHundred: " + nearHundred(89));
+
+//        System.out.println("posNeg: " + posNeg(1, -1, false));
+//        System.out.println("posNeg: " + posNeg(-1, 1, false));
+//        System.out.println("posNeg: " + posNeg(-4, -5, true));
+
+//        System.out.println("notString: " + notString("candy"));
+//        System.out.println("notString: " + notString("x"));
+//        System.out.println("notString: " + notString("not bad"));
+
+//        System.out.println("missingChar: " + missingChar("kitten", 1));
+//        System.out.println("missingChar: " + missingChar("kitten", 0));
+//        System.out.println("missingChar: " + missingChar("kitten", 4));
 
 
 
@@ -120,6 +139,14 @@ public class Warmup1 {
         makes10(9, 9) → false
         makes10(1, 9) → true
     */
+   public static boolean makes10(int a, int b) {
+       if (a + b == 10) {
+           return true;
+       } else if (a == 10 || b == 10) {
+           return true;
+       }
+       return false;
+   }
 
    /* >>> nearHundred <<<
         Given an int n, return true if it is within 10 of 100 or 200. Note: Math.abs(num) computes the absolute value of a number.
@@ -128,6 +155,10 @@ public class Warmup1 {
         nearHundred(90) → true
         nearHundred(89) → false
     */
+   public static boolean nearHundred(int n) {
+       if (Math.abs(200 - n) <= 10 || Math.abs(100 - n) <= 10) return true;
+       return false;
+   }
 
    /* >>> posNeg <<<
         Given 2 int values, return true if one is negative and one is positive. Except if the parameter "negative" is true, then return true only if both are negative.
@@ -136,6 +167,20 @@ public class Warmup1 {
         posNeg(-1, 1, false) → true
         posNeg(-4, -5, true) → true
     */
+   public static boolean posNeg(int a, int b, boolean negative) {
+       if (negative) {
+           if (a < 0 && b < 0) {
+               return true;
+           }
+           return false;
+       }
+       if (a < 0 && b > 0) {
+           return true;
+       } else if (a > 0 && b < 0) {
+           return true;
+       }
+       return false;
+   }
 
    /* >>> notString <<<
         Given a string, return a new string where "not " has been added to the front. However, if the string already begins with "not", return the string unchanged. Note: use .equals() to compare 2 strings.
@@ -144,6 +189,13 @@ public class Warmup1 {
         notString("x") → "not x"
         notString("not bad") → "not bad"
     */
+   public static String notString(String str) {
+       if (str.startsWith("not")) {
+           return str;
+       }
+       String answer = "not " + str;
+       return answer;
+   }
 
    /* >>> missingChar <<<
         Given a non-empty string and an int n, return a new string where the char at index n has been removed. The value of n will be a valid index of a char in the original string (i.e. n will be in the range 0..str.length()-1 inclusive).
@@ -152,6 +204,9 @@ public class Warmup1 {
         missingChar("kitten", 0) → "itten"
         missingChar("kitten", 4) → "kittn"
     */
+   public static String missingChar(String str, int n) {
+       return str.replace(Character.toString(str.charAt(n)), "");
+   }
 
    /* >>> frontBack <<<
         Given a string, return a new string where the first and last chars have been exchanged.

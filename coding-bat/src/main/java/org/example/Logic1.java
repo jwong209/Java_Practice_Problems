@@ -118,9 +118,9 @@ public class Logic1 {
 //        System.out.println("shareDigit: " + shareDigit(12, 43));
 //        System.out.println("shareDigit: " + shareDigit(12, 44));
 
-//        System.out.println("sumLimit: " + sumLimit(2, 3));
-//        System.out.println("sumLimit: " + sumLimit(8, 3));
-//        System.out.println("sumLimit: " + sumLimit(8, 1));
+        System.out.println("sumLimit: " + sumLimit(2, 3));
+        System.out.println("sumLimit: " + sumLimit(8, 3));
+        System.out.println("sumLimit: " + sumLimit(8, 1));
 
 
     }
