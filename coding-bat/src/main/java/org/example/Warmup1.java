@@ -44,8 +44,21 @@ public class Warmup1 {
 //        System.out.println("missingChar: " + missingChar("kitten", 0));
 //        System.out.println("missingChar: " + missingChar("kitten", 4));
 
+//        System.out.println("frontBack: " + frontBack("code"));
+//        System.out.println("frontBack: " + frontBack("a"));
+//        System.out.println("frontBack: " + frontBack("ab"));
 
+//        System.out.println("front3: " + front3("Java"));
+//        System.out.println("front3: " + front3("Chocolate"));
+//        System.out.println("front3: " + front3("abc"));
 
+//        System.out.println("backAround: " + backAround("cat"));
+//        System.out.println("backAround: " + backAround("Hello"));
+//        System.out.println("backAround: " + backAround("a"));
+
+        System.out.println("or35: " + or35(3));
+        System.out.println("or35: " + or35(10));
+        System.out.println("or35: " + or35(8));
     }
 
     /* >>> sleepIn <<<
@@ -215,6 +228,18 @@ public class Warmup1 {
         frontBack("a") → "a"
         frontBack("ab") → "ba"
     */
+   public static String frontBack(String str) {
+       String answer = "";
+       if (str.length() < 2) {
+           return str;
+       }
+
+       String first = Character.toString(str.charAt(0));
+       String last = Character.toString(str.charAt(str.length() - 1));
+       String minusEnds = str.substring(1, str.length() - 1);
+
+       return last + minusEnds + first;
+   }
 
    /* >>> front3 <<<
         Given a string, we'll say that the front is the first 3 chars of the string. If the string length is less than 3, the front is whatever is there. Return a new string which is 3 copies of the front.
@@ -223,6 +248,21 @@ public class Warmup1 {
         front3("Chocolate") → "ChoChoCho"
         front3("abc") → "abcabcabc"
     */
+   public static String front3(String str) {
+       String answer = "";
+       if (str.length() < 3) {
+           for (int i = 0; i < 3; i++) {
+               answer += str;
+           }
+           return answer;
+       }
+
+       String front = str.substring(0, 3);
+       for (int i = 0; i < 3; i++) {
+           answer += front;
+       }
+       return answer;
+   }
 
    /* >>> backAround <<<
         Given a string, take the last char and return a new string with the last char added at the front and back, so "cat" yields "tcatt". The original string will be length 1 or more.
@@ -231,6 +271,10 @@ public class Warmup1 {
         backAround("Hello") → "oHelloo"
         backAround("a") → "aaa"
     */
+   public static String backAround(String str) {
+       String last = Character.toString(str.charAt(str.length() - 1));
+       return last + str + last;
+   }
 
    /* >>> or35 <<<
         Return true if the given non-negative number is a multiple of 3 or a multiple of 5. Use the % "mod" operator -- see Introduction to Mod
@@ -239,6 +283,9 @@ public class Warmup1 {
         or35(10) → true
         or35(8) → false
     */
+   public static boolean or35(int n) {
+       return n % 5 == 0 || n % 3 == 0;
+   }
 
    /* >>> front22 <<<
         Given a string, take the first 2 chars and return the string with the 2 chars added at both the front and back, so "kitten" yields"kikittenki". If the string length is less than 2, use whatever chars are there.
