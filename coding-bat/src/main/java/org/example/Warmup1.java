@@ -56,9 +56,26 @@ public class Warmup1 {
 //        System.out.println("backAround: " + backAround("Hello"));
 //        System.out.println("backAround: " + backAround("a"));
 
-        System.out.println("or35: " + or35(3));
-        System.out.println("or35: " + or35(10));
-        System.out.println("or35: " + or35(8));
+//        System.out.println("or35: " + or35(3));
+//        System.out.println("or35: " + or35(10));
+//        System.out.println("or35: " + or35(8));
+
+//        System.out.println("front22: " + front22("kitten"));
+//        System.out.println("front22: " + front22("Ha"));
+//        System.out.println("front22: " + front22("abc"));
+
+//        System.out.println("startHi: " + startHi("hi there"));
+//        System.out.println("startHi: " + startHi("hi"));
+//        System.out.println("startHi: " + startHi("hello hi"));
+
+//        System.out.println("icyHot: " + icyHot(120, -1));
+//        System.out.println("icyHot: " + icyHot(-1, 120));
+//        System.out.println("icyHot: " + icyHot(2, 120));
+
+        System.out.println("");
+        
+        System.out.println("");
+
     }
 
     /* >>> sleepIn <<<
@@ -294,6 +311,13 @@ public class Warmup1 {
         front22("Ha") → "HaHaHa"
         front22("abc") → "ababcab"
     */
+   public static String front22(String str) {
+       if (str.length() < 2) {
+           return str + str + str;
+       }
+       String front = str.substring(0, 2);
+       return front + str + front;
+   }
 
    /* >>> startHi <<<
        Given a string, return true if the string starts with "hi" and false otherwise.
@@ -302,6 +326,12 @@ public class Warmup1 {
         startHi("hi") → true
         startHi("hello hi") → false
     */
+   public static boolean startHi(String str) {
+       if (str.startsWith("hi")) {
+           return true;
+       }
+       return false;
+   }
 
    /* >>> icyHot <<<
         Given two temperatures, return true if one is less than 0 and the other is greater than 100.
@@ -310,6 +340,14 @@ public class Warmup1 {
         icyHot(-1, 120) → true
         icyHot(2, 120) → false
     */
+   public static boolean icyHot(int temp1, int temp2) {
+       if (temp1 < 0 && temp2 > 100) {
+           return true;
+       } else if (temp1 > 100 && temp2 < 0) {
+           return true;
+       }
+       return false;
+   }
 
    /* >>> in1020 <<<
         Given 2 int values, return true if either of them is in the range 10..20 inclusive.
@@ -318,6 +356,7 @@ public class Warmup1 {
         in1020(21, 12) → true
         in1020(8, 99) → false
     */
+
 
    /* >>> hasTeen <<<
         We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 3 int values, return true if 1 or more of them are teen.
