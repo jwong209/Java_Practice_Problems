@@ -72,9 +72,24 @@ public class Warmup1 {
 //        System.out.println("icyHot: " + icyHot(-1, 120));
 //        System.out.println("icyHot: " + icyHot(2, 120));
 
-        System.out.println("");
+        System.out.println("in1020: ");
         
-        System.out.println("");
+//        System.out.println("hasTeen: " + hasTeen(13, 20, 10));
+//        System.out.println("hasTeen: " + hasTeen(20, 19, 10));
+//        System.out.println("hasTeen: " + hasTeen(20, 10, 13));
+
+//        System.out.println("delDel: " + delDel("adelbc"));
+//        System.out.println("delDel: " + delDel("adelHello"));
+//        System.out.println("delDel: " + delDel("adedbc"));
+
+//        System.out.println("mixStart: " + mixStart("mix snacks"));
+//        System.out.println("mixStart: " + mixStart("pix snacks"));
+//        System.out.println("mixStart: " + mixStart("piz snacks"));
+
+        System.out.println("intMax: "+ intMax(1, 2, 3));
+        System.out.println("intMax: "+ intMax(1, 3, 2));
+        System.out.println("intMax: "+ intMax(3, 2, 1));
+
 
     }
 
@@ -365,6 +380,18 @@ public class Warmup1 {
         hasTeen(20, 19, 10) → true
         hasTeen(20, 10, 13) → true
     */
+   public static boolean hasTeen(int a, int b, int c) {
+       if (a >= 13 && a <= 19) {
+           return true;
+       }
+       if (b >= 13 && b <= 19) {
+           return true;
+       }
+       if (c >= 13 && c <= 19) {
+           return true;
+       }
+       return false;
+   }
 
    /* >>> loneTeen <<<
         We'll say that a number is "teen" if it is in the range 13..19 inclusive. Given 2 int values, return true if one or the other is teen, but not both.
@@ -381,6 +408,16 @@ public class Warmup1 {
         delDel("adelHello") → "aHello"
         delDel("adedbc") → "adedbc"
     */
+   public static String delDel(String str) {
+       if (str.length() < 4) {
+           return str;
+       }
+       String front = str.substring(1, 4);
+       if (front.contains("del")) {
+           return str.replace("del", "");
+       }
+       return str;
+   }
 
    /* >>> mixStart <<<
         Return true if the given string begins with "mix", except the 'm' can be anything, so "pix", "9ix" .. all count.
@@ -389,6 +426,16 @@ public class Warmup1 {
         mixStart("pix snacks") → true
         mixStart("piz snacks") → false
     */
+   public static boolean mixStart(String str) {
+       if (str.length() < 3) {
+           return false;
+       }
+       String sub = str.substring(1, 3);
+       if (sub.equals("ix")) {
+           return true;
+       }
+       return false;
+   }
 
    /* >>> startOz <<<
         Given a string, return a string made of the first 2 chars (if present), however include first char only if it is 'o' and include the second only if it is 'z', so "ozymandias" yields "oz".
@@ -405,6 +452,16 @@ public class Warmup1 {
         intMax(1, 3, 2) → 3
         intMax(3, 2, 1) → 3
     */
+   public static int intMax(int a, int b, int c) {
+       if (a > b && a > c) {
+           return a;
+       } else if (b > a && b > c) {
+           return b;
+       } else if (c > a && c > b){
+           return c;
+       }
+       return a;
+   }
 
    /* >>> close10 <<<
         Given 2 int values, return whichever value is nearest to the value 10, or return 0 in the event of a tie. Note that Math.abs(n) returns the absolute value of a number.
