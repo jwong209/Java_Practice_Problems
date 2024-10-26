@@ -201,13 +201,13 @@ public class Main {
 //        System.out.println("blackjack: " + blackjack(21, 19));
 //        System.out.println("blackjack: " + blackjack(19, 22));
 
-//        System.out.println("fizzBuzz: " + Arrays.toString(fizzBuzz()));
+        System.out.println("fizzBuzz: " + Arrays.toString(fizzBuzz()));
 
 //        System.out.println("fibonacci: " + Arrays.toString(fibonacci()));
 
-        System.out.println("primeFactors: " + Arrays.toString(primeFactors(6)));
-        System.out.println("primeFactors: " + Arrays.toString(primeFactors(28)));
-        System.out.println("primeFactors: " + Arrays.toString(primeFactors(667)));
+//        System.out.println("primeFactors: " + Arrays.toString(primeFactors(6)));
+//        System.out.println("primeFactors: " + Arrays.toString(primeFactors(28)));
+//        System.out.println("primeFactors: " + Arrays.toString(primeFactors(667)));
 
 }
 
@@ -1354,6 +1354,7 @@ public class Main {
         }
 
         return result;
+
     }
 
     /* ---Fibonacci---

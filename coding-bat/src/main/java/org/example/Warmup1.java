@@ -86,9 +86,25 @@ public class Warmup1 {
 //        System.out.println("mixStart: " + mixStart("pix snacks"));
 //        System.out.println("mixStart: " + mixStart("piz snacks"));
 
-        System.out.println("intMax: "+ intMax(1, 2, 3));
-        System.out.println("intMax: "+ intMax(1, 3, 2));
-        System.out.println("intMax: "+ intMax(3, 2, 1));
+//        System.out.println("intMax: "+ intMax(1, 2, 3));
+//        System.out.println("intMax: "+ intMax(1, 3, 2));
+//        System.out.println("intMax: "+ intMax(3, 2, 1));
+
+//        System.out.println("close10: " + close10(8, 13));
+//        System.out.println("close10: " + close10(13, 8));
+//        System.out.println("close10: " + close10(13, 7));
+
+//        System.out.println("in3050: ");
+
+//        System.out.println("max1020: ");
+
+//        System.out.println("stringE: " + stringE("Hello"));
+//        System.out.println("stringE: " + stringE("Heelle"));
+//        System.out.println("stringE: " + stringE("Heelele"));
+
+//        System.out.println("lastDigit: " + lastDigit(7, 17));
+//        System.out.println("lastDigit: " + lastDigit(6, 17));
+//        System.out.println("lastDigit: " + lastDigit(3, 113));
 
 
     }
@@ -470,6 +486,13 @@ public class Warmup1 {
         close10(13, 8) → 8
         close10(13, 7) → 0
     */
+   public static int close10(int a, int b) {
+       int aVal = Math.abs(10 - a);
+       int bVal = Math.abs(10 - b);
+       if (aVal == bVal) return 0;
+       if (a < b) return a;
+       return b;
+   }
 
    /* >>> in3050 <<<
         Given 2 int values, return true if they are both in the range 30..40 inclusive, or they are both in the range 40..50 inclusive.
@@ -494,6 +517,19 @@ public class Warmup1 {
     stringE("Heelle") → true
     stringE("Heelele") → false
     */
+   public static boolean stringE(String str) {
+       int count = 0;
+       for (int i = 0; i < str.length(); i++) {
+           char current = str.charAt(i);
+           if (current == 'e') {
+               count++;
+           }
+       }
+       if (count >= 1 && count <= 3) {
+           return true;
+       }
+       return false;
+   }
 
    /* >>> lastDigit <<<
         Given two non-negative int values, return true if they have the same last digit, such as with 27 and 57. Note that the % "mod" operator computes remainders, so 17 % 10 is 7.
@@ -502,6 +538,9 @@ public class Warmup1 {
         lastDigit(6, 17) → false
         lastDigit(3, 113) → true
     */
+   public static boolean lastDigit(int a, int b) {
+       return (a % 10 == b % 10);
+   }
 
    /* >>> endUp <<<
         Given a string, return a new string where the last 3 chars are now in upper case. If the string has less than 3 chars, uppercase whatever is there. Note that str.toUpperCase() returns the uppercase version of a string.
