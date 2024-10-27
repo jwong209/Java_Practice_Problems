@@ -1,10 +1,26 @@
 package org.example;
 
+import java.util.Arrays;
+
 public class Array2 {
     public static void main(String[] args) {
         Array2 array2 = new Array2();
 
-        System.out.println();
+//        System.out.println("countEvens: " + countEvens(new int[]{2, 1, 2, 3, 4}));
+//        System.out.println("countEvens: " + countEvens(new int[]{2, 2, 0}));
+//        System.out.println("countEvens: " + countEvens(new int[]{1, 3, 5}));
+
+//        System.out.println("bigDiff: " + bigDiff(new int[]{10, 3, 5, 6}));
+//        System.out.println("bigDiff: " + bigDiff(new int[]{7, 2, 10, 9}));
+//        System.out.println("bigDiff: " + bigDiff(new int[]{2, 10, 7, 2}));
+
+//        System.out.println("centeredAverage: " + centeredAverage(new int[]{1, 2, 3, 4, 100}));
+//        System.out.println("centeredAverage: " + centeredAverage(new int[]{1, 1, 5, 5, 10, 8, 7}));
+//        System.out.println("centeredAverage: " + centeredAverage(new int[]{-10, -4, -2, -4, -2, 0}));
+
+        System.out.println("sum13: " + sum13(new int[]{1, 2, 2, 1}));
+        System.out.println("sum13: " + sum13(new int[]{1, 1}));
+        System.out.println("sum13: " + sum13(new int[]{1, 2, 2, 1, 13}));
     }
 
     /* >>> countEvens <<<
@@ -14,6 +30,15 @@ public class Array2 {
         countEvens([2, 2, 0]) → 3
         countEvens([1, 3, 5]) → 0
      */
+    public static int countEvens(int[] nums) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 ==0) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     /* >>> bigDiff <<<
         Given an array length 1 or more of ints, return the difference between the largest and smallest values in the array. Note: the built-in Math.min(v1, v2) and Math.max(v1, v2) methods return the smaller or larger of two values.
@@ -22,6 +47,27 @@ public class Array2 {
         bigDiff([7, 2, 10, 9]) → 8
         bigDiff([2, 10, 7, 2]) → 8
      */
+    public static int bigDiff(int[] nums) {
+        int largest = -1000;
+        int smallest = 1000;
+        int largerOfTwo = 0;
+        int smallerOfTwo = 0;
+
+        if (nums.length < 2) {
+            return 0;
+        }
+        for (int i = 0; i < nums.length - 1; i++) {
+            largerOfTwo = Math.max(nums[i], nums[i + 1]);
+            if (largerOfTwo > largest) {
+                largest = largerOfTwo;
+            }
+            smallerOfTwo = Math.min(nums[i], nums[i + 1]);
+            if (smallerOfTwo < smallest) {
+                smallest = smallerOfTwo;
+            }
+        }
+        return (largest - smallest);
+    }
 
     /* >>> centeredAverage <<<
         Return the "centered" average of an array of ints, which we'll say is the mean average of the values, except ignoring the largest and smallest values in the array. If there are multiple copies of the smallest value, ignore just one copy, and likewise for the largest value. Use int division to produce the final average. You may assume that the array is length 3 or more.
@@ -30,6 +76,15 @@ public class Array2 {
         centeredAverage([1, 1, 5, 5, 10, 8, 7]) → 5
         centeredAverage([-10, -4, -2, -4, -2, 0]) → -3
      */
+    public static int centeredAverage(int[] nums) {
+        int sum = 0;
+        int[] newArr = nums;
+        Arrays.sort(newArr);
+        for (int i = 1; i < nums.length - 1; i++) {
+            sum += nums[i];
+        }
+        return sum / (nums.length -2);
+    }
 
     /* >>> sum13 <<<
         Return the sum of the numbers in the array, returning 0 for an empty array. Except the number 13 is very unlucky, so it does not count and numbers that come immediately after a 13 also do not count.
@@ -38,6 +93,21 @@ public class Array2 {
         sum13([1, 1]) → 2
         sum13([1, 2, 2, 1, 13]) → 6
      */
+    public static int sum13(int[] nums) {
+        int sum = 0;
+        if (nums.length == 0) {
+            return 0;
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && nums[i - 1] == 13) {
+                continue;
+            }
+            if (nums[i] != 13) {
+                sum += nums[i];
+            }
+        }
+        return sum;
+    }
 
     /* >>> sum67 <<<
         Return the sum of the numbers in the array, except ignore sections of numbers starting with a 6 and extending to the next 7 (every 6 will be followed by at least one 7). Return 0 for no numbers.

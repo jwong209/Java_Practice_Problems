@@ -106,7 +106,11 @@ public class Warmup1 {
 //        System.out.println("lastDigit: " + lastDigit(6, 17));
 //        System.out.println("lastDigit: " + lastDigit(3, 113));
 
+//        System.out.println("endUp: " + endUp("Hello"));
+//        System.out.println("endUp: " + endUp("hi there"));
+//        System.out.println("endUp: " + endUp("hi"));
 
+        System.out.println("everyNth: ");
     }
 
     /* >>> sleepIn <<<
@@ -513,9 +517,9 @@ public class Warmup1 {
    /* >>> stringE <<<
         Return true if the given string contains between 1 and 3 'e' chars.
 
-    stringE("Hello") → true
-    stringE("Heelle") → true
-    stringE("Heelele") → false
+        stringE("Hello") → true
+        stringE("Heelle") → true
+        stringE("Heelele") → false
     */
    public static boolean stringE(String str) {
        int count = 0;
@@ -539,6 +543,13 @@ public class Warmup1 {
         lastDigit(3, 113) → true
     */
    public static boolean lastDigit(int a, int b) {
+//       int lastA = a % 10;
+//       int lastB = b % 10;
+//       if (lastA == lastB ) {
+//           return true;
+//       }
+//       return false;
+
        return (a % 10 == b % 10);
    }
 
@@ -549,6 +560,15 @@ public class Warmup1 {
         endUp("hi there") → "hi thERE"
         endUp("hi") → "HI"
     */
+   public static String endUp(String str) {
+       String answer = "";
+       if (str.length() < 3) {
+           return str.toUpperCase();
+       }
+       String subEnd = str.substring(str.length() - 3).toUpperCase();
+       String subFront = str.substring(0, str.length() - 3);
+       return subFront + subEnd;
+   }
 
    /* >>> everyNth <<<
         Given a non-empty string and an int N, return the string made starting with char 0, and then every Nth char of the string. So if N is 3, use char 0, 3, 6, ... and so on. N is 1 or more.
