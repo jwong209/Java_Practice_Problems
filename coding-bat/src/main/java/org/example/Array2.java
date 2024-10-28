@@ -18,9 +18,24 @@ public class Array2 {
 //        System.out.println("centeredAverage: " + centeredAverage(new int[]{1, 1, 5, 5, 10, 8, 7}));
 //        System.out.println("centeredAverage: " + centeredAverage(new int[]{-10, -4, -2, -4, -2, 0}));
 
-        System.out.println("sum13: " + sum13(new int[]{1, 2, 2, 1}));
-        System.out.println("sum13: " + sum13(new int[]{1, 1}));
-        System.out.println("sum13: " + sum13(new int[]{1, 2, 2, 1, 13}));
+//        System.out.println("sum13: " + sum13(new int[]{1, 2, 2, 1}));
+//        System.out.println("sum13: " + sum13(new int[]{1, 1}));
+//        System.out.println("sum13: " + sum13(new int[]{1, 2, 2, 1, 13}));
+
+//        System.out.println("sum67: " + sum67(new int[]{1, 2, 2}));
+//        System.out.println("sum67: " + sum67(new int[]{1, 2, 2, 6, 99, 99, 7}));
+//        System.out.println("sum67: " + sum67(new int[]{1, 1, 6 , 7, 2}));
+
+//        System.out.println("has22: " + has22(new int[]{1, 2, 2}));
+//        System.out.println("has22: " + has22(new int[]{1, 2, 1, 2}));
+//        System.out.println("has22: " + has22(new int[]{2, 1, 2}));
+
+        System.out.println("lucky13: " + lucky13(new int[]{0, 2, 4}));
+        System.out.println("lucky13: " + lucky13(new int[]{1, 2, 3}));
+        System.out.println("lucky13: " + lucky13(new int[]{1, 2, 4}));
+
+        System.out.println("");
+
     }
 
     /* >>> countEvens <<<
@@ -116,6 +131,22 @@ public class Array2 {
         sum67([1, 2, 2, 6, 99, 99, 7]) → 5
         sum67([1, 1, 6, 7, 2]) → 4
      */
+    public static int sum67(int[] nums) {
+        int sum = 0;
+        boolean ignoreNum = false;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 6) {
+                ignoreNum = true;
+            }
+            if (!ignoreNum) {
+                sum += nums[i];
+            }
+            if (nums[i] == 7) {
+                ignoreNum = false;
+            }
+        }
+        return sum;
+    }
 
     /* >>> has22 <<<
         Given an array of ints, return true if the array contains a 2 next to a 2 somewhere.
@@ -124,6 +155,19 @@ public class Array2 {
         has22([1, 2, 1, 2]) → false
         has22([2, 1, 2]) → false
      */
+    public static boolean has22(int[] nums) {
+        if (nums.length == 2) {
+            if (nums[0] == 2 && nums[1] == 2) {
+                return true;
+            }
+        }
+        for (int i = 1; i < nums.length - 1; i++) {
+            if (nums[i] == 2 && (nums[i - 1] == 2 || nums[i + 1] == 2)) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* >>> lucky13 <<<
         Given an array of ints, return true if the array contains no 1's and no 3's.
@@ -132,6 +176,14 @@ public class Array2 {
         lucky13([1, 2, 3]) → false
         lucky13([1, 2, 4]) → false
      */
+    public static boolean lucky13(int[] nums) {
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1 || nums[i] == 3) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* >>> sum28 <<<
         Given an array of ints, return true if the sum of all the 2's in the array is exactly 8.
