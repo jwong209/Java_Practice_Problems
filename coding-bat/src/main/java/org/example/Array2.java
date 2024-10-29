@@ -30,9 +30,21 @@ public class Array2 {
 //        System.out.println("has22: " + has22(new int[]{1, 2, 1, 2}));
 //        System.out.println("has22: " + has22(new int[]{2, 1, 2}));
 
-        System.out.println("lucky13: " + lucky13(new int[]{0, 2, 4}));
-        System.out.println("lucky13: " + lucky13(new int[]{1, 2, 3}));
-        System.out.println("lucky13: " + lucky13(new int[]{1, 2, 4}));
+//        System.out.println("lucky13: " + lucky13(new int[]{0, 2, 4}));
+//        System.out.println("lucky13: " + lucky13(new int[]{1, 2, 3}));
+//        System.out.println("lucky13: " + lucky13(new int[]{1, 2, 4}));
+
+//        System.out.println("sum28: " + sum28(new int[]{2, 3, 2, 2, 4, 2}));
+//        System.out.println("sum28: " + sum28(new int[]{2, 3, 2, 2, 4, 2, 2}));
+//        System.out.println("sum28: " + sum28(new int[]{1, 2, 3, 4}));
+
+//        System.out.println("more14: " + more14(new int[]{1, 4, 1}));
+//        System.out.println("more14: " + more14(new int[]{1, 4, 1, 4}));
+//        System.out.println("more14: " + more14(new int[]{1, 1}));
+
+//        System.out.println("fizzArray: " + Arrays.toString(fizzArray(4)));
+//        System.out.println("fizzArray: " + Arrays.toString(fizzArray(1)));
+//        System.out.println("fizzArray: " + Arrays.toString(fizzArray(10)));
 
         System.out.println("");
 
@@ -192,6 +204,15 @@ public class Array2 {
         sum28([2, 3, 2, 2, 4, 2, 2]) → false
         sum28([1, 2, 3, 4]) → false
      */
+    public static boolean sum28(int[] nums) {
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 2) {
+                sum += nums[i];
+            }
+        }
+        return sum == 8;
+    }
 
     /* >>> more14 <<<
         Given an array of ints, return true if the number of 1's is greater than the number of 4's
@@ -200,6 +221,18 @@ public class Array2 {
         more14([1, 4, 1, 4]) → false
         more14([1, 1]) → true
      */
+    public static boolean more14(int[] nums) {
+        int count1s = 0;
+        int count4s = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                count1s++;
+            } else if (nums[i] == 4) {
+                count4s++;
+            }
+        }
+        return count1s > count4s;
+    }
 
     /* >>> fizzArray <<<
         Given a number n, create and return a new int array of length n, containing the numbers 0, 1, 2, ... n-1. The given n may be 0, in which case just return a length 0 array. You do not need a separate if-statement for the length-0 case; the for-loop should naturally execute 0 times in that case, so it just works. The syntax to make a new int array is: new int[desired_length]   (See also: FizzBuzz Code)
@@ -208,6 +241,13 @@ public class Array2 {
         fizzArray(1) → [0]
         fizzArray(10) → [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
      */
+    public static int[] fizzArray(int n) {
+        int[] answer = new int[n];
+        for (int i = 0; i < n; i++) {
+            answer[i] = i;
+        }
+        return answer;
+    }
 
     /* >>> only14 <<<
         Given an array of ints, return true if every element is a 1 or a 4.
