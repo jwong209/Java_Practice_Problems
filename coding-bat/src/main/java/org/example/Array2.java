@@ -58,9 +58,26 @@ public class Array2 {
 //        System.out.println("no14: " + no14(new int[]{1, 2, 3, 4}));
 //        System.out.println("no14: " + no14(new int[]{2, 3, 4}));
 
-        System.out.println("isEverywhere: " + isEverywhere(new int[]{1, 2, 1, 3}, 1));
-        System.out.println("isEverywhere: " + isEverywhere(new int[]{1, 2, 1, 3}, 2));
-        System.out.println("isEverywhere: " + isEverywhere(new int[]{1, 2, 1, 3, 4}, 1));
+//        System.out.println("isEverywhere: " + isEverywhere(new int[]{1, 2, 1, 3}, 1));
+//        System.out.println("isEverywhere: " + isEverywhere(new int[]{1, 2, 1, 3}, 2));
+//        System.out.println("isEverywhere: " + isEverywhere(new int[]{1, 2, 1, 3, 4}, 1));
+
+//        System.out.println("either24: " + either24(new int[]{1, 2, 2}));
+//        System.out.println("either24: " + either24(new int[]{4, 4, 1}));
+//        System.out.println("either24: " + either24(new int[]{4, 4, 1, 2, 2}));
+
+//        System.out.println("matchUp: " + matchUp(new int[]{1, 2, 3}, new int[]{2, 3, 10}));
+//        System.out.println("matchUp: " + matchUp(new int[]{1, 2, 3}, new int[]{2, 3, 5}));
+//        System.out.println("matchUp: " + matchUp(new int[]{1, 2, 3}, new int[]{2, 3, 3}));
+
+//        System.out.println("has77: " + has77(new int[]{1, 7, 7}));
+//        System.out.println("has77: " + has77(new int[]{1, 7, 1, 7}));
+//        System.out.println("has77: " + has77(new int[]{1, 7, 1, 1, 7}));
+
+//        System.out.println("has12: " + has12(new int[]{1, 3, 2}));
+//        System.out.println("has12: " + has12(new int[]{3, 1, 2}));
+//        System.out.println("has12: " + has12(new int[]{3, 1, 4, 5, 2}));
+
     }
 
     /* >>> countEvens <<<
@@ -342,6 +359,26 @@ public class Array2 {
         either24([4, 4, 1]) → true
         either24([4, 4, 1, 2, 2]) → false
      */
+    public static boolean either24(int[] nums) {
+        int count2 = 0;
+        int count4 = 0;
+
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 2 && nums[i+1] == 2) {
+                count2++;
+            } else if (nums[i] == 4 && nums[i+1] == 4) {
+                count4++;
+            }
+        }
+        if (count2 > 0 && count4 > 0) {
+            return false;
+        } else if (count2 > 0) {
+            return true;
+        } else if (count4 > 0) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> matchUp <<<
         Given arrays nums1 and nums2 of the same length, for every element in nums1, consider the corresponding element in nums2 (at the same index). Return the count of the number of times that the two elements differ by 2 or less, but are not equal.
@@ -350,6 +387,15 @@ public class Array2 {
         matchUp([1, 2, 3], [2, 3, 5]) → 3
         matchUp([1, 2, 3], [2, 3, 3]) → 2
      */
+    public static int matchUp(int[] nums1, int[] nums2) {
+        int count = 0;
+        for (int i = 0; i < nums1.length; i++) {
+            if ((Math.abs(nums1[i] - nums2[i]) <= 2) && nums1[i] != nums2[i]) {
+                count++;
+            }
+        }
+        return count;
+    }
 
     /* >>> has77 <<<
         Given an array of ints, return true if the array contains two 7's next to each other, or there are two 7's separated by one element, such as with {7, 1, 7}.
@@ -358,6 +404,18 @@ public class Array2 {
         has77([1, 7, 1, 7]) → true
         has77([1, 7, 1, 1, 7]) → false
      */
+    public static boolean has77(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] == 7 && nums[i+1] == 7) {
+                return true;
+            } else if (nums[nums.length - 2] == 7 && nums[nums.length -1] == 7) {
+                return true;
+            } else if (nums[i] == 7 && nums[i+2] ==7) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* >>> has12 <<<
         Given an array of ints, return true if there is a 1 in the array with a 2 somewhere later in the array.
@@ -366,6 +424,24 @@ public class Array2 {
         has12([3, 1, 2]) → true
         has12([3, 1, 4, 5, 2]) → true
      */
+    public static boolean has12(int[] nums) {
+        int indexOf2 = Integer.MIN_VALUE;
+        int indexOf1 = Integer.MIN_VALUE;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 1) {
+                indexOf1 = i;
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 2) {
+                indexOf2 = i;
+            }
+        }
+        if (indexOf1 < 0) {
+            return false;
+        }
+        return (indexOf1 < indexOf2);
+    }
 
     /* >>> modThree <<<
         Given an array of ints, return true if the array contains either 3 even or 3 odd values all next to each other.
