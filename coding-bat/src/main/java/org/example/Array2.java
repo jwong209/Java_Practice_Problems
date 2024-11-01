@@ -78,6 +78,24 @@ public class Array2 {
 //        System.out.println("has12: " + has12(new int[]{3, 1, 2}));
 //        System.out.println("has12: " + has12(new int[]{3, 1, 4, 5, 2}));
 
+//        System.out.println("modThree: " + modThree(new int[]{2, 1, 3, 5}));
+//        System.out.println("modThree: " + modThree(new int[]{2, 1, 2, 5}));
+//        System.out.println("modThree: " + modThree(new int[]{2, 4, 2, 5}));
+
+//        System.out.println("haveThree: " + haveThree(new int[]{3, 1, 3, 1, 3}));
+//        System.out.println("haveThree: " + haveThree(new int[]{3, 1, 3, 3}));
+//        System.out.println("haveThree: " + haveThree(new int[]{3, 4, 3, 3, 4}));
+
+//        System.out.println("twoTwo: " + twoTwo(new int[]{4, 2, 2, 3}));
+//        System.out.println("twoTwo: " + twoTwo(new int[]{2, 2, 4}));
+//        System.out.println("twoTwo: " + twoTwo(new int[]{2, 2, 4, 2}));
+
+//        System.out.println("sameEnds: " + sameEnds(new int[]{5, 6, 45, 99, 13, 5, 6}, 1));
+//        System.out.println("sameEnds: " + sameEnds(new int[]{5, 6, 45, 99, 13, 5, 6}, 2));
+//        System.out.println("sameEnds: " + sameEnds(new int[]{5, 6, 45, 99, 13, 5, 6}, 3));
+
+        System.out.println("");
+
     }
 
     /* >>> countEvens <<<
@@ -450,6 +468,16 @@ public class Array2 {
         modThree([2, 1, 2, 5]) → false
         modThree([2, 4, 2, 5]) → true
      */
+    public static boolean modThree(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            boolean isEven = (nums[i] % 2 == 0) && (nums[i+1] % 2 == 0) && (nums[i+2] % 2 == 0);
+            boolean isOdd = (nums[i] % 2 != 0) && (nums[i+1] % 2 != 0) && (nums[i+2] % 2 != 0);
+            if (isEven || isOdd) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* >>> haveThree <<<
         Given an array of ints, return true if the value 3 appears in the array exactly 3 times, and no 3's are next to each other.
@@ -458,6 +486,20 @@ public class Array2 {
         haveThree([3, 1, 3, 3]) → false
         haveThree([3, 4, 3, 3, 4]) → false
      */
+    public static boolean haveThree(int[] nums) {
+        int count3 = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 3) {
+                count3++;
+            }
+        }
+        for (int i = 0; i < nums.length - 1; i++) {
+            if (nums[i] == 3 && nums[i + 1] == 3) {
+                return false;
+            }
+        }
+        return count3 == 3;
+    }
 
     /* >>> twoTwo <<<
         Given an array of ints, return true if every 2 that appears in the array is next to another 2.
@@ -466,6 +508,23 @@ public class Array2 {
         twoTwo([2, 2, 4]) → true
         twoTwo([2, 2, 4, 2]) → false
      */
+    public static boolean twoTwo(int[] nums) {
+        if (nums.length == 0) {
+            return true;
+        }
+        if (nums.length == 1 && nums[0] == 2) {
+            return false;
+        }
+        for (int i = 1; i < nums.length - 1; i ++) {
+            if ((nums[i] == 2 && nums[i + 1] != 2) && (nums[i] == 2 && nums[i - 1] != 2)) {
+                return false;
+            }
+        }
+        if (nums[nums.length -1] == 2 && nums[nums.length - 2] != 2) {
+            return false;
+        }
+        return true;
+    }
 
     /* >>> sameEnds <<<
         Return true if the group of N numbers at the start and end of the array are the same. For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are the same for n=0 and n=2, and false for n=1 and n=3. You may assume that n is in the range 0..nums.length inclusive.
@@ -474,6 +533,14 @@ public class Array2 {
         sameEnds([5, 6, 45, 99, 13, 5, 6], 2) → true
         sameEnds([5, 6, 45, 99, 13, 5, 6], 3) → false
      */
+    public static boolean sameEnds(int[] nums, int len) {
+        for (int i = 0; i < len; i++) {
+            if (nums[i] != nums[nums.length - len + i]) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* >>> tripleUp <<<
         Return true if the array contains, somewhere, three increasing adjacent numbers like .... 4, 5, 6, ... or 23, 24, 25.
