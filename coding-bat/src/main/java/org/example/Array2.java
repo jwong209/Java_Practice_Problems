@@ -94,7 +94,21 @@ public class Array2 {
 //        System.out.println("sameEnds: " + sameEnds(new int[]{5, 6, 45, 99, 13, 5, 6}, 2));
 //        System.out.println("sameEnds: " + sameEnds(new int[]{5, 6, 45, 99, 13, 5, 6}, 3));
 
-        System.out.println("");
+//        System.out.println("tripleUp: " + tripleUp(new int[]{1, 4, 5, 6, 2}));
+//        System.out.println("tripleUp: " + tripleUp(new int[]{1, 2, 3}));
+//        System.out.println("tripleUp: " + tripleUp(new int[]{1, 2, 4}));
+
+//        System.out.println("fizzArray3: " + Arrays.toString(fizzArray3(5, 10)));
+//        System.out.println("fizzArray3: " + Arrays.toString(fizzArray3(11, 18)));
+//        System.out.println("fizzArray3: " + Arrays.toString(fizzArray3(1, 3)));
+
+//        System.out.println("shiftLeft: " + Arrays.toString(shiftLeft(new int[]{6, 2, 5, 3})));
+//        System.out.println("shiftLeft: " + Arrays.toString(shiftLeft(new int[]{1, 2})));
+//        System.out.println("shiftLeft: " + Arrays.toString(shiftLeft(new int[]{1})));
+
+//        System.out.println("tenRun: " + Arrays.toString(tenRun(new int[]{2, 10, 3, 4, 20, 5})));
+//        System.out.println("tenRun: " + Arrays.toString(tenRun(new int[]{10, 1, 20, 2})));
+//        System.out.println("tenRun: " + Arrays.toString(tenRun(new int[]{10, 1, 9, 20})));
 
     }
 
@@ -549,6 +563,14 @@ public class Array2 {
         tripleUp([1, 2, 3]) → true
         tripleUp([1, 2, 4]) → false
      */
+    public static boolean tripleUp(int[] nums) {
+        for (int i = 0; i < nums.length - 2; i++) {
+            if (nums[i] + 1 == nums[i + 1] && nums[i] + 2 == nums[i + 2]) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* >>> fizzArray3 <<<
         Given start and end numbers, return a new array containing the sequence of integers from start up to but not including end, so start=5 and end=10 yields {5, 6, 7, 8, 9}. The end number will be greater or equal to the start number. Note that a length-0 array is valid. (See also: FizzBuzz Code)
@@ -557,6 +579,13 @@ public class Array2 {
         fizzArray3(11, 18) → [11, 12, 13, 14, 15, 16, 17]
         fizzArray3(1, 3) → [1, 2]
      */
+    public static int[] fizzArray3(int start, int end) {
+        int[] answer = new int[end - start];
+        for (int i = start; i < end; i++) {
+            answer[i - start] = i;
+        }
+        return answer;
+    }
 
     /* >>> shiftLeft <<<
         Return an array that is "left shifted" by one -- so {6, 2, 5, 3} returns {2, 5, 3, 6}. You may modify and return the given array, or return a new array.
@@ -565,6 +594,17 @@ public class Array2 {
         shiftLeft([1, 2]) → [2, 1]
         shiftLeft([1]) → [1]
      */
+    public static int[] shiftLeft(int[] nums) {
+        int[] answer = new int[nums.length];
+        if (nums.length == 0) {
+            return answer;
+        }
+        for (int i = 1; i < nums.length; i++) {
+            answer[i - 1] = nums[i];
+        }
+        answer[answer.length -1] = nums[0];
+        return answer;
+    }
 
     /* >>> tenRun <<<
         For each multiple of 10 in the given array, change all the values following it to be that multiple of 10, until encountering another multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.
@@ -573,6 +613,24 @@ public class Array2 {
         tenRun([10, 1, 20, 2]) → [10, 10, 20, 20]
         tenRun([10, 1, 9, 20]) → [10, 10, 10, 20]
      */
+    public static int[] tenRun(int[] nums) {
+        boolean found10 = false;
+        int multiple = 10;
+        int[] answer = new int[nums.length];
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 10 == 0) {
+                multiple = nums[i];
+                found10 = true;
+            }
+            if (found10) {
+                answer[i] = multiple;
+            }
+            if (!found10) {
+                answer[i] = nums[i];
+            }
+        }
+        return answer;
+    }
 
     /* >>> pre4 <<<
         Given a non-empty array of ints, return a new array containing the elements from the original array that come before the first 4 in the original array. The original array will contain at least one 4. Note that it is valid in java to create an array of length 0.
