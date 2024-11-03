@@ -1,6 +1,8 @@
 package org.example;
 
 import java.util.Arrays;
+import java.util.List;
+import java.util.ArrayList;
 
 public class Array2 {
     public static void main(String[] args) {
@@ -109,6 +111,28 @@ public class Array2 {
 //        System.out.println("tenRun: " + Arrays.toString(tenRun(new int[]{2, 10, 3, 4, 20, 5})));
 //        System.out.println("tenRun: " + Arrays.toString(tenRun(new int[]{10, 1, 20, 2})));
 //        System.out.println("tenRun: " + Arrays.toString(tenRun(new int[]{10, 1, 9, 20})));
+
+//        System.out.println("pre4: " + Arrays.toString(pre4(new int[]{1, 2, 4, 1})));
+//        System.out.println("pre4: " + Arrays.toString(pre4(new int[]{3, 1, 4})));
+//        System.out.println("pre4: " + Arrays.toString(pre4(new int[]{1, 4, 4})));
+
+        System.out.println("post4: ");
+
+        System.out.println("notAlone: ");
+
+//        System.out.println("zeroFront: " + Arrays.toString(zeroFront(new int[]{1, 0, 0, 1})));
+//        System.out.println("zeroFront: " + Arrays.toString(zeroFront(new int[]{0, 1, 1, 0, 1})));
+//        System.out.println("zeroFront: " + Arrays.toString(zeroFront(new int[]{1, 0})));
+
+        System.out.println("withoutTen: ");
+
+        System.out.println("zeroMax: ");
+
+//        System.out.println("evenOdd: " + Arrays.toString(evenOdd(new int[]{1, 0, 1, 0, 0, 1, 1})));
+//        System.out.println("evenOdd: " + Arrays.toString(evenOdd(new int[]{3, 3, 2})));
+//        System.out.println("evenOdd: " + Arrays.toString(evenOdd(new int[]{2, 2, 2})));
+
+        System.out.println("fizzBuzz: ");
 
     }
 
@@ -639,6 +663,20 @@ public class Array2 {
         pre4([3, 1, 4]) → [3, 1]
         pre4([1, 4, 4]) → [1]
      */
+    public static int[] pre4(int[] nums) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 4) {
+                break;
+            }
+            count++;
+        }
+        int[] answer = new int[count];
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = nums[i];
+        }
+        return answer;
+    }
 
     /* >>> post4 <<<
         Given a non-empty array of ints, return a new array containing the elements from the original array that come after the last 4 in the original array. The original array will contain at least one 4. Note that it is valid in java to create an array of length 0.
@@ -663,6 +701,24 @@ public class Array2 {
         zeroFront([0, 1, 1, 0, 1]) → [0, 0, 1, 1, 1]
         zeroFront([1, 0]) → [0, 1]
      */
+    public static int[] zeroFront(int[] nums) {
+        int[] answer = new int[nums.length];
+        List<Integer> numList = new ArrayList<Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] == 0) {
+                numList.add(nums[i]);
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                numList.add(nums[i]);
+            }
+        }
+        for (int i = 0; i < answer.length; i++) {
+            answer[i] = numList.get(i);
+        }
+        return answer;
+    }
 
     /* >>> withoutTen <<<
         Return a version of the given array where all the 10's have been removed. The remaining elements should shift left towards the start of the array as needed, and the empty spaces a the end of the array should be 0. So {1, 10, 10, 2} yields {1, 2, 0, 0}. You may modify and return the given array or make a new array.
@@ -687,6 +743,24 @@ public class Array2 {
         evenOdd([3, 3, 2]) → [2, 3, 3]
         evenOdd([2, 2, 2]) → [2, 2, 2]
      */
+    public static int[] evenOdd(int[] nums) {
+        int[] answerArray = new int[nums.length];
+        List<Integer> answers = new ArrayList<>();
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 == 0) {
+                answers.add(nums[i]);
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 != 0) {
+                answers.add(nums[i]);
+            }
+        }
+        for (int i = 0; i < nums.length; i++) {
+            answerArray[i] = answers.get(i);
+        }
+        return answerArray;
+    }
 
     /* >>> fizzBuzz <<<
         This is slightly more difficult version of the famous FizzBuzz problem which is sometimes given as a first problem for job interviews. (See also: FizzBuzz Code.) Consider the series of numbers beginning at start and running up to but not including end, so for example start=1 and end=5 gives the series 1, 2, 3, 4. Return a new String[] array containing the string form of these numbers, except for multiples of 3, use "Fizz" instead of the number, for multiples of 5 use "Buzz", and for multiples of both 3 and 5 use "FizzBuzz". In Java, String.valueOf(xxx) will make the String form of an int or other type. This version is a little more complicated than the usual version since you have to allocate and index into an array instead of just printing, and we vary the start/end instead of just always doing 1..100.
