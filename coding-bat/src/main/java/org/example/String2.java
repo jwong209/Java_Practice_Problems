@@ -20,11 +20,29 @@ public class String2 {
 //        System.out.println("countCode: " + countCode("codexxcode"));
 //        System.out.println("countCode: " + countCode("cozexxcope"));
 
-        System.out.println("endOther: ");
+//        System.out.println("endOther: " + endOther("Hiabc", "abc"));
+//        System.out.println("endOther: " + endOther("AbC", "HiaBc"));
+//        System.out.println("endOther: " + endOther("abc", "abXabc"));
 
         System.out.println("xyzThere: ");
 
-        System.out.println();
+//        System.out.println("bobThere: " + bobThere("abcbob"));
+//        System.out.println("bobThere: " + bobThere("b9b"));
+//        System.out.println("bobThere: " + bobThere("bac"));
+
+        System.out.println("xyBalance: ");
+
+//        System.out.println("mixString: " + mixString("abc", "xyz"));
+//        System.out.println("mixString: " + mixString("Hi", "There"));
+//        System.out.println("mixString: " + mixString("xxxx", "There"));
+
+//        System.out.println("repeatEnd: " + repeatEnd("Hello", 3));
+//        System.out.println("repeatEnd: " + repeatEnd("Hello", 2));
+//        System.out.println("repeatEnd: " + repeatEnd("Hello", 1));
+
+//        System.out.println("repeatFront: " + repeatFront("Chocolate", 4));
+//        System.out.println("repeatFront: " + repeatFront("Chocolate", 3));
+//        System.out.println("repeatFront: " + repeatFront("Ice Cream", 2));
     }
 
     /* >>> doubleChar <<<
@@ -125,6 +143,15 @@ public class String2 {
         endOther("AbC", "HiaBc") → true
         endOther("abc", "abXabc") → true
      */
+    public static boolean endOther(String a, String b) {
+        if (a.toLowerCase().endsWith(b.toLowerCase())) {
+            return true;
+        }
+        if (b.toLowerCase().endsWith(a.toLowerCase())) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> xyzThere <<<
         Return true if the given string contains an appearance of "xyz" where the xyz is not directly preceeded by a period (.). So "xxyz" counts but "x.xyz" does not.
@@ -141,6 +168,14 @@ public class String2 {
         bobThere("b9b") → true
         bobThere("bac") → false
      */
+    public static boolean bobThere(String str) {
+        for (int i = 0; i < str.length() - 2; i++) {
+            if (str.charAt(i) == 'b' && str.charAt(i + 2)== 'b') {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /* >>> xyBalance <<<
         We'll say that a String is xy-balanced if for all the 'x' chars in the string, there exists a 'y' char somewhere later in the string. So "xxy" is balanced, but "xyx" is not. One 'y' can balance multiple 'x's. Return true if the given string is xy-balanced.
@@ -157,6 +192,30 @@ public class String2 {
         mixString("Hi", "There") → "HTihere"
         mixString("xxxx", "There") → "xTxhxexre"
      */
+    public static String mixString(String a, String b) {
+        String answer = "";
+        if (b.length() > a.length()) {
+            for (int i = 0; i < a.length(); i++) {
+                answer += a.charAt(i);
+                answer += b.charAt(i);
+            }
+            answer += b.substring(b.length() - (b.length() - a.length()));
+        }
+        if (a.length() > b.length()) {
+            for (int i = 0; i < b.length(); i++) {
+                answer += a.charAt(i);
+                answer += b.charAt(i);
+            }
+            answer += a.substring(a.length() - (a.length() - b.length()));
+        }
+        if (a.length() == b.length()) {
+            for (int i = 0; i < a.length(); i++) {
+                answer += a.charAt(i);
+                answer += b.charAt(i);
+            }
+        }
+        return answer;
+    }
 
     /* >>> repeatEnd <<<
         Given a string and an int n, return a string made of n repetitions of the last n characters of the string. You may assume that n is between 0 and the length of the string, inclusive.
@@ -165,6 +224,21 @@ public class String2 {
         repeatEnd("Hello", 2) → "lolo"
         repeatEnd("Hello", 1) → "o"
      */
+    public static String repeatEnd(String str, int n) {
+        String substring = str.substring(str.length() - n);
+        String answer = "";
+
+        for (int i = 0; i < n; i++) {
+            answer += substring;
+        }
+        return answer;
+
+  /*
+  String substring = str.substring(str.length() - n);
+  return substring.repeat(n);
+  */
+
+    }
 
     /* >>> repeatFront <<<
         Given a string and an int n, return a string made of the first n characters of the string, followed by the first n-1 characters of the string, and so on. You may assume that n is between 0 and the length of the string, inclusive (i.e. n >= 0 and n <= str.length()).
@@ -173,6 +247,17 @@ public class String2 {
         repeatFront("Chocolate", 3) → "ChoChC"
         repeatFront("Ice Cream", 2) → "IcI"
      */
+    public static String repeatFront(String str, int n) {
+        int count = n;
+        String answer = "";
+        String substring = str.substring(0, count);
+        while (count > 0) {
+            answer += substring;
+            count--;
+            substring = str.substring(0, count);
+        }
+        return answer;
+    }
 
     /* >>> repeatSeparator <<<
         Given two strings, word and a separator sep, return a big string made of count occurrences of the word, separated by the separator string.
