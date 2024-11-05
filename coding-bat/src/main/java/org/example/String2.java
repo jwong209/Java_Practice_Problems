@@ -43,6 +43,25 @@ public class String2 {
 //        System.out.println("repeatFront: " + repeatFront("Chocolate", 4));
 //        System.out.println("repeatFront: " + repeatFront("Chocolate", 3));
 //        System.out.println("repeatFront: " + repeatFront("Ice Cream", 2));
+
+//        System.out.println("repeatSeparator: " + repeatSeparator("Word", "X", 3));
+//        System.out.println("repeatSeparator: " + repeatSeparator("This", "And", 2));
+//        System.out.println("repeatSeparator: " + repeatSeparator("This", "And", 1));
+
+//        System.out.println("prefixAgain: " + prefixAgain("abXYabc", 1));
+//        System.out.println("prefixAgain: " + prefixAgain("abXYabc", 2));
+//        System.out.println("prefixAgain: " + prefixAgain("abXYabc", 3));
+
+        System.out.println("xyzMiddle: ");
+
+//        System.out.println("getSandwich: " + getSandwich("breadjambread"));
+//        System.out.println("getSandwich: " + getSandwich("xxbreadjambreadyy"));
+//        System.out.println("getSandwich: " + getSandwich("xxbreadyy"));
+
+//        System.out.println("sameStarChar: " + sameStarChar("xy*yzz"));
+//        System.out.println("sameStarChar: " + sameStarChar("xy*zzz"));
+//        System.out.println("sameStarChar: " + sameStarChar("*xa*az"));
+
     }
 
     /* >>> doubleChar <<<
@@ -151,6 +170,8 @@ public class String2 {
             return true;
         }
         return false;
+
+//        return a.toLowerCase().endsWith(b.toLowerCase()) ||  b.toLowerCase().endsWith(a.toLowerCase());
     }
 
     /* >>> xyzThere <<<
@@ -266,6 +287,20 @@ public class String2 {
         repeatSeparator("This", "And", 2) → "ThisAndThis"
         repeatSeparator("This", "And", 1) → "This"
      */
+    public static String repeatSeparator(String word, String sep, int count) {
+        String answer = "";
+        if (count == 0) {
+            return sep;
+        }
+        if (count == 1) {
+            return word;
+        }
+        answer += word;
+        for (int i = 1; i < count; i++) {
+            answer += sep + word;
+        }
+        return answer;
+    }
 
     /* >>> prefixAgain <<<
         Given a string, consider the prefix string made of the first N chars of the string. Does that prefix string appear somewhere else in the string? Assume that the string is not empty and that N is in the range 1..str.length().
@@ -274,6 +309,14 @@ public class String2 {
         prefixAgain("abXYabc", 2) → true
         prefixAgain("abXYabc", 3) → false
      */
+    public static boolean prefixAgain(String str, int n) {
+        String sub = str.substring(0, n);
+        String newString = str.substring(n);
+        if (newString.contains(sub)) {
+            return true;
+        }
+        return false;
+    }
 
     /* >>> xyzMiddle <<<
         Given a string, does "xyz" appear in the middle of the string? To define middle, we'll say that the number of chars to the left and right of the "xyz" must differ by at most one. This problem is harder than it looks.
@@ -290,6 +333,17 @@ public class String2 {
         getSandwich("xxbreadjambreadyy") → "jam"
         getSandwich("xxbreadyy") → ""
      */
+    public static String getSandwich(String str) {
+        int firstIndex = str.indexOf("bread");
+        if (firstIndex == -1) {
+            return "";
+        }
+        int lastIndex = str.lastIndexOf("bread");
+        if (lastIndex == firstIndex) {
+            return "";
+        }
+        return str.substring(firstIndex + 5, lastIndex);
+    }
 
     /* >>> sameStarChar <<<
         Returns true if for every '*' (star) in the string, if there are chars both immediately before and after the star, they are the same.
@@ -298,6 +352,20 @@ public class String2 {
         sameStarChar("xy*zzz") → false
         sameStarChar("*xa*az") → true
      */
+    public static boolean sameStarChar(String str) {
+        if (str.length() == 0) {
+            return true;
+        }
+        for (int i = 1; i < str.length() - 1; i++) {
+            String current = Character.toString(str.charAt(i));
+            String before = Character.toString(str.charAt(i - 1));
+            String after = Character.toString(str.charAt(i + 1));
+            if (current.equals("*") && !before.equals(after)) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     /* >>> oneTwo <<<
         Given a string, compute a new string by moving the first char to come after the next two chars, so "abc" yields "bca". Repeat this process for each subsequent group of 3 chars, so "abcdef" yields "bcaefd". Ignore any group of fewer than 3 chars at the end.
