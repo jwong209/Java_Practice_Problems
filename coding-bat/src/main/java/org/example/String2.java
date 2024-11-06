@@ -62,6 +62,20 @@ public class String2 {
 //        System.out.println("sameStarChar: " + sameStarChar("xy*zzz"));
 //        System.out.println("sameStarChar: " + sameStarChar("*xa*az"));
 
+//        System.out.println("oneTwo: " + oneTwo("abc"));
+//        System.out.println("oneTwo: " + oneTwo("tca"));
+//        System.out.println("oneTwo: " + oneTwo("tcagdo"));
+
+        System.out.println("zipZap: ");
+
+        System.out.println("starOut: " + starOut("ab*cd"));
+        System.out.println("starOut: " + starOut("ab**cd"));
+        System.out.println("starOut: " + starOut("sm*eilly"));
+
+        System.out.println("plusOut: ");
+
+        System.out.println("wordEnds: ");
+
     }
 
     /* >>> doubleChar <<<
@@ -374,6 +388,19 @@ public class String2 {
         oneTwo("tca") → "cat"
         oneTwo("tcagdo") → "catdog"
      */
+    public static String oneTwo(String str) {
+        if (str.length() < 3) {
+            return "";
+        }
+        String answer = "";
+        for (int i = 0; i < str.length() - 2; i += 3) {
+            String front = str.substring(i, i+1);
+            String back = str.substring(i+1, i+3);
+            answer += back;
+            answer += front;
+        }
+        return answer;
+    }
 
     /* >>> zipZap <<<
         Look for patterns like "zip" and "zap" in the string -- length-3, starting with 'z' and ending with 'p'. Return a string where for all such words, the middle letter is gone, so "zipXzap" yields "zpXzp".
@@ -390,6 +417,32 @@ public class String2 {
         starOut("ab**cd") → "ad"
         starOut("sm*eilly") → "silly"
      */
+    public static String starOut(String str) {
+        String answer = "";
+        if (str.length() == 0) {
+            return "";
+        }
+        if (str.length() == 1) {
+            if (str.equals("*")) {
+                return "";
+            } else {
+                return str;
+            }
+        }
+        if (str.charAt(0) != '*' && str.charAt(1) != '*') {
+            answer += Character.toString(str.charAt(0));
+        }
+        for (int i = 1; i < str.length() - 1; i++) {
+            if ((str.charAt(i) != '*' && str.charAt(i+1) == '*') || (str.charAt(i) != '*' && str.charAt(i-1) == '*') || str.charAt(i) == '*') {
+                continue;
+            }
+            answer += Character.toString(str.charAt(i));
+        }
+        if (str.charAt(str.length() - 1) != '*' && str.charAt(str.length() - 2) != '*') {
+            answer += Character.toString(str.charAt(str.length() - 1));
+        }
+        return answer;
+    }
 
     /* >>> plusOut <<<
         Given a string and a non-empty word string, return a version of the original String where all chars have been replaced by pluses ("+"), except for appearances of the word string which are preserved unchanged.
