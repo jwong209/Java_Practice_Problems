@@ -1,10 +1,21 @@
 package org.example;
 
+import java.util.Map;
+import java.util.HashMap;
+
 public class Map2 {
     public static void main(String[] args) {
         Map2 map2 = new Map2();
 
-        System.out.println();
+//        System.out.println("word0: " + word0(new String[]{"a", "b", "a", "b"}));
+//        System.out.println("word0: " + word0(new String[]{"a", "b", "a", "c", "b"}));
+//        System.out.println("word0: " + word0(new String[]{"c", "b", "a"}));
+
+//        System.out.println("wordLen:  " + wordLen(new String[]{"a", "bb", "a", "bb"}));
+//        System.out.println("wordLen:  " + wordLen(new String[]{"this", "and", "that", "and"}));
+//        System.out.println("wordLen:  " + wordLen(new String[]{"code", "code", "code", "bug"}));
+
+        System.out.println("");
     }
 
     /* >>> word0 <<<
@@ -14,6 +25,15 @@ public class Map2 {
         word0(["a", "b", "a", "c", "b"]) → {"a": 0, "b": 0, "c": 0}
         word0(["c", "b", "a"]) → {"a": 0, "b": 0, "c": 0}
      */
+    public static Map<String, Integer> word0(String[] strings) {
+        Map<String, Integer> answer = new HashMap<>();
+        for (String string : strings) {
+            if (!answer.containsKey(string)) {
+                answer.put(string, 0);
+            }
+        }
+        return answer;
+    }
 
     /* >>> wordLen <<<
         Given an array of strings, return a Map<String, Integer> containing a key for every different string in the array, and the value is that string's length.
@@ -22,6 +42,15 @@ public class Map2 {
         wordLen(["this", "and", "that", "and"]) → {"that": 4, "and": 3, "this": 4}
         wordLen(["code", "code", "code", "bug"]) → {"code": 4, "bug": 3}
      */
+    public static Map<String, Integer> wordLen(String[] strings) {
+        Map<String, Integer> answer = new HashMap<>();
+        for (String string : strings) {
+            if (!answer.containsKey(string)) {
+                answer.put(string, string.length());
+            }
+        }
+        return answer;
+    }
 
     /* >>> pairs <<<
         Given an array of non-empty strings, create and return a Map<String, String> as follows: for each string add its first character as a key with its last character as the value.
