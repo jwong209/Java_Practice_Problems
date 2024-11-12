@@ -116,9 +116,13 @@ public class Array2 {
 //        System.out.println("pre4: " + Arrays.toString(pre4(new int[]{3, 1, 4})));
 //        System.out.println("pre4: " + Arrays.toString(pre4(new int[]{1, 4, 4})));
 
-        System.out.println("post4: ");
+//        System.out.println("post4: " + Arrays.toString(post4(new int[]{2, 4, 1, 2})));
+//        System.out.println("post4: " + Arrays.toString(post4(new int[]{4, 1, 4, 2})));
+//        System.out.println("post4: " + Arrays.toString(post4(new int[]{4, 4, 1, 2, 3})));
 
-        System.out.println("notAlone: ");
+//        System.out.println("notAlone: " + Arrays.toString(notAlone(new int[]{1, 2, 3}, 2)));
+//        System.out.println("notAlone: " + Arrays.toString(notAlone(new int[]{1, 2, 3, 2, 5, 2}, 2)));
+//        System.out.println("notAlone: " + Arrays.toString(notAlone(new int[]{3, 4}, 3)));
 
 //        System.out.println("zeroFront: " + Arrays.toString(zeroFront(new int[]{1, 0, 0, 1})));
 //        System.out.println("zeroFront: " + Arrays.toString(zeroFront(new int[]{0, 1, 1, 0, 1})));
@@ -685,6 +689,20 @@ public class Array2 {
         post4([4, 1, 4, 2]) → [2]
         post4([4, 4, 1, 2, 3]) → [1, 2, 3]
      */
+    public static int[] post4(int[] nums) {
+        for (int i = nums.length - 1; i >= 0; i--) {
+            if (nums[i] == 4) {
+                int[] arr = new int[nums.length - i - 1];
+
+                for (int j = 0; j < arr.length; j++) {
+                    arr[j] = nums[i + j + 1];
+                }
+                return arr;
+            }
+        }
+        int[] ans = new int[0];
+        return ans;
+    }
 
     /* >>> notAlone <<<
         We'll say that an element in an array is "alone" if there are values before and after it, and those values are different from it. Return a version of the given array where every instance of the given value which is alone is replaced by whichever value to its left or right is larger.
@@ -693,6 +711,16 @@ public class Array2 {
         notAlone([1, 2, 3, 2, 5, 2], 2) → [1, 3, 3, 5, 5, 2]
         notAlone([3, 4], 3) → [3, 4]
      */
+    public static int[] notAlone(int[] nums, int val) {
+        for (int i = 0; i < nums.length; i++) {
+            if (i > 0 && i < nums.length - 1 && nums[i] == val) {
+                if (nums[i] != nums[i - 1] && nums[i] != nums[i+1]) {
+                    nums[i] = Math.max(nums[i - 1], nums[i + 1]);
+                }
+            }
+        }
+        return nums;
+    }
 
     /* >>> zeroFront <<<
         Return an array that contains the exact same numbers as the given array, but rearranged so that all the zeros are grouped at the start of the array. The order of the non-zero numbers does not matter. So {1, 0, 0, 1} becomes {0 ,0, 1, 1}. You may modify and return the given array or make a new array.
