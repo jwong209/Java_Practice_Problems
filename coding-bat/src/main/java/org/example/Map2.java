@@ -15,7 +15,23 @@ public class Map2 {
 //        System.out.println("wordLen:  " + wordLen(new String[]{"this", "and", "that", "and"}));
 //        System.out.println("wordLen:  " + wordLen(new String[]{"code", "code", "code", "bug"}));
 
-        System.out.println("");
+//        System.out.println("pairs: " + pairs(new String[]{"code", "bug"}));
+//        System.out.println("pairs: " + pairs(new String[]{"man", "moon", "main"}));
+//        System.out.println("pairs: " + pairs(new String[]{"man", "moon", "good", "night"}));
+
+//        System.out.println("wordCount: " + wordCount(new String[]{"a", "b", "a", "c", "b"}));
+//        System.out.println("wordCount: " + wordCount(new String[]{"c", "b", "a"}));
+//        System.out.println("wordCount: " + wordCount(new String[]{"c", "c", "c", "c"}));
+
+        System.out.println("firstChar: ");
+
+        System.out.println("wordAppend: ");
+
+        System.out.println("wordMultiple: ");
+
+        System.out.println("allSwap: ");
+
+        System.out.println("firstSwap: ");
     }
 
     /* >>> word0 <<<
@@ -59,6 +75,18 @@ public class Map2 {
         pairs(["man", "moon", "main"]) → {"m": "n"}
         pairs(["man", "moon", "good", "night"]) → {"g": "d", "m": "n", "n": "t"}
      */
+    public static Map<String, String> pairs(String[] strings) {
+        Map<String, String> answer = new HashMap<>();
+        for (String string : strings) {
+            if (!answer.containsKey(string)) {
+                char firstLetter = string.charAt(0);
+                char lastLetter = string.charAt(string.length() - 1);
+
+                answer.put(Character.toString(firstLetter), Character.toString(lastLetter));
+            }
+        }
+        return answer;
+    }
 
     /* >>> wordCount <<<
         The classic word-count algorithm: given an array of strings, return a Map<String, Integer> with a key for each different string, with the value the number of times that string appears in the array.
@@ -67,6 +95,17 @@ public class Map2 {
         wordCount(["c", "b", "a"]) → {"a": 1, "b": 1, "c": 1}
         wordCount(["c", "c", "c", "c"]) → {"c": 4}
      */
+    public static Map<String, Integer> wordCount(String[] strings) {
+        Map<String, Integer> answer = new HashMap<>();
+        for (String string : strings) {
+            if (!answer.containsKey(string)) {
+                answer.put(string, 1);
+            } else {
+                answer.put(string, 1 + answer.get(string));
+            }
+        }
+        return answer;
+    }
 
     /* >>> firstChar <<<
         Given an array of non-empty strings, return a Map<String, String> with a key for every different first character seen, with the value of all the strings starting with that character appended together in the order they appear in the array.
