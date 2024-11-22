@@ -117,13 +117,14 @@ public class Map2 {
         firstChar([]) → {}
      */
     public static Map<String, String> firstChar(String[] strings) {
-        Map<String, String> map = new HashMap<String, String>();
-        for (String s : strings) {
-            if (!map.containsKey(s.substring(0,1))) {
+        Map<String, String> map = new HashMap<String, String> ();
+        for (String s:strings) {
+            if (!map.containsKey(s.substring(0,1))) {  // first time we've seen this string
                 map.put(s.substring(0,1), s);
-            } else {
-                String exist = map.get(s.substring(0,1));
-                map.put(s.substring(0,1), exist + s);
+            }
+            else {
+                String existing = map.get(s.substring(0,1));
+                map.put(s.substring(0,1), existing+s);
             }
         }
         return map;
