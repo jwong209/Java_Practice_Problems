@@ -23,7 +23,9 @@ public class Map2 {
 //        System.out.println("wordCount: " + wordCount(new String[]{"c", "b", "a"}));
 //        System.out.println("wordCount: " + wordCount(new String[]{"c", "c", "c", "c"}));
 
-        System.out.println("firstChar: ");
+        System.out.println("firstChar: " + firstChar(new String[]{"salt", "tea", "soda", "toast"}));
+        System.out.println("firstChar: " + firstChar(new String[]{"aa", "bb", "cc", "aAA", "cCC", "d"}));
+        System.out.println("firstChar: " + firstChar(new String[]{}));
 
         System.out.println("wordAppend: ");
 
@@ -114,6 +116,18 @@ public class Map2 {
         firstChar(["aa", "bb", "cc", "aAA", "cCC", "d"]) → {"a": "aaaAA", "b": "bb", "c": "cccCC", "d": "d"}
         firstChar([]) → {}
      */
+    public static Map<String, String> firstChar(String[] strings) {
+        Map<String, String> map = new HashMap<String, String>();
+        for (String s : strings) {
+            if (!map.containsKey(s.substring(0,1))) {
+                map.put(s.substring(0,1), s);
+            } else {
+                String exist = map.get(s.substring(0,1));
+                map.put(s.substring(0,1), exist + s);
+            }
+        }
+        return map;
+    }
 
     /* >>> wordAppend <<<
         Loop over the given array of strings to build a result string like this: when a string appears the 2nd, 4th, 6th, etc. time in the array, append the string to the result. Return the empty string if no string appears a 2nd time.
