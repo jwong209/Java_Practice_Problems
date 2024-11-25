@@ -23,11 +23,13 @@ public class Map2 {
 //        System.out.println("wordCount: " + wordCount(new String[]{"c", "b", "a"}));
 //        System.out.println("wordCount: " + wordCount(new String[]{"c", "c", "c", "c"}));
 
-        System.out.println("firstChar: " + firstChar(new String[]{"salt", "tea", "soda", "toast"}));
-        System.out.println("firstChar: " + firstChar(new String[]{"aa", "bb", "cc", "aAA", "cCC", "d"}));
-        System.out.println("firstChar: " + firstChar(new String[]{}));
+//        System.out.println("firstChar: " + firstChar(new String[]{"salt", "tea", "soda", "toast"}));
+//        System.out.println("firstChar: " + firstChar(new String[]{"aa", "bb", "cc", "aAA", "cCC", "d"}));
+//        System.out.println("firstChar: " + firstChar(new String[]{}));
 
-        System.out.println("wordAppend: ");
+        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "b", "a"}));
+        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
+        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "", "a"}));
 
         System.out.println("wordMultiple: ");
 
@@ -119,12 +121,12 @@ public class Map2 {
     public static Map<String, String> firstChar(String[] strings) {
         Map<String, String> map = new HashMap<String, String> ();
         for (String s:strings) {
-            if (!map.containsKey(s.substring(0,1))) {  // first time we've seen this string
+            if (!map.containsKey(s.substring(0,1))) {
                 map.put(s.substring(0,1), s);
             }
             else {
                 String existing = map.get(s.substring(0,1));
-                map.put(s.substring(0,1), existing+s);
+                map.put(s.substring(0,1), existing + s);
             }
         }
         return map;
@@ -137,6 +139,26 @@ public class Map2 {
         wordAppend(["a", "b", "a", "c", "a", "d", "a"]) → "aa"
         wordAppend(["a", "", "a"]) → "a"
      */
+    public static String wordAppend(String[] strings) {
+        Map<String, Integer> map = new HashMap<String, Integer>();
+        String result = "";
+
+        for (int i=0; i<strings.length; i++) {
+            String s = strings[i];
+            if (!map.containsKey(s)) {
+                map.put(s, 1);
+            }
+            else {
+                int count = map.get(s);
+                map.put(s, count + 1);
+                if (map.get(s) != 1 && map.get(s) % 2 == 0)
+                {
+                    result += s;
+                }
+            }
+        }
+        return result;
+    }
 
     /* >>> wordMultiple <<<
         Given an array of strings, return a Map<String, Boolean> where each different string is a key and its value is true if that string appears 2 or more times in the array.
