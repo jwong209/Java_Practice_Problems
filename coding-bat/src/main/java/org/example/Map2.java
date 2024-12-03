@@ -27,11 +27,13 @@ public class Map2 {
 //        System.out.println("firstChar: " + firstChar(new String[]{"aa", "bb", "cc", "aAA", "cCC", "d"}));
 //        System.out.println("firstChar: " + firstChar(new String[]{}));
 
-        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "b", "a"}));
-        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
-        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "", "a"}));
+//        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "b", "a"}));
+//        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "b", "a", "c", "a", "d", "a"}));
+//        System.out.println("wordAppend: " + wordAppend(new String[]{"a", "", "a"}));
 
-        System.out.println("wordMultiple: ");
+        System.out.println("wordMultiple: " + wordMultiple(new String[]{"a", "b", "a", "c", "b"}));
+        System.out.println("wordMultiple: " + wordMultiple(new String[]{"c", "b", "a"}));
+        System.out.println("wordMultiple: " + wordMultiple(new String[]{"c", "c", "c", "c"}));
 
         System.out.println("allSwap: ");
 
@@ -167,6 +169,17 @@ public class Map2 {
         wordMultiple(["c", "b", "a"]) → {"a": false, "b": false, "c": false}
         wordMultiple(["c", "c", "c", "c"]) → {"c": true}
      */
+    public static Map<String, Boolean> wordMultiple(String[] str) {
+        Map<String, Boolean> map = new HashMap<String, Boolean>();
+        for (String s: str) {
+            if (!map.containsKey(s)) {
+                map.put(s, false);
+            } else {
+                map.put(s, true);
+            }
+        }
+        return map;
+    }
 
     /* >>> allSwap <<<
         We'll say that 2 strings "match" if they are non-empty and their first chars are the same. Loop over and then return the given array of non-empty strings as follows: if a string matches an earlier string in the array, swap the 2 strings in the array. When a position in the array has been swapped, it no longer matches anything. Using a map, this can be solved making just one pass over the array. More difficult than it looks.
