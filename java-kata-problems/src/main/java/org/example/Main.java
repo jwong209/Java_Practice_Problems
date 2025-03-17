@@ -34,9 +34,9 @@ public class Main {
 //        System.out.println("greenTicket: " + greenTicket(2, 2, 2));
 //        System.out.println("greenTicket: " + greenTicket(1, 2, 1));
 
-//        System.out.println("oddOnly: " + oddOnly(new int[]{112, 201, 774, 92, 9, 83, 41872}));
-//        System.out.println("oddOnly: " + oddOnly(new int[]{1143, 555, 7, 1772, 9953, 643}));
-//        System.out.println("oddOnly: " + oddOnly(new int[]{734, 233, 782, 811, 3, 9999}));
+        System.out.println("oddOnly: " + oddOnly(new int[]{112, 201, 774, 92, 9, 83, 41872}));
+        System.out.println("oddOnly: " + oddOnly(new int[]{1143, 555, 7, 1772, 9953, 643}));
+        System.out.println("oddOnly: " + oddOnly(new int[]{734, 233, 782, 811, 3, 9999}));
 
 //        System.out.println("endsLy: " + endsLy("oddly"));
 //        System.out.println("endsLy: " + endsLy("y"));
@@ -364,11 +364,18 @@ public class Main {
      */
     public static List<Integer> oddOnly(int[] nums) {
         List<Integer> answer = new ArrayList<>();
-        for (Integer num : nums) {
-            if (num % 2 != 0) {
-                answer.add(num);
+//        for (Integer num : nums) {
+//            if (num % 2 != 0) {
+//                answer.add(num);
+//            }
+//        }
+
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] % 2 != 0) {
+                answer.add(nums[i]);
             }
         }
+
         return answer;
     }
 
