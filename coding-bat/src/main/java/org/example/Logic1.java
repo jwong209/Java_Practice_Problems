@@ -106,9 +106,9 @@ public class Logic1 {
 //        System.out.println("redTicket: " + redTicket(2, 2, 1));
 //        System.out.println("redTicket: " + redTicket(0, 0, 0));
 
-//        System.out.println("greenTicket: " + greenTicket(1, 2, 3));
-//        System.out.println("greenTicket: " + greenTicket(2, 2, 2));
-//        System.out.println("greenTicket: " + greenTicket(1, 1, 2));
+        System.out.println("greenTicket: " + greenTicket(1, 2, 3));
+        System.out.println("greenTicket: " + greenTicket(2, 2, 2));
+        System.out.println("greenTicket: " + greenTicket(1, 1, 2));
 
 //        System.out.println("blueTicket: " + blueTicket(9, 1, 0));
 //        System.out.println("blueTicket: " + blueTicket(9, 2, 0));
@@ -118,9 +118,9 @@ public class Logic1 {
 //        System.out.println("shareDigit: " + shareDigit(12, 43));
 //        System.out.println("shareDigit: " + shareDigit(12, 44));
 
-        System.out.println("sumLimit: " + sumLimit(2, 3));
-        System.out.println("sumLimit: " + sumLimit(8, 3));
-        System.out.println("sumLimit: " + sumLimit(8, 1));
+//        System.out.println("sumLimit: " + sumLimit(2, 3));
+//        System.out.println("sumLimit: " + sumLimit(8, 3));
+//        System.out.println("sumLimit: " + sumLimit(8, 1));
 
 
     }
@@ -441,7 +441,6 @@ public class Logic1 {
             } else if (str.endsWith("b")) {
                 return "Buzz";
             }
-
         }
         return str;
     }
@@ -618,13 +617,21 @@ public class Logic1 {
         greenTicket(1, 1, 2) → 10
      */
     public static int greenTicket(int a, int b, int c) {
-        boolean different = a != b && b != c && a != c;
-        boolean same = a == b || b == c || a == c;
-        boolean allSame = a == b && b == c;
+//        boolean different = a != b && b != c && a != c;
+//        boolean same = a == b || b == c || a == c;
+//        boolean allSame = a == b && b == c;
+//
+//        if (different) {
+//            return 0;
+//        } else if (allSame) {
+//            return 20;
+//        } else {
+//            return 10;
+//        }
 
-        if (different) {
+        if (a != b && a != c) {
             return 0;
-        } else if (allSame) {
+        } else if (a == b && a == c) {
             return 20;
         } else {
             return 10;
